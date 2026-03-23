@@ -17,7 +17,7 @@
     <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, query, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, query, onSnapshot, serverTimestamp, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
         const firebaseConfig = {
@@ -48,9 +48,19 @@
             }
         };
 
-        // Fonction pour charger l'historique une fois authentifié admin
+        // Supprimer un bordereau (Admin uniquement)
+        window.deleteBordereau = async (id) => {
+            if (!confirm("Voulez-vous vraiment supprimer ce bordereau de l'historique ?")) return;
+            try {
+                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'bordereaux', id));
+            } catch (e) {
+                console.error("Erreur suppression:", e);
+            }
+        };
+
+        // Charger l'historique admin
         window.loadAdminHistory = () => {
-            if (unsubscribeHistory) unsubscribeHistory(); // Nettoyer l'ancien listener si présent
+            if (unsubscribeHistory) unsubscribeHistory();
 
             const q = query(collection(db, 'artifacts', appId, 'public', 'data', 'bordereaux'));
             
@@ -60,31 +70,31 @@
                 
                 const docs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
                     .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0))
-                    .slice(0, 15);
+                    .slice(0, 30);
 
                 if (docs.length === 0) {
-                    historyList.innerHTML = '<p class="text-[10px] text-gray-400 italic col-span-2 text-center py-4">Aucun bordereau trouvé.</p>';
+                    historyList.innerHTML = '<p class="text-[10px] text-gray-400 italic col-span-2 text-center py-4">Aucun bordereau en base.</p>';
                     return;
                 }
 
                 docs.forEach(data => {
                     const item = document.createElement('div');
-                    item.className = "flex justify-between items-center p-3 bg-white border border-gray-100 rounded-lg shadow-sm mb-2 hover:border-[#007d40] transition-colors cursor-pointer";
+                    item.className = "group relative p-3 bg-white border border-gray-100 rounded-lg shadow-sm mb-2 hover:border-[#007d40] transition-all cursor-pointer";
                     item.innerHTML = `
-                        <div>
+                        <div onclick="reprintBordereau('${btoa(JSON.stringify(data))}')">
                             <p class="text-[10px] font-black text-[#007d40]">${data.ticketId}</p>
                             <p class="text-xs font-bold text-gray-800">${data.vendeur}</p>
                             <p class="text-[9px] text-gray-400">${data.client} • ${data.total} FCFA</p>
+                            <p class="text-[8px] text-gray-300 mt-1">${data.quartier}</p>
                         </div>
-                        <div class="text-right">
-                             <span class="text-[8px] px-2 py-1 ${data.service === 'Express' ? 'bg-red-50 text-red-600' : 'bg-gray-100 text-gray-600'} rounded font-bold uppercase">${data.service}</span>
-                        </div>
+                        <button onclick="deleteBordereau('${data.id}')" class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 bg-red-50 text-red-500 p-1 rounded hover:bg-red-500 hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                        </button>
                     `;
                     historyList.appendChild(item);
                 });
             }, (error) => {
                 console.error("Erreur Firestore:", error);
-                document.getElementById('historyList').innerHTML = '<p class="text-red-500 text-[10px]">Erreur de permission Cloud.</p>';
             });
         };
 
@@ -108,7 +118,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .receipt-card { width: 450px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        input, select { background-color: #f1f5f9 !important; border: 1px solid #e2e8f0 !important; }
+        input, select { background-color: #f1f5f9 !important; border: 1px solid #e2e8f0 !important; transition: all 0.2s; }
+        input:focus, select:focus { border-color: #007d40 !important; background-color: #fff !important; }
         .logo-img { max-height: 52px; width: auto; object-fit: contain; }
         .ticket-logo-box { background: white; padding: 4px; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         
@@ -144,18 +155,18 @@
                     <img src="https://i.ibb.co/xKY76DgR/Gemini-Generated-Image-1pvtp31pvtp31pvt-1.png" class="logo-img" alt="CT241 Logo">
                     <div>
                         <h2 class="text-xl font-black text-gray-800 tracking-tighter uppercase leading-none">CT241 Logistique</h2>
-                        <p class="text-[10px] font-bold text-[#007d40]">INTERFACE LIVRAISON</p>
+                        <p class="text-[10px] font-bold text-[#007d40]">PORTAIL EXPÉDITION</p>
                     </div>
                 </div>
                 
                 <form id="bordereauForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-4 border-l-4 border-[#007d40] pl-4">
                         <h3 class="text-xs font-black text-[#007d40] uppercase tracking-widest">Expéditeur</h3>
-                        <input type="text" id="vendeur" placeholder="Boutique / Vendeur" class="w-full p-2.5 rounded-lg outline-none">
+                        <input type="text" id="vendeur" placeholder="Nom de la Boutique" class="w-full p-2.5 rounded-lg outline-none">
                         <input type="tel" id="vendeurTel" placeholder="Contact Expéditeur" class="w-full p-2.5 rounded-lg outline-none">
                         <div class="grid grid-cols-2 gap-2">
-                            <input type="text" id="produit" placeholder="Contenu" class="w-full p-2.5 rounded-lg outline-none">
-                            <input type="number" id="nbColis" value="1" class="w-full p-2.5 rounded-lg outline-none">
+                            <input type="text" id="produit" placeholder="Contenu du colis" class="w-full p-2.5 rounded-lg outline-none">
+                            <input type="number" id="nbColis" value="1" placeholder="Nb" class="w-full p-2.5 rounded-lg outline-none">
                         </div>
                     </div>
 
@@ -165,24 +176,45 @@
                         <input type="tel" id="telephone" placeholder="Téléphone Client" class="w-full p-2.5 rounded-lg outline-none">
                         <div class="grid grid-cols-2 gap-2">
                             <select id="quartier" class="w-full p-2.5 rounded-lg outline-none text-xs">
-                                <option value="Libreville">Libreville</option>
-                                <option value="Akanda">Akanda</option>
-                                <option value="Owendo">Owendo</option>
-                                <option value="PK5-PK12">PK5-PK12</option>
+                                <optgroup label="Libreville">
+                                    <option value="Centre Ville">Centre Ville</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Glass">Glass</option>
+                                    <option value="AIAI">AIAI</option>
+                                    <option value="Nombakélé">Nombakélé</option>
+                                    <option value="Rio">Rio</option>
+                                    <option value="Nzeng-Ayong">Nzeng-Ayong</option>
+                                    <option value="PK5-PK12">PK5-PK12</option>
+                                </optgroup>
+                                <optgroup label="Akanda">
+                                    <option value="Angondjé">Angondjé</option>
+                                    <option value="Avorbam">Avorbam</option>
+                                    <option value="Marseille">Marseille</option>
+                                    <option value="Sherko">Sherko</option>
+                                </optgroup>
+                                <optgroup label="Owendo">
+                                    <option value="Port Owendo">Port Owendo</option>
+                                    <option value="Acae">Acae</option>
+                                    <option value="SNI">SNI</option>
+                                </optgroup>
                             </select>
-                            <input type="text" id="precision" placeholder="Repère" class="w-full p-2.5 rounded-lg outline-none">
+                            <input type="text" id="precision" placeholder="Point de repère" class="w-full p-2.5 rounded-lg outline-none">
                         </div>
                     </div>
 
                     <div class="space-y-4 border-l-4 border-[#eab308] pl-4 md:col-span-2">
-                        <h3 class="text-xs font-black text-[#eab308] uppercase tracking-widest">Paiement & Service</h3>
+                        <h3 class="text-xs font-black text-[#eab308] uppercase tracking-widest">Paiement & Frais</h3>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <input type="number" id="prix" placeholder="Prix Colis" class="w-full p-2.5 rounded-lg outline-none">
-                            <input type="number" id="livraison" value="2000" class="w-full p-2.5 rounded-lg outline-none">
+                            <input type="number" id="prix" placeholder="Prix Article" class="w-full p-2.5 rounded-lg outline-none">
+                            <div class="relative">
+                                <input type="number" id="livraison" value="2000" readonly class="w-full p-2.5 rounded-lg outline-none bg-gray-200 cursor-not-allowed opacity-70">
+                                <span class="absolute -top-4 right-0 text-[8px] text-gray-400 font-bold uppercase">Fixe</span>
+                            </div>
                             <select id="modePay" class="w-full p-2.5 rounded-lg outline-none">
-                                <option value="COD">CASH</option>
-                                <option value="PREPAID">PAYÉ</option>
-                                <option value="AIRTEL">AIRTEL</option>
+                                <option value="CASH">CASH (LIVRAISON)</option>
+                                <option value="AIRTEL">AIRTEL MONEY</option>
+                                <option value="MOOV">MOOV MONEY</option>
+                                <option value="PREPAID">DÉJÀ PAYÉ</option>
                             </select>
                             <div class="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg border">
                                 <input type="checkbox" id="urgent" class="w-4 h-4">
@@ -192,7 +224,7 @@
                     </div>
 
                     <button type="button" onclick="handleGenerate()" class="md:col-span-2 w-full bg-[#007d40] text-white font-black py-4 rounded-xl shadow-lg active:scale-[0.98] transition">
-                        GÉNÉRER LE BORDEREAU
+                        GÉNÉRER & ENREGISTRER
                     </button>
                 </form>
             </div>
@@ -202,10 +234,10 @@
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-xs font-black text-gray-400 uppercase tracking-widest flex items-center">
                         <span id="adminDot" class="w-2 h-2 bg-gray-300 rounded-full mr-2"></span>
-                        Journal d'activité global
+                        Journal Admin (Dernières Activités)
                     </h3>
                     <button id="lockBtn" onclick="lockAdmin()" class="hidden text-[9px] font-black text-red-500 uppercase flex items-center">
-                        🔒 Verrouiller
+                        🔒 Quitter Admin
                     </button>
                 </div>
 
@@ -214,9 +246,9 @@
                     <div class="inline-flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full mb-4">
                         <span class="text-xl">🔒</span>
                     </div>
-                    <p class="text-sm font-bold text-gray-800 mb-4">Accès restreint à l'administration</p>
-                    <button onclick="toggleAdminModal(true)" class="bg-slate-800 text-white px-6 py-2 rounded-lg font-black text-[10px] uppercase shadow-md">
-                        Déverrouiller le journal
+                    <p class="text-sm font-bold text-gray-800 mb-4">Accès réservé à la direction</p>
+                    <button onclick="toggleAdminModal(true)" class="bg-slate-800 text-white px-6 py-2 rounded-lg font-black text-[10px] uppercase shadow-md hover:bg-black transition-colors">
+                        Saisir le Code PIN
                     </button>
                 </div>
 
@@ -235,7 +267,7 @@
                         <div class="ticket-logo-box">
                             <img src="https://i.ibb.co/xKY76DgR/Gemini-Generated-Image-1pvtp31pvtp31pvt-1.png" class="h-10 w-auto" alt="Logo">
                         </div>
-                        <p class="text-[10px] font-bold text-blue-400" id="display-id">#ID-PENDING</p>
+                        <p class="text-[10px] font-bold text-blue-400" id="display-id">#ID-ATTENTE</p>
                     </div>
                     <div id="badge-urgent-ui" class="hidden px-2 py-1 bg-red-100 text-red-600 rounded text-[10px] font-black uppercase z-10 italic">Express ⚡</div>
                     <div class="absolute bottom-0 left-0 w-full h-1 bg-[#007d40]"></div>
@@ -266,15 +298,15 @@
 
                     <div class="bg-green-50 p-4 rounded-xl border border-green-100 flex justify-between items-center">
                         <div>
-                            <p class="text-[9px] font-bold text-green-700 uppercase">Somme à percevoir</p>
+                            <p class="text-[9px] font-bold text-green-700 uppercase">Total à percevoir</p>
                             <p class="text-xl font-black text-[#007d40]" id="display-total">0 FCFA</p>
                         </div>
-                        <div id="display-mode" class="text-[10px] font-black bg-[#007d40] text-white px-2 py-1 rounded">COD</div>
+                        <div id="display-mode" class="text-[10px] font-black bg-[#007d40] text-white px-2 py-1 rounded tracking-widest">CASH</div>
                     </div>
 
                     <div class="flex items-center justify-between pt-2">
                         <div class="w-2/3">
-                            <p class="text-[9px] font-black text-gray-800 uppercase underline">Instruction</p>
+                            <p class="text-[9px] font-black text-gray-800 uppercase underline">Instruction Colis</p>
                             <p class="text-[9px] text-gray-500 leading-tight italic mt-1" id="display-colis-full">Colis: ---</p>
                         </div>
                         <div id="qrcode" class="p-1 border rounded bg-white"></div>
@@ -283,14 +315,15 @@
                 <div class="bg-slate-100 p-2 text-center text-[8px] font-bold text-gray-400 tracking-widest uppercase">CT241 • LOGISTIQUE CONNECTÉE</div>
             </div>
 
-            <button onclick="downloadImage()" id="downloadBtn" class="hidden w-full mt-4 bg-[#eab308] text-black py-3 rounded-xl font-black uppercase text-sm shadow-lg active:scale-95">
-                📥 Enregistrer le ticket
+            <button onclick="downloadImage()" id="downloadBtn" class="hidden w-full mt-4 bg-[#eab308] text-black py-4 rounded-xl font-black uppercase text-sm shadow-lg active:scale-95 transition-all">
+                📥 Télécharger & Sauvegarder
             </button>
+            <p class="text-[10px] text-gray-400 mt-2 italic text-center">Note: Chaque génération enregistre les données dans le Cloud.</p>
         </div>
     </div>
 
     <script>
-        const ADMIN_PIN = "2410"; // Code PIN Admin par défaut
+        const ADMIN_PIN = "2410"; 
 
         function toggleAdminModal(show) {
             const modal = document.getElementById('adminModal');
@@ -321,20 +354,37 @@
             document.getElementById('adminDot').classList.replace('bg-gray-300', 'bg-green-500');
             document.getElementById('adminDot').classList.add('animate-pulse');
             
-            // Appelle la fonction Firebase exportée dans le module
             if (window.loadAdminHistory) window.loadAdminHistory();
         }
 
         function lockAdmin() {
-            document.getElementById('lockedState').classList.remove('hidden');
-            document.getElementById('historyList').classList.add('hidden');
-            document.getElementById('lockBtn').classList.add('hidden');
-            document.getElementById('adminDot').classList.replace('bg-green-500', 'bg-gray-300');
-            document.getElementById('adminDot').classList.remove('animate-pulse');
-            
-            // On pourrait arrêter le listener Firebase ici si nécessaire
-            location.reload(); // Solution simple pour réinitialiser l'état
+            location.reload(); 
         }
+
+        // Fonction pour réafficher un ticket depuis l'historique
+        window.reprintBordereau = (encodedData) => {
+            const data = JSON.parse(atob(encodedData));
+            
+            document.getElementById('display-vendeur').innerText = data.vendeur.toUpperCase();
+            document.getElementById('display-vendeurTel').innerText = data.vendeurTel;
+            document.getElementById('display-client').innerText = data.client;
+            document.getElementById('display-tel').innerText = data.telephone;
+            document.getElementById('display-destination').innerText = data.quartier;
+            document.getElementById('display-precision').innerText = "📍 " + data.precision;
+            document.getElementById('display-total').innerText = data.total.toLocaleString() + " FCFA";
+            document.getElementById('display-id').innerText = "#" + data.ticketId;
+            document.getElementById('display-colis-full').innerText = `Colis: ${data.produit} (x${data.nbColis}).`;
+            document.getElementById('display-mode').innerText = data.mode;
+            document.getElementById('badge-urgent-ui').style.display = data.service === 'Express' ? 'block' : 'none';
+            document.getElementById('display-date').innerText = data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+
+            const qrBox = document.getElementById("qrcode");
+            qrBox.innerHTML = "";
+            new QRCode(qrBox, { text: data.ticketId, width: 60, height: 60 });
+            
+            document.getElementById('downloadBtn').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
         function handleGenerate() {
             const data = {
@@ -347,14 +397,14 @@
                 quartier: document.getElementById('quartier').value,
                 precision: document.getElementById('precision').value || '---',
                 prix: parseInt(document.getElementById('prix').value) || 0,
-                livraison: parseInt(document.getElementById('livraison').value) || 2000,
+                livraison: 2000,
                 mode: document.getElementById('modePay').value,
                 service: document.getElementById('urgent').checked ? 'Express' : 'Standard',
                 ticketId: `CT-${Math.floor(1000 + Math.random() * 9000)}`
             };
             data.total = data.prix + data.livraison;
 
-            // Update UI
+            // UI Update
             document.getElementById('display-vendeur').innerText = data.vendeur.toUpperCase();
             document.getElementById('display-vendeurTel').innerText = data.vendeurTel;
             document.getElementById('display-client').innerText = data.client;
@@ -374,10 +424,12 @@
 
             document.getElementById('downloadBtn').classList.remove('hidden');
             
+            // Cloud Save
             if (window.saveBordereauToCloud) window.saveBordereauToCloud(data);
 
-            const msg = `*BORDEREAU CT241*\nID: *${data.ticketId}*\n\nExp: ${data.vendeur}\nClient: ${data.client}\nLieu: ${data.quartier}\nTotal: *${data.total} FCFA*\nMode: ${data.mode}`;
-            window.open(`https://wa.me/24177736065?text=${encodeURIComponent(msg)}`, '_blank');
+            // WhatsApp link (Optionnel)
+            const msg = `*BORDEREAU CT241*\nID: *${data.ticketId}*\n\nExp: ${data.vendeur}\nClient: ${data.client}\nLieu: ${data.quartier}\nTotal: *${data.total} FCFA*`;
+            console.log("Ticket généré:", data.ticketId);
         }
 
         function downloadImage() {
