@@ -37,7 +37,7 @@
     <!-- Bannière Enseigne -->
     <section class="bg-white py-10 text-center">
         <!-- Enseigne mise à jour -->
-        <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="X-Press Livraison" class="mx-auto max-h-48 mb-4">
+        <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="X-Press Livraison" class="mx-90 max-h-58 mb-4">
     </section>
 
     <!-- Boutons d'action rapides -->
