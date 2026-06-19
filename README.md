@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X-press livraison Gabon</title>
     <!-- Emplacement Favicon -->
-    <link rel="icon" href="LIEN_VERS_VOTRE_FAVICON.ico" type="image/x-icon">
+    <link rel="icon" href="https://res.cloudinary.com/dyxob1wcj/image/upload/v1781134790/oeqlbzjhuvhbpmrzdpgh.jpg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -31,7 +31,7 @@
     <!-- Bannière Enseigne -->
     <section class="bg-white py-10 text-center">
         <!-- Emplacement Grande Enseigne -->
-        <img src="LIEN_VERS_VOTRE_GRANDE_ENSEIGNE.png" alt="X-Press Livraison" class="mx-auto max-h-48 mb-4">
+        <img src="https://res.cloudinary.com/dyxob1wcj/image/upload/v1781134790/oeqlbzjhuvhbpmrzdpgh.jpg" alt="X-Press Livraison" class="mx-auto max-h-48 mb-4">
     </section>
 
     <!-- Boutons d'action rapides -->
@@ -56,7 +56,7 @@
         <!-- Section WhatsApp -->
         <section class="mt-12 text-center py-10 bg-orange-100 rounded-lg">
             <p class="mb-4 font-bold">CLIQUEZ ICI POUR REJOINDRE NOTRE COMMUNAUTÉ</p>
-            <a href="https://wa.me/VOTRE_NUMERO" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center hover:bg-green-600 transition">
+            <a href="https://wa.me/77736065" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center hover:bg-green-600 transition">
                 <i class="fab fa-whatsapp mr-2 text-xl"></i> WhatsApp
             </a>
         </section>
