@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X-press livraison Gabon</title>
     <!-- Emplacement Favicon -->
-    <link rel="icon" href="https://res.cloudinary.com/dyxob1wcj/image/upload/v1781134790/oeqlbzjhuvhbpmrzdpgh.jpg" type="image/x-icon">
+    <link rel="icon" href="https://ibb.co/s9qfhvCT][img]https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -31,7 +31,7 @@
     <!-- Bannière Enseigne -->
     <section class="bg-white py-10 text-center">
         <!-- Emplacement Grande Enseigne -->
-        <img src="https://res.cloudinary.com/dyxob1wcj/image/upload/v1781134790/oeqlbzjhuvhbpmrzdpgh.jpg" alt="X-Press Livraison" class="mx-auto max-h-48 mb-4">
+        <img src="https://ibb.co/s9qfhvCT][img]https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="X-Press Livraison" class="mx-auto max-h-48 mb-4">
     </section>
 
     <!-- Boutons d'action rapides -->
