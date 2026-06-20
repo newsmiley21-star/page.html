@@ -114,8 +114,54 @@
 
         <!-- Produits -->
         <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
-            <h2 class="text-3xl font-bold mb-4">Nos Produits</h2>
-            <p>Découvrez nos emballages, nos formules d'abonnement et nos solutions de transport.</p>
+            <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
+            
+            <!-- Grille des produits -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Fiche Produit 1 -->
+                <div class="border rounded-lg p-4 hover:shadow-md transition">
+                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
+                        <span class="text-4xl text-slate-300 font-light">+</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Exemple 1</h3>
+                    <p class="text-green-700 font-semibold mb-4">5000 FCFA</p>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-800">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                </div>
+
+                <!-- Fiche Produit 2 -->
+                <div class="border rounded-lg p-4 hover:shadow-md transition">
+                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
+                        <span class="text-4xl text-slate-300 font-light">+</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Exemple 2</h3>
+                    <p class="text-green-700 font-semibold mb-4">7500 FCFA</p>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-800">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                </div>
+
+                <!-- Vous pouvez dupliquer ce bloc pour ajouter plus d'articles -->
+                <div class="border rounded-lg p-4 hover:shadow-md transition">
+                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
+                        <span class="text-4xl text-slate-300 font-light">+</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Exemple 3</h3>
+                    <p class="text-green-700 font-semibold mb-4">12000 FCFA</p>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-800">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pagination (bas de page) -->
+            <div class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
+                <button class="border px-3 py-1 rounded bg-blue-50">1</button>
+                <button class="hover:underline">2</button>
+                <button class="hover:underline">3</button>
+                <button class="hover:underline">Suivant</button>
+            </div>
         </section>
 
         <!-- Panier -->
