@@ -146,9 +146,9 @@
             </div>
 
             <!-- Navigation Pagination -->
-            <div class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
-                <button onclick="changeProductPage(1)" class="border px-3 py-1 rounded bg-blue-900 text-white">1</button>
-                <button onclick="changeProductPage(2)" class="border px-3 py-1 rounded hover:bg-blue-50">2</button>
+            <div id="pagination-container" class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
+                <button onclick="changeProductPage(1)" class="page-btn border px-3 py-1 rounded bg-blue-900 text-white">1</button>
+                <button onclick="changeProductPage(2)" class="page-btn border px-3 py-1 rounded hover:bg-blue-50">2</button>
                 <button onclick="alert('Bientôt disponible')" class="hover:underline">Suivant</button>
             </div>
         </section>
@@ -194,7 +194,6 @@
             document.getElementById(pageId).classList.add('active');
         }
 
-        // Fonction pour changer les pages de produits
         function changeProductPage(pageNumber) {
             // Cacher toutes les pages
             document.querySelectorAll('.product-page').forEach(page => {
@@ -204,6 +203,17 @@
             // Afficher la page choisie
             document.getElementById('page-products-' + pageNumber).classList.remove('hidden');
             document.getElementById('page-products-' + pageNumber).classList.add('active');
+
+            // Mettre à jour le style des boutons
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-900', 'text-white');
+                btn.classList.add('hover:bg-blue-50');
+            });
+
+            // Ajouter le style actif au bouton cliqué
+            const clickedBtn = event.currentTarget;
+            clickedBtn.classList.add('bg-blue-900', 'text-white');
+            clickedBtn.classList.remove('hover:bg-blue-50');
         }
     </script>
 </body>
