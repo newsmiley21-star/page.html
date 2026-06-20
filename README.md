@@ -12,6 +12,9 @@
     <style>
         .page-section { display: none; }
         .page-section.active { display: block; }
+        /* Nouveau style pour la pagination des produits */
+        .product-page { display: none; }
+        .product-page.active { display: grid; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
@@ -116,51 +119,37 @@
         <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
             
-            <!-- Grille des produits -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- PAGE 1 -->
+            <div id="page-products-1" class="product-page active grid-cols-2 md:grid-cols-4 gap-6">
                 <!-- Fiche Produit 1 -->
                 <div class="border rounded-lg p-4 hover:shadow-md transition">
                     <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
                         <span class="text-4xl text-slate-300 font-light">+</span>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Exemple 1</h3>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Page 1</h3>
                     <p class="text-green-700 font-semibold mb-4">5000 FCFA</p>
-                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-800">
-                        <i class="fas fa-shopping-cart"></i> Commander
-                    </button>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800">Commander</button>
                 </div>
+                <!-- Vous pouvez ajouter d'autres produits ici pour la page 1 -->
+            </div>
 
-                <!-- Fiche Produit 2 -->
+            <!-- PAGE 2 (Ajoutez vos produits ici) -->
+            <div id="page-products-2" class="product-page hidden grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border rounded-lg p-4 hover:shadow-md transition">
                     <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
                         <span class="text-4xl text-slate-300 font-light">+</span>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Exemple 2</h3>
-                    <p class="text-green-700 font-semibold mb-4">7500 FCFA</p>
-                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-800">
-                        <i class="fas fa-shopping-cart"></i> Commander
-                    </button>
-                </div>
-
-                <!-- Vous pouvez dupliquer ce bloc pour ajouter plus d'articles -->
-                <div class="border rounded-lg p-4 hover:shadow-md transition">
-                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
-                        <span class="text-4xl text-slate-300 font-light">+</span>
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Exemple 3</h3>
-                    <p class="text-green-700 font-semibold mb-4">12000 FCFA</p>
-                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-800">
-                        <i class="fas fa-shopping-cart"></i> Commander
-                    </button>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Page 2</h3>
+                    <p class="text-green-700 font-semibold mb-4">9000 FCFA</p>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800">Commander</button>
                 </div>
             </div>
 
-            <!-- Pagination (bas de page) -->
+            <!-- Navigation Pagination -->
             <div class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
-                <button class="border px-3 py-1 rounded bg-blue-50">1</button>
-                <button class="hover:underline">2</button>
-                <button class="hover:underline">3</button>
-                <button class="hover:underline">Suivant</button>
+                <button onclick="changeProductPage(1)" class="border px-3 py-1 rounded bg-blue-900 text-white">1</button>
+                <button onclick="changeProductPage(2)" class="border px-3 py-1 rounded hover:bg-blue-50">2</button>
+                <button onclick="alert('Bientôt disponible')" class="hover:underline">Suivant</button>
             </div>
         </section>
 
@@ -203,6 +192,18 @@
                 section.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
+        }
+
+        // Fonction pour changer les pages de produits
+        function changeProductPage(pageNumber) {
+            // Cacher toutes les pages
+            document.querySelectorAll('.product-page').forEach(page => {
+                page.classList.remove('active');
+                page.classList.add('hidden');
+            });
+            // Afficher la page choisie
+            document.getElementById('page-products-' + pageNumber).classList.remove('hidden');
+            document.getElementById('page-products-' + pageNumber).classList.add('active');
         }
     </script>
 </body>
