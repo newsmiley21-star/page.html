@@ -32,7 +32,7 @@
         </nav>
     </header>
 
-    <!-- Bannière Enseigne (Flexbox pour aligner) -->
+    <!-- Bannière Enseigne (Flexbox pour aligner sur la même ligne) -->
     <section class="bg-white py-6 text-center">
         <div class="flex flex-wrap justify-center items-center gap-4">
             <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="Bannière 1" class="max-h-48">
@@ -79,8 +79,37 @@
 
         <!-- Qui sommes-nous -->
         <section id="about" class="page-section bg-white p-8 rounded shadow-sm">
-            <h2 class="text-3xl font-bold mb-4">Qui sommes-nous ?</h2>
-            <p>X-PRESS LIVRAISON est votre partenaire de confiance au Gabon.</p>
+            <h2 class="text-3xl font-bold mb-6 text-green-700">Qui sommes-nous ?</h2>
+            <div class="space-y-6 text-slate-700">
+                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle, nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-900">Pourquoi choisir X-PRESS LIVRAISON ?</h3>
+                    <ul class="list-disc ml-5 space-y-2">
+                        <li><strong>Une expertise locale :</strong> Nous maîtrisons parfaitement la géographie du Grand Libreville et de ses environs.</li>
+                        <li><strong>Polyvalence de livraison :</strong> Nous prenons en charge tous types de colis (voir conditions générales).</li>
+                        <li><strong>Technologie au service du client :</strong> Interface de suivi dédiée (OPS X-PRESS) via identifiant.</li>
+                        <li><strong>Sécurité et confidentialité :</strong> Protection de vos données sensibles.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-4 border-l-4 border-green-500">
+                    <p class="font-bold">Notre Engagement : Qualité, Sûreté et Rapidité</p>
+                    <p class="text-sm">Chez X-PRESS LIVRAISON, nous savons qu'un envoi est une promesse. Que votre statut soit "livré", "en cours" ou qu'il nécessite une attention particulière (problème de paiement ou de connexion), notre système de suivi vous offre une transparence totale.</p>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-900">Comment fonctionne X-PRESS LIVRAISON ?</h3>
+                    <ol class="list-decimal ml-5 space-y-3">
+                        <li><strong>Planification :</strong> Contactez-nous pour définir le lieu de récupération et la destination dans le Grand Libreville.</li>
+                        <li><strong>Prise en charge sécurisée :</strong> Votre colis reçoit un identifiant unique (système CT241).</li>
+                        <li><strong>Suivi en temps réel :</strong> Consultez le statut : <span class="font-semibold italic">Valide, En attente, ou Erreur de paiement</span>.</li>
+                        <li><strong>Livraison :</strong> Remise au destinataire dans les meilleurs délais.</li>
+                    </ol>
+                </div>
+            </div>
         </section>
 
         <!-- Produits -->
