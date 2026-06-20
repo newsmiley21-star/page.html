@@ -32,10 +32,12 @@
         </nav>
     </header>
 
-    <!-- Bannière Enseigne -->
+    <!-- Bannière Enseigne (Flexbox pour aligner) -->
     <section class="bg-white py-6 text-center">
-        <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="Bannière 1" class="mx-auto max-h-48 mb-2">
-        <img src="https://i.ibb.co/sdbMDY94/Capture-d-cran-2026-06-09-231508.png" alt="Bannière 2" class="mx-auto max-h-48 mb-4">
+        <div class="flex flex-wrap justify-center items-center gap-4">
+            <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="Bannière 1" class="max-h-48">
+            <img src="https://i.ibb.co/sdbMDY94/Capture-d-cran-2026-06-09-231508.png" alt="Bannière 2" class="max-h-48">
+        </div>
     </section>
 
     <!-- Boutons d'action rapides -->
