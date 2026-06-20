@@ -12,7 +12,6 @@
     <style>
         .page-section { display: none; }
         .page-section.active { display: block; }
-        /* Nouveau style pour la pagination des produits */
         .product-page { display: none; }
         .product-page.active { display: grid; }
     </style>
@@ -30,12 +29,12 @@
                 <li><button onclick="showPage('services')" class="hover:text-green-700">Nos services</button></li>
                 <li><button onclick="showPage('about')" class="hover:text-green-700">Qui sommes-nous?</button></li>
                 <li><button onclick="showPage('products')" class="hover:text-green-700">Nos produits</button></li>
-                <li><button onclick="showPage('cart')" class="hover:text-green-700">Mon panier</button></li>
+                <li><button onclick="showPage('cart')" class="hover:text-green-700">Fret Maritime / Aérien</button></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Bannière Enseigne (Flexbox pour aligner sur la même ligne) -->
+    <!-- Bannière Enseigne -->
     <section class="bg-white py-6 text-center">
         <div class="flex flex-wrap justify-center items-center gap-4">
             <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="Bannière 1" class="max-h-48">
@@ -58,24 +57,21 @@
             <p>La rapidité au service de vos envois. Sélectionnez une option dans le menu ou utilisez les boutons ci-dessus.</p>
         </section>
 
-        <!-- Services (Mis à jour avec vos liens) -->
+        <!-- Services -->
         <section id="services" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-6 text-center">Nos Services</h2>
             <div class="grid md:grid-cols-3 gap-6">
                 <a href="https://consultation-html.pages.dev/" target="_blank" class="block p-6 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition text-center">
                     <i class="fas fa-search text-3xl text-blue-600 mb-3"></i>
                     <h3 class="font-bold text-blue-900 text-lg mb-2">Suivi des livraisons</h3>
-                    <p class="text-sm text-blue-700">Consultez l'état de votre colis en temps réel.</p>
                 </a>
                 <a href="https://1-2-html.pages.dev/" target="_blank" class="block p-6 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition text-center">
                     <i class="fas fa-truck text-3xl text-emerald-600 mb-3"></i>
                     <h3 class="font-bold text-emerald-900 text-lg mb-2">Nouvelle commande</h3>
-                    <p class="text-sm text-emerald-700">Effectuez une demande de livraison rapidement.</p>
                 </a>
                 <a href="https://index-html-2qm.pages.dev/" target="_blank" class="block p-6 bg-orange-50 hover:bg-orange-100 rounded-lg border border-orange-200 transition text-center">
                     <i class="fas fa-user-tie text-3xl text-orange-600 mb-3"></i>
                     <h3 class="font-bold text-orange-900 text-lg mb-2">Espace livreurs</h3>
-                    <p class="text-sm text-orange-700">Accès réservé aux partenaires logistiques.</p>
                 </a>
             </div>
         </section>
@@ -84,94 +80,65 @@
         <section id="about" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-6 text-green-700">Qui sommes-nous ?</h2>
             <div class="space-y-6 text-slate-700">
-                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle, nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
+                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle , nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
                 
-                <div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900">Pourquoi choisir X-PRESS LIVRAISON ?</h3>
-                    <ul class="list-disc ml-5 space-y-2">
-                        <li><strong>Une expertise locale :</strong> Nous maîtrisons parfaitement la géographie du Grand Libreville et de ses environs.</li>
-                        <li><strong>Polyvalence de livraison :</strong> Nous prenons en charge tous types de colis (voir conditions générales).</li>
-                        <li><strong>Technologie au service du client :</strong> Interface de suivi dédiée (OPS X-PRESS) via identifiant.</li>
-                        <li><strong>Sécurité et confidentialité :</strong> Protection de vos données sensibles.</li>
-                    </ul>
+                <!-- Bloc Contacts -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Contactez-nous</h3>
+                    <div class="space-y-2">
+                        <p><i class="fas fa-phone mr-2 text-green-600"></i> <strong>077 73 60 65</strong> / <strong>066 13 98 46</strong></p>
+                        <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
+                    </div>
                 </div>
 
-                <div class="bg-slate-50 p-4 border-l-4 border-green-500">
-                    <p class="font-bold">Notre Engagement : Qualité, Sûreté et Rapidité</p>
-                    <p class="text-sm">Chez X-PRESS LIVRAISON, nous savons qu'un envoi est une promesse. Que votre statut soit "livré", "en cours" ou qu'il nécessite une attention particulière (problème de paiement ou de connexion), notre système de suivi vous offre une transparence totale.</p>
-                </div>
-
-                <hr>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900">Comment fonctionne X-PRESS LIVRAISON ?</h3>
-                    <ol class="list-decimal ml-5 space-y-3">
-                        <li><strong>Planification :</strong> Contactez-nous pour définir le lieu de récupération et la destination dans le Grand Libreville.</li>
-                        <li><strong>Prise en charge sécurisée :</strong> Votre colis reçoit un identifiant unique (système CT241).</li>
-                        <li><strong>Suivi en temps réel :</strong> Consultez le statut : <span class="font-semibold italic">Valide, En attente, ou Erreur de paiement</span>.</li>
-                        <li><strong>Livraison :</strong> Remise au destinataire dans les meilleurs délais.</li>
-                    </ol>
-                </div>
+                <h3 class="text-xl font-bold text-blue-900">Pourquoi choisir X-PRESS LIVRAISON ?</h3>
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><strong>Une expertise locale :</strong> Nous maîtrisons parfaitement la géographie du Grand Libreville et de ses environs.</li>
+                    <li><strong>Polyvalence de livraison :</strong> Nous prenons en charge tous types de colis.</li>
+                    <li><strong>Technologie au service du client :</strong> Système de recherche par identifiant.</li>
+                    <li><strong>Sécurité et confidentialité :</strong> Protection des données sensibles.</li>
+                </ul>
             </div>
         </section>
 
         <!-- Produits -->
         <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
-            
-            <!-- PAGE 1 -->
+            <!-- Pagination logic is in the script -->
             <div id="page-products-1" class="product-page active grid-cols-2 md:grid-cols-4 gap-6">
                 <!-- Fiche Produit 1 -->
                 <div class="border rounded-lg p-4 hover:shadow-md transition">
                     <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
                         <span class="text-4xl text-slate-300 font-light">+</span>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Page 1</h3>
-                    <p class="text-green-700 font-semibold mb-4">5000 FCFA</p>
-                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800">Commander</button>
-                </div>
-                <!-- Vous pouvez ajouter d'autres produits ici pour la page 1 -->
-            </div>
-
-            <!-- PAGE 2 (Ajoutez vos produits ici) -->
-            <div id="page-products-2" class="product-page hidden grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border rounded-lg p-4 hover:shadow-md transition">
-                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
-                        <span class="text-4xl text-slate-300 font-light">+</span>
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article Page 2</h3>
-                    <p class="text-green-700 font-semibold mb-4">9000 FCFA</p>
-                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800">Commander</button>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article 1</h3>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded mt-2 hover:bg-blue-800">Commander</button>
                 </div>
             </div>
-
-            <!-- Navigation Pagination -->
+            
             <div id="pagination-container" class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
                 <button onclick="changeProductPage(1)" class="page-btn border px-3 py-1 rounded bg-blue-900 text-white">1</button>
-                <button onclick="changeProductPage(2)" class="page-btn border px-3 py-1 rounded hover:bg-blue-50">2</button>
-                <button onclick="alert('Bientôt disponible')" class="hover:underline">Suivant</button>
             </div>
         </section>
 
-        <!-- Panier -->
+        <!-- Panier / Fret -->
         <section id="cart" class="page-section bg-white p-8 rounded shadow-sm">
-            <h2 class="text-3xl font-bold mb-4">Mon Panier</h2>
-            <p>Gérez vos commandes en attente de paiement ici.</p>
+            <h2 class="text-3xl font-bold mb-4">Fret Maritime & Aérien</h2>
+            <p>Solutions de transport international.</p>
         </section>
 
-        <!-- Section Commander -->
+        <!-- Sections cachées -->
         <section id="commander" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Nouvelle Commande</h2>
-            <p>Formulaire de commande à remplir ici...</p>
+            <p>Formulaire...</p>
         </section>
 
-        <!-- Section Suivi -->
         <section id="suivi" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Suivi de Colis</h2>
-            <p>Entrez votre numéro de suivi pour localiser votre colis.</p>
+            <p>Formulaire...</p>
         </section>
 
-        <!-- Section WhatsApp -->
+        <!-- WhatsApp -->
         <section class="mt-12 text-center py-10 bg-orange-100 rounded-lg">
             <p class="mb-4 font-bold">CLIQUEZ ICI POUR REJOINDRE NOTRE COMMUNAUTÉ</p>
             <a href="https://wa.me/77736065" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center hover:bg-green-600 transition">
@@ -180,40 +147,30 @@
         </section>
     </main>
 
-    <!-- Pied de page -->
     <footer class="text-center py-10 text-slate-500 text-sm">
         &copy; 2026 X-press livraison gabon - Tous droits réservés.
+        <br> Contact : 077 73 60 65 - X-presslivraisoncommercial@gmail.com
     </footer>
 
-    <!-- Script pour la navigation -->
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
+            document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
         }
 
         function changeProductPage(pageNumber) {
-            // Cacher toutes les pages
             document.querySelectorAll('.product-page').forEach(page => {
                 page.classList.remove('active');
                 page.classList.add('hidden');
             });
-            // Afficher la page choisie
             document.getElementById('page-products-' + pageNumber).classList.remove('hidden');
             document.getElementById('page-products-' + pageNumber).classList.add('active');
-
-            // Mettre à jour le style des boutons
+            
             document.querySelectorAll('.page-btn').forEach(btn => {
                 btn.classList.remove('bg-blue-900', 'text-white');
                 btn.classList.add('hover:bg-blue-50');
             });
-
-            // Ajouter le style actif au bouton cliqué
-            const clickedBtn = event.currentTarget;
-            clickedBtn.classList.add('bg-blue-900', 'text-white');
-            clickedBtn.classList.remove('hover:bg-blue-50');
+            event.currentTarget.classList.add('bg-blue-900', 'text-white');
         }
     </script>
 </body>
