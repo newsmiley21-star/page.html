@@ -30,6 +30,7 @@
                 <li><button onclick="showPage('about')" class="hover:text-green-700">Qui sommes-nous?</button></li>
                 <li><button onclick="showPage('products')" class="hover:text-green-700">Nos produits</button></li>
                 <li><button onclick="showPage('cart')" class="hover:text-green-700">Fret Maritime / Aérien</button></li>
+                <li><button onclick="showPage('faq')" class="hover:text-green-700">FAQ</button></li>
             </ul>
         </nav>
     </header>
@@ -80,23 +81,20 @@
         <section id="about" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-6 text-green-700">Qui sommes-nous ?</h2>
             <div class="space-y-6 text-slate-700">
-                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle , nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
+                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle, nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
                 
-                <!-- Bloc Contacts -->
                 <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
                     <h3 class="text-xl font-bold mb-4 text-blue-900">Contactez-nous</h3>
-                    <div class="space-y-2">
-                        <p><i class="fas fa-phone mr-2 text-green-600"></i> <strong>077 73 60 65</strong> / <strong>066 13 98 46</strong></p>
-                        <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
-                    </div>
+                    <p><i class="fas fa-phone mr-2 text-green-600"></i> <strong>077 73 60 65</strong> / <strong>066 13 98 46</strong></p>
+                    <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
                 </div>
 
                 <h3 class="text-xl font-bold text-blue-900">Pourquoi choisir X-PRESS LIVRAISON ?</h3>
                 <ul class="list-disc ml-5 space-y-2">
-                    <li><strong>Une expertise locale :</strong> Nous maîtrisons parfaitement la géographie du Grand Libreville et de ses environs.</li>
-                    <li><strong>Polyvalence de livraison :</strong> Nous prenons en charge tous types de colis.</li>
-                    <li><strong>Technologie au service du client :</strong> Système de recherche par identifiant.</li>
-                    <li><strong>Sécurité et confidentialité :</strong> Protection des données sensibles.</li>
+                    <li><strong>Expertise locale :</strong> Maîtrise de la géographie du Grand Libreville.</li>
+                    <li><strong>Polyvalence :</strong> Tous types de colis.</li>
+                    <li><strong>Technologie :</strong> Système de suivi par identifiant.</li>
+                    <li><strong>Sécurité :</strong> Protection des données sensibles.</li>
                 </ul>
             </div>
         </section>
@@ -104,30 +102,43 @@
         <!-- Produits -->
         <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
-            <!-- Pagination logic is in the script -->
-            <div id="page-products-1" class="product-page active grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Fiche Produit 1 -->
+            <div id="page-products-1" class="product-page active grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border rounded-lg p-4 hover:shadow-md transition">
-                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4">
-                        <span class="text-4xl text-slate-300 font-light">+</span>
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm mb-1">Article 1</h3>
-                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded mt-2 hover:bg-blue-800">Commander</button>
+                    <div class="bg-slate-100 h-32 flex items-center justify-center rounded mb-4"><span class="text-4xl text-slate-300 font-light">+</span></div>
+                    <button onclick="showPage('commander')" class="w-full bg-blue-900 text-white text-xs py-2 rounded">Commander</button>
                 </div>
             </div>
-            
             <div id="pagination-container" class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
                 <button onclick="changeProductPage(1)" class="page-btn border px-3 py-1 rounded bg-blue-900 text-white">1</button>
             </div>
         </section>
 
-        <!-- Panier / Fret -->
-        <section id="cart" class="page-section bg-white p-8 rounded shadow-sm">
-            <h2 class="text-3xl font-bold mb-4">Fret Maritime & Aérien</h2>
-            <p>Solutions de transport international.</p>
+        <!-- FAQ -->
+        <section id="faq" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">FAQ - Questions Fréquentes</h2>
+            <div class="space-y-4">
+                <details class="bg-slate-50 p-4 rounded-lg">
+                    <summary class="font-bold cursor-pointer">Comment suivre mon colis ?</summary>
+                    <p class="mt-2 text-slate-600">Utilisez votre code CT241 dans l'onglet "Suivi des livraisons" pour voir le statut en temps réel.</p>
+                </details>
+                <details class="bg-slate-50 p-4 rounded-lg">
+                    <summary class="font-bold cursor-pointer">Quels sont les délais de livraison ?</summary>
+                    <p class="mt-2 text-slate-600">Nos trajets sont optimisés pour assurer la livraison la plus rapide possible dans le Grand Libreville.</p>
+                </details>
+                <details class="bg-slate-50 p-4 rounded-lg">
+                    <summary class="font-bold cursor-pointer">Que faire en cas d'erreur de paiement ?</summary>
+                    <p class="mt-2 text-slate-600">Notre service client sera averti automatiquement et prendra contact avec vous pour régulariser la situation.</p>
+                </details>
+            </div>
         </section>
 
-        <!-- Sections cachées -->
+        <!-- Fret Maritime / Aérien -->
+        <section id="cart" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">Fret Maritime & Aérien</h2>
+            <p>Solutions de transport international sur mesure.</p>
+        </section>
+
+        <!-- Section Commander -->
         <section id="commander" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Nouvelle Commande</h2>
             <p>Formulaire...</p>
@@ -135,7 +146,7 @@
 
         <section id="suivi" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Suivi de Colis</h2>
-            <p>Formulaire...</p>
+            <p>Veuillez entrer votre numéro de suivi (CT241).</p>
         </section>
 
         <!-- WhatsApp -->
