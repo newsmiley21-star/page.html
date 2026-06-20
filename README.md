@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* CSS pour gérer le basculement des sections */
         .page-section { display: none; }
         .page-section.active { display: block; }
     </style>
@@ -21,7 +20,6 @@
     <header class="bg-white border-b border-slate-200">
         <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <!-- Logo mis à jour -->
                 <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo X-Press" class="h-10">
             </div>
             <ul class="flex space-x-6 text-sm font-semibold text-slate-600">
@@ -35,10 +33,9 @@
     </header>
 
     <!-- Bannière Enseigne -->
-    <section class="bg-white py-10 text-center">
-        <!-- Enseigne mise à jour -->
-        <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="X-Press Livraison" class="mx-90 max-h-58 mb-4">
-        <img src="https://i.ibb.co/sdbMDY94/Capture-d-cran-2026-06-09-231508.png" alt="X-Press Livraison" class="mx-auto max-h-58 mb-4">
+    <section class="bg-white py-6 text-center">
+        <img src="https://i.ibb.co/Xk4h5wFJ/Capture-d-cran-2026-06-09-231624.png" alt="Bannière 1" class="mx-auto max-h-48 mb-2">
+        <img src="https://i.ibb.co/sdbMDY94/Capture-d-cran-2026-06-09-231508.png" alt="Bannière 2" class="mx-auto max-h-48 mb-4">
     </section>
 
     <!-- Boutons d'action rapides -->
@@ -56,10 +53,26 @@
             <p>La rapidité au service de vos envois. Sélectionnez une option dans le menu ou utilisez les boutons ci-dessus.</p>
         </section>
 
-        <!-- Services -->
+        <!-- Services (Mis à jour avec vos liens) -->
         <section id="services" class="page-section bg-white p-8 rounded shadow-sm">
-            <h2 class="text-3xl font-bold mb-4">Nos Services</h2>
-            <p>Découvrez nos solutions de transport express, livraison sécurisée et logistique pour entreprises.</p>
+            <h2 class="text-3xl font-bold mb-6 text-center">Nos Services</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://consultation-html.pages.dev/" target="_blank" class="block p-6 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition text-center">
+                    <i class="fas fa-search text-3xl text-blue-600 mb-3"></i>
+                    <h3 class="font-bold text-blue-900 text-lg mb-2">Suivi des livraisons</h3>
+                    <p class="text-sm text-blue-700">Consultez l'état de votre colis en temps réel.</p>
+                </a>
+                <a href="https://1-2-html.pages.dev/" target="_blank" class="block p-6 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition text-center">
+                    <i class="fas fa-truck text-3xl text-emerald-600 mb-3"></i>
+                    <h3 class="font-bold text-emerald-900 text-lg mb-2">Nouvelle commande</h3>
+                    <p class="text-sm text-emerald-700">Effectuez une demande de livraison rapidement.</p>
+                </a>
+                <a href="https://index-html-2qm.pages.dev/" target="_blank" class="block p-6 bg-orange-50 hover:bg-orange-100 rounded-lg border border-orange-200 transition text-center">
+                    <i class="fas fa-user-tie text-3xl text-orange-600 mb-3"></i>
+                    <h3 class="font-bold text-orange-900 text-lg mb-2">Espace livreurs</h3>
+                    <p class="text-sm text-orange-700">Accès réservé aux partenaires logistiques.</p>
+                </a>
+            </div>
         </section>
 
         <!-- Qui sommes-nous -->
@@ -80,13 +93,13 @@
             <p>Gérez vos commandes en attente de paiement ici.</p>
         </section>
 
-        <!-- Section Commander (Cachée par défaut) -->
+        <!-- Section Commander -->
         <section id="commander" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Nouvelle Commande</h2>
             <p>Formulaire de commande à remplir ici...</p>
         </section>
 
-        <!-- Section Suivi (Cachée par défaut) -->
+        <!-- Section Suivi -->
         <section id="suivi" class="page-section bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Suivi de Colis</h2>
             <p>Entrez votre numéro de suivi pour localiser votre colis.</p>
@@ -109,11 +122,9 @@
     <!-- Script pour la navigation -->
     <script>
         function showPage(pageId) {
-            // Cacher toutes les sections
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Afficher la section demandée
             document.getElementById(pageId).classList.add('active');
         }
     </script>
