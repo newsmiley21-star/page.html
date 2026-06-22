@@ -16,6 +16,20 @@
         .product-page { display: none; }
         .product-page.active { display: grid; }
     </style>
+    <style>
+    /* Animation de battement */
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        15% { transform: scale(1.1); }
+        30% { transform: scale(1); }
+        45% { transform: scale(1.1); }
+        60% { transform: scale(1); }
+    }
+    .animate-heartbeat {
+        display: inline-block;
+        animation: heartbeat 2s ease-in-out infinite;
+    }
+</style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
@@ -56,8 +70,11 @@
         <!-- Accueil -->
         <section id="accueil" class="page-section active bg-white p-8 rounded shadow-sm">
             <h2 class="text-3xl font-bold mb-4">Bienvenue chez X-PRESS</h2>
-            <p>La rapidité au service de vos envois. Sélectionnez une option dans le menu ou utilisez les boutons ci-dessus.</p>
-        </section>
+           <!-- Ajout de la classe animate-heartbeat ici -->
+            <p class="animate-heartbeat text-lg font-medium text-blue-900">
+                La rapidité au service de vos envois. Sélectionnez une option dans le menu ou utilisez les boutons ci-dessus.
+            </p>
+      </section>
 
         <!-- Services -->
         <section id="services" class="page-section bg-white p-8 rounded shadow-sm">
