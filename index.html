@@ -120,16 +120,23 @@
             <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
             <div id="page-products-1" class="product-page active grid grid-cols-2 md:grid-cols-4 gap-6">
                 <!-- Exemple d'article -->
-                <div class="border rounded-lg p-4 hover:shadow-md transition">
-                    <img src="https://i.ibb.co/KjBmfDNx/Capture-d-cran-2026-06-21-014612.png" alt="Description de l'article" class="w-full h-32 object-cover rounded mb-4">
-                    <h3 class="font-bold text-sm mb-2">scooter N°001 : 820.000 CFA sur commande 1-5 unité(s) !</h3>
-                    <button onclick="showPage('https://wa.me/77736065?text=salut%20%2C%20je%20suis%20tr%C3%A8s%20interr%C3%A9ss%C3%A9%20par%20l'article%20scooter%20N%C2%B0001%20%2C%20possible%20d'en%20savoir%20plus%20svp%20%3F')" class="w-full bg-blue-900 text-white text-xs py-2 rounded">Commander</button>
-                    <div class="border rounded-lg p-4 hover:shadow-md transition">
-                    <img src="https://i.ibb.co/qYXXYTKn/Capture-d-cran-2026-06-18-003909.png" alt="Description de l'article" class="w-full h-32 object-cover rounded mb-4">
-                    <h3 class="font-bold text-sm mb-2">scooter electrique SINSKI 01 : 950.000 CFA sur commande 1-5 unité(s) !</h3>
-                    <button onclick="showPage('https://wa.me/77736065?text=salut%20%2C%20je%20suis%20tr%C3%A8s%20interr%C3%A9ss%C3%A9%20par%20l'article%20scooter%20electrique%20SINSKI%2001%20%2C%20possible%20d'en%20savoir%20plus%20svp%20%3F')" class="w-full bg-blue-900 text-white text-xs py-2 rounded">Commander</button>
-           
-            </div>
+     <!-- Grille réactive : 2 colonnes sur mobile, 5 sur écran large -->
+    <div id="page-products-1" class="product-page active grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        
+        <!-- Article 1 -->
+        <div class="border rounded-lg p-4 hover:shadow-lg transition">
+            <img src="https://i.ibb.co/KjBmfDNx/Capture-d-cran-2026-06-21-014612.png" alt="Scooter N°001" class="w-full h-32 object-cover rounded mb-4">
+            <h3 class="font-bold text-sm mb-2">scooter N°001 : 820.000 CFA</h3>
+            <button onclick="window.open('https://wa.me/77736065?text=Salut, je suis très intéressé par le scooter N°001, possible d\'en savoir plus ?', '_blank')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="border rounded-lg p-4 hover:shadow-lg transition">
+            <img src="https://i.ibb.co/qYXXYTKn/Capture-d-cran-2026-06-18-003909.png" alt="Scooter Sinski" class="w-full h-32 object-cover rounded mb-4">
+            <h3 class="font-bold text-sm mb-2">scooter electrique SINSKI 01 : 950.000 CFA</h3>
+            <button onclick="window.open('https://wa.me/77736065?text=Salut, je suis très intéressé par le scooter électrique SINSKI 01, possible d\'en savoir plus ?', '_blank')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+        </div>
+
             </div>
             <div id="pagination-container" class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
                 <button onclick="changeProductPage(1, this)" class="page-btn border px-3 py-1 rounded bg-blue-900 text-white">1</button>
@@ -202,7 +209,13 @@
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0,0);
         }
-
+        
+         // Cette fonction simple remplace showPage pour ouvrir directement WhatsApp
+       function commander(nomProduit) {
+           const message = encodeURIComponent(`Salut, je suis très intéressé par l'article ${nomProduit}, possible d'en savoir plus ?`);
+           window.open(`https://wa.me/77736065?text=${message}`, '_blank');
+      }
+     
         function changeProductPage(pageNumber, btn) {
             document.querySelectorAll('.product-page').forEach(page => page.classList.remove('active'));
             document.getElementById('page-products-' + pageNumber).classList.add('active');
