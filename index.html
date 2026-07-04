@@ -103,16 +103,58 @@
             </section>
 
             <!-- Produits -->
-            <section id="products" class="page-section space-y-4">
-                <h2 class="text-xl font-bold mb-4">Boutique</h2>
-                <div id="page-products-1" class="product-page active grid grid-cols-1 gap-4">
-                    <div class="bg-white rounded-2xl p-4 shadow-sm border">
-                        <img src="https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png" class="w-full h-40 object-cover rounded-xl mb-3">
-                        <h3 class="font-bold text-sm">Scooter N°001</h3>
-                        <p class="text-blue-900 font-bold text-sm mb-3">720.000 CFA</p>
-                        <button onclick="commander('Scooter N°001')" class="w-full bg-blue-900 text-white py-2 rounded-lg text-sm font-bold">Commander</button>
-                    </div>
+        <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
+            
+            <!-- Conteneur grille corrigé -->
+            <div id="page-products-1" class="product-page active grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Article 1 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter N°001 : 720.000 CFA TTC</h3>
+                    <h3 class="font-bold text-sm mb-2">(sur commande uniquement)</h3>
+                    <button onclick="commander('Scooter N°001 : 720.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
                 </div>
+
+                <!-- Article 2 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/8L56yXkV/Capture-d-cran-2026-06-18-002116.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter SINSKI 01 : 950.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('Scooter SINSKI 01 : 950.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+                 <!-- Article 3 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/Xkb3C8D4/Capture-d-cran-2026-06-19-212705.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Moto Sonlink 150CC : 960.000 CFA TTC</h3>
+                    <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('Moto Sonlink 150CC : 960.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/gFw6KXp4/Capture-d-cran-2026-06-22-131555.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter HB01 : 950.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(disponible sur commande )</h3>
+                    <button onclick="commander('Scooter SINOTECH HB01 : 950.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/20HVTkQY/Capture-d-cran-2026-06-09-000505.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter SINOTECH NT 150CC : 870.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('Scooter SINOTECH NT 150CC : 870.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/SF574tk/Capture-d-cran-2026-05-25-030453.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">cooteSr F8 110CC : 750.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('scooteSr F8 110CC : 750.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+            </div>
                 <!-- Pagination simple -->
                 <div class="flex justify-center gap-2 mt-4">
                     <button onclick="changeProductPage(1, this)" class="px-3 py-1 rounded bg-blue-900 text-white text-xs">1</button>
@@ -121,37 +163,88 @@
                 </div>
             </section>
 
-            <!-- À Propos & Contact -->
-            <section id="about" class="page-section space-y-4">
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <h2 class="text-xl font-bold mb-4">Qui sommes-nous ?</h2>
-                    <p class="text-sm text-slate-600 leading-relaxed">X-PRESS LIVRAISON est votre solution privilégiée au Gabon.</p>
-                    <div class="mt-4 bg-slate-100 p-4 rounded-xl text-xs">
-                        <p><i class="fas fa-phone mr-2 text-green-600"></i> 077 73 60 65</p>
-                        <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
-                    </div>
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-sm">
-                    <iframe src="https://maps.app.goo.gl/qXLmSLW7mFYo5gUc6" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </section>
+                   <!-- Fret Maritime / Aérien -->
+        <section id="cart" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">Fret Maritime & Aérien</h2>
+            <p>Bientôt disponible ...</p>
+             <img src="https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png" alt="Logo GLOBEX GABON" class="h-20">
+            <p>Merci pour votre visite , Service GLOBEX GABON .</p>
+        </section>
 
-            <!-- FAQ -->
-            <section id="faq" class="page-section space-y-4">
-                <h2 class="text-xl font-bold mb-4">FAQ</h2>
-                <div class="space-y-2">
-                    <details class="bg-white p-4 rounded-xl shadow-sm"><summary class="font-bold text-sm cursor-pointer">Comment suivre ?</summary><p class="text-xs text-slate-500 mt-2">Utilisez votre code CT241.</p></details>
-                    <details class="bg-white p-4 rounded-xl shadow-sm"><summary class="font-bold text-sm cursor-pointer">Quels sont les délais ?</summary><p class="text-xs text-slate-500 mt-2">Optimisés pour Libreville.</p></details>
+             <!-- Qui sommes-nous -->
+        <section id="about" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">Qui sommes-nous ?</h2>
+            <div class="space-y-6 text-slate-700">
+                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle, nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
+                
+                <div class="bg-slate-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Contacts</h3>
+                    <p><i class="fas fa-phone mr-2 text-green-600"></i> 077 73 60 65 / 066 13 98 46</p>
+                    <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
                 </div>
+                <!-- Section Localisation -->
+               <section id="contact" class="page-section bg-white p-8 rounded shadow-sm mt-8">
+                   <h2 class="text-3xl font-bold mb-6 text-center">Où nous trouver ?</h2>
+                  <div class="overflow-hidden rounded-lg shadow-inner">
+                  <!-- Remplacez le src par le lien d'intégration que vous avez copié sur Google Maps -->
+                  <iframe 
+                  src="https://maps.app.goo.gl/qXLmSLW7mFYo5gUc6" 
+                  width="100%" 
+                  height="400" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy">
+                </iframe>
+             </div>
+                 <p class="text-center mt-4 text-slate-600">Nos bureaux sont situés au cœur de Libreville.</p>
             </section>
+                
+                <h3 class="text-xl font-bold text-blue-900">Pourquoi choisir X-PRESS LIVRAISON ?</h3>
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><strong>Expertise locale :</strong> Nous maîtrisons parfaitement la géographie du Grand Libreville et de ses environs, garantissant ainsi des trajets optimisés et des délais respectés.</li>
+                    <li><strong>Polyvalence de livraison :</strong> Nous prenons en charge tous types de colis, répondant aussi bien aux besoins des professionnels qu'aux demandes des particuliers. (voir les conditions générales d'utilisation)</li>
+                    <li><strong>Technologie au service du client :</strong> Nous avons développé une interface de suivi dédiée (OPS X-PRESS) qui vous permet de consulter l'état de vos colis en toute simplicité via un système de recherche par identifiant.</li>
+                    <li><strong>Sécurité et confidentialité :</strong> La protection de vos informations est notre priorité. Nous appliquons un masquage automatique des données sensibles, telles que les chiffres de vos numéros de téléphone.</li>
+                </ul>
 
-            <!-- CGU -->
-            <section id="cgu" class="page-section bg-white p-6 rounded-2xl shadow-sm">
-                <h2 class="font-bold text-lg mb-4 text-green-700">CGU</h2>
-                <div class="text-xs text-slate-600 space-y-3">
-                    <p><strong>Art 1:</strong> Relations société/utilisateur.</p>
-                    <p><strong>Art 2:</strong> Service de suivi CT241.</p>
-                    <p><strong>Art 3:</strong> Responsabilité et sécurité des données.</p>
+                <h3 class="text-xl font-bold text-blue-900 mt-6">Notre Engagement Qualité, Sûreté et Rapidité</h3>
+                <p>Chez X-PRESS LIVRAISON, nous savons qu'un envoi ne se résume pas à un simple déplacement d'objet. C'est une promesse que nous tenons pour vous. Que votre statut soit "livré", "en cours" ou qu'il nécessite une attention particulière en raison d'une erreur de paiement, problème de connexion ou autre, notre système de suivi est conçu pour vous offrir une transparence totale en temps réel.</p>
+
+                <h3 class="text-xl font-bold text-blue-900 mt-6">Comment fonctionne X-PRESS LIVRAISON ?</h3>
+                <p>Confiez-nous vos colis en toute sérénité. Nous avons simplifié notre processus pour que chaque envoi soit une expérience fluide et sans stress.</p>
+                <ol class="list-decimal ml-5 space-y-2">
+                    <li><strong>Planification de votre envoi :</strong>  Contactez-nous pour définir le lieu de récupération et la destination dans le Grand Libreville</li>
+                    <li><strong>Prise en charge sécurisée :</strong>  Votre colis reçoit un identifiant unique (système CT241).</li>
+                    <li><strong>Suivi en temps réel :</strong> Consultez le statut : en attente , pris en charge , En cours , livré</li>
+                    <li><strong>Livraison à destination :</strong> Remise au destinataire dans les meilleurs délais.</li>
+                </ol>
+            </div>
+            
+        </section>
+
+
+             <!-- FAQ -->
+        <section id="faq" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">FAQ</h2>
+            <div class="space-y-4">
+                <details class="bg-slate-50 p-4 rounded-lg"><summary class="font-bold cursor-pointer">Comment suivre mon colis ?</summary><p class="mt-2">Utilisez votre code unique CT241 dans l'onglet suivi.</p></details>
+                <details class="bg-slate-50 p-4 rounded-lg"><summary class="font-bold cursor-pointer">Quels sont les délais ?</summary><p class="mt-2">Nous optimisons les délais pour tout le Grand Libreville.</p></details>
+                <details class="bg-slate-50 p-4 rounded-lg"><summary class="font-bold cursor-pointer">Comment payer ?</summary><p class="mt-2">Nous acceptons Airtel Money et Moov Money avec le code CT241 comme motif.</p></details>
+            </div>
+
+             <!-- CGU -->
+        <section id="cgu" class="page-section bg-white p-8 rounded shadow-sm text-sm text-slate-700 leading-relaxed">
+            <h2 class="text-2xl font-bold mb-4 text-green-700">CONDITIONS GÉNÉRALES D’UTILISATION (CGU)</h2>
+            <p><strong>ARTICLE 1 : PRÉAMBULE ET DÉFINITIONS:</strong>Les présentes Conditions Générales d’Utilisation (ci-après les « CGU ») régissent les relations entre la société X-PRESS LIVRAISON, prestataire de services logistiques opérant dans le Grand Libreville, et toute personne physique ou morale (ci-après l’« Utilisateur ») accédant à nos services de livraison et de suivi en ligne.</p>
+            <p><strong>ARTICLE 2 : OBJET DU SERVICE :</strong> X-PRESS LIVRAISON fournit une solution de transport et de suivi de colis en temps réel. La plateforme permet à l’Utilisateur de solliciter une prestation de livraison et de consulter le statut de son expédition via un identifiant unique dénommé « Code CT241 ».</p>
+            <p><strong>ARTICLE 3 : ACCÈS ET UTILISATION DU SYSTÈME DE SUIVI (CT241)</strong> 3.1. Chaque commande validée génère automatiquement un Code CT241. 3.2. Ce code est la clé d’accès sécurisée aux informations du colis. Il incombe à l’Utilisateur de conserver ce code et de ne pas le divulguer à des tiers non autorisés. 3.3. L'utilisation du Code CT241 permet à l’Utilisateur de visualiser les étapes de sa livraison. X-PRESS LIVRAISON ne saurait être tenu responsable des conséquences liées à la perte ou à la divulgation du code par l’Utilisateur.</p>
+            <p><strong>ARTICLE 4 : PROTECTION DES DONNÉES ET CONFIDENTIALITÉ</strong> X-PRESS LIVRAISON accorde une importance capitale à la protection des données personnelles. 4.1. Données collectées : Nous collectons les informations strictement nécessaires à la prestation (nom, adresse de livraison, numéro de téléphone). 4.2. Engagement de sécurité : Afin de protéger nos clients contre toute tentative d’usurpation ou de harcèlement, nous appliquons un masquage automatique des quatre chiffres centraux des numéros de téléphone sur l’interface de suivi publique. 4.3. Non-divulgation : Aucune donnée personnelle ne sera transmise, vendue ou louée à des tiers à des fins commerciales.</p>
+            <p><strong>ARTICLE 5 : MODALITÉS DE PAIEMENT ET VALIDATION</strong>Les règlements sont effectués via les opérateurs de monnaie électronique (Airtel Money / Moov Money). 5.1. Validation par motif : Pour toute commande, l’Utilisateur doit impérativement indiquer son Code CT241 dans le champ « Motif du transfert ». 5.2. Absence de motif : En cas d'oubli ou d'erreur dans le motif de transfert, la validation automatique sera impossible. X-PRESS LIVRAISON ne pourra être tenu responsable des retards de traitement générés par cette erreur humaine, et des frais de recherche administrative pourront être appliqués. </p>
+            <p><strong>ARTICLE 6 : ENGAGEMENTS ET RESPONSABILITÉS</strong> 6.1. Nature des marchandises : L'Utilisateur garantit que le contenu du colis est licite, non dangereux, non inflammable et conforme à la législation en vigueur au Gabon. Toute marchandise interdite engage la responsabilité pénale exclusive de l'Utilisateur. 6.2. Limitation de responsabilité : X-PRESS LIVRAISON s'engage à mettre en œuvre les moyens nécessaires pour respecter les délais annoncés. Toutefois, nous ne sommes pas responsables des retards liés à la force majeure (intempéries, blocages routiers majeurs, pannes réseau des opérateurs mobiles). 6.3. Assurance : La responsabilité de X-PRESS LIVRAISON est limitée au montant de la prestation de transport. Pour toute marchandise de grande valeur, une assurance complémentaire doit être négociée au moment de la commande.</p>
+             <p><strong>ARTICLE 7 :  DROIT APPLICABLE ET LITIGES</strong>7.1. Les présentes CGU sont régies par le droit gabonais. 7.2. Tout différend relatif à l'exécution des présentes fera l'objet d'une tentative de résolution amiable entre les parties. En cas d'échec, le litige sera porté devant les juridictions compétentes du Tribunal de Libreville. </p>
+          
+            <p>En validant une commande de livraison via le formulaire de commande de X-PRESS LIVRAISON, l'Utilisateur reconnaît avoir lu, compris et accepté sans réserve les présentes conditions.</p>
+        </section>
                 </div>
             </section>
         </main>
