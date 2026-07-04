@@ -24,7 +24,7 @@
 
     <div class="app-container">
 
-        <!-- Barre de status -->
+        <!-- Barre de status mobile -->
         <div class="h-6 flex items-center justify-between px-4 text-xs font-bold text-slate-400 bg-white">
             <span>9:41</span>
             <div class="flex gap-1">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <!-- En-tête -->
+        <!-- Header -->
         <header class="bg-white px-4 py-4 flex justify-between items-center sticky top-0 z-30 border-b border-slate-100">
             <div class="flex items-center gap-2">
                 <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo" class="h-8">
@@ -44,7 +44,7 @@
             </button>
         </header>
 
-        <!-- Sidebar (Menu) -->
+        <!-- Sidebar Navigation -->
         <div id="sidebar" class="sidebar fixed inset-y-0 right-0 z-50 w-72 bg-white shadow-2xl transform translate-x-full p-6">
             <div class="flex justify-between items-center mb-8">
                 <span class="font-bold text-lg">Menu</span>
@@ -54,9 +54,10 @@
                 <button onclick="showPage('accueil')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-home text-blue-600"></i> Accueil</button>
                 <button onclick="showPage('services')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-truck text-emerald-600"></i> Nos Services</button>
                 <button onclick="showPage('products')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-store text-orange-600"></i> Nos Produits</button>
+                <button onclick="showPage('about')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-info-circle text-purple-600"></i> Qui sommes-nous ?</button>
                 <button onclick="showPage('cart')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-ship text-sky-600"></i> Fret</button>
-                <button onclick="showPage('about')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-info-circle text-purple-600"></i> À propos</button>
                 <button onclick="showPage('faq')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-question-circle text-red-600"></i> FAQ</button>
+                <button onclick="showPage('cgu')" class="text-left flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg"><i class="fas fa-file-contract text-slate-600"></i> CGU</button>
             </nav>
         </div>
         <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
@@ -73,6 +74,7 @@
                 <div class="flex flex-wrap justify-center gap-2">
                     <img src="https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png" class="h-20 w-auto rounded-lg">
                     <img src="https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png" class="h-20 w-auto rounded-lg">
+                    <img src="https://i.ibb.co/bRPMsXvZ/Capture-d-cran-2026-06-24-022601.png" class="h-20 w-auto rounded-lg">
                 </div>
 
                 <div class="grid grid-cols-1 gap-3">
@@ -87,11 +89,11 @@
                 <div class="grid grid-cols-1 gap-3">
                     <a href="https://consultation-html.pages.dev/" target="_blank" class="bg-white p-4 rounded-2xl shadow-sm flex items-center gap-4">
                         <div class="bg-blue-50 p-3 rounded-xl text-blue-600 text-xl"><i class="fas fa-search"></i></div>
-                        <div><h3 class="font-bold text-sm">Suivi</h3><p class="text-xs text-slate-500">Statut de votre colis</p></div>
+                        <div><h3 class="font-bold text-sm">Suivi</h3><p class="text-xs text-slate-500">Statut colis en temps réel</p></div>
                     </a>
                     <a href="https://1-2-html.pages.dev/" target="_blank" class="bg-emerald-50 p-4 rounded-2xl shadow-sm flex items-center gap-4">
                         <div class="bg-emerald-100 p-3 rounded-xl text-emerald-600 text-xl"><i class="fas fa-truck"></i></div>
-                        <div><h3 class="font-bold text-sm">Nouvelle commande</h3><p class="text-xs text-emerald-800">Demander une livraison</p></div>
+                        <div><h3 class="font-bold text-sm">Commande</h3><p class="text-xs text-emerald-800">Demander une livraison</p></div>
                     </a>
                     <a href="https://index-html-2qm.pages.dev/" target="_blank" class="bg-white p-4 rounded-2xl shadow-sm flex items-center gap-4">
                         <div class="bg-orange-50 p-3 rounded-xl text-orange-600 text-xl"><i class="fas fa-user-tie"></i></div>
@@ -111,18 +113,19 @@
                         <button onclick="commander('Scooter N°001')" class="w-full bg-blue-900 text-white py-2 rounded-lg text-sm font-bold">Commander</button>
                     </div>
                 </div>
-                <div id="pagination-container" class="flex justify-center gap-2 mt-4">
+                <!-- Pagination simple -->
+                <div class="flex justify-center gap-2 mt-4">
                     <button onclick="changeProductPage(1, this)" class="px-3 py-1 rounded bg-blue-900 text-white text-xs">1</button>
                     <button onclick="changeProductPage(2, this)" class="px-3 py-1 rounded bg-slate-200 text-xs">2</button>
                     <button onclick="changeProductPage(3, this)" class="px-3 py-1 rounded bg-slate-200 text-xs">3</button>
                 </div>
             </section>
 
-            <!-- À Propos -->
+            <!-- À Propos & Contact -->
             <section id="about" class="page-section space-y-4">
                 <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <h2 class="text-xl font-bold mb-4">À propos</h2>
-                    <p class="text-sm text-slate-600 leading-relaxed">Bienvenue chez X-PRESS LIVRAISON, votre solution privilégiée pour la livraison au Gabon.</p>
+                    <h2 class="text-xl font-bold mb-4">Qui sommes-nous ?</h2>
+                    <p class="text-sm text-slate-600 leading-relaxed">X-PRESS LIVRAISON est votre solution privilégiée au Gabon.</p>
                     <div class="mt-4 bg-slate-100 p-4 rounded-xl text-xs">
                         <p><i class="fas fa-phone mr-2 text-green-600"></i> 077 73 60 65</p>
                         <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
@@ -137,26 +140,20 @@
             <section id="faq" class="page-section space-y-4">
                 <h2 class="text-xl font-bold mb-4">FAQ</h2>
                 <div class="space-y-2">
-                    <details class="bg-white p-4 rounded-xl shadow-sm"><summary class="font-bold text-sm cursor-pointer">Comment suivre mon colis ?</summary><p class="text-xs text-slate-500 mt-2">Utilisez votre code CT241.</p></details>
+                    <details class="bg-white p-4 rounded-xl shadow-sm"><summary class="font-bold text-sm cursor-pointer">Comment suivre ?</summary><p class="text-xs text-slate-500 mt-2">Utilisez votre code CT241.</p></details>
                     <details class="bg-white p-4 rounded-xl shadow-sm"><summary class="font-bold text-sm cursor-pointer">Quels sont les délais ?</summary><p class="text-xs text-slate-500 mt-2">Optimisés pour Libreville.</p></details>
                 </div>
             </section>
 
-            <!-- Fret / CGU -->
-            <section id="cart" class="page-section bg-white p-6 rounded-2xl shadow-sm">
-                <h2 class="font-bold text-lg mb-2">Fret Maritime & Aérien</h2>
-                <p class="text-sm">Bientôt disponible ...</p>
-            </section>
-
+            <!-- CGU -->
             <section id="cgu" class="page-section bg-white p-6 rounded-2xl shadow-sm">
                 <h2 class="font-bold text-lg mb-4 text-green-700">CGU</h2>
                 <div class="text-xs text-slate-600 space-y-3">
-                    <p><strong>Art 1:</strong> Relations entre la société X-PRESS LIVRAISON et l'utilisateur.</p>
-                    <p><strong>Art 2:</strong> Service de transport et de suivi via code CT241.</p>
+                    <p><strong>Art 1:</strong> Relations société/utilisateur.</p>
+                    <p><strong>Art 2:</strong> Service de suivi CT241.</p>
                     <p><strong>Art 3:</strong> Responsabilité et sécurité des données.</p>
                 </div>
             </section>
-
         </main>
     </div>
 
@@ -177,7 +174,7 @@
         function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            toggleSidebar();
+            toggleSidebar(); // Ferme le menu après sélection
             window.scrollTo(0,0);
         }
 
