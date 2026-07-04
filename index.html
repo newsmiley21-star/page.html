@@ -3,118 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X-press Application</title>
+    <meta name="google-site-verification" content="TMVJB6lLxdI38F_t1_ijlb9zRgBQIQTWM9uEPV2A5ys" />
+    <title>X-press livraison Gabon</title>
+    <!-- Logo/Favicon -->
+    <link rel="icon" href="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
-        .app-container { max-width: 450px; margin: 0 auto; min-height: 100vh; background: #ffffff; box-shadow: 0 0 40px rgba(0,0,0,0.1); position: relative; overflow-x: hidden; }
         .page-section { display: none; }
-        .page-section.active { display: block; animation: fadeIn 0.4s ease; }
+        .page-section.active { display: block; }
         .product-page { display: none; }
         .product-page.active { display: grid; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-heartbeat { animation: heartbeat 5s ease-in-out infinite; }
-        @keyframes heartbeat { 0%, 85%, 100% { transform: scale(1); } 90% { transform: scale(1.05); } }
     </style>
-</head>
-<body class="text-slate-900">
-
-    <div class="app-container">
-
-        <!-- Barre de status mobile -->
-        <div class="h-6 flex items-center justify-between px-4 text-xs font-bold text-slate-400 bg-white">
-            <span>9:41</span>
-            <div class="flex gap-1">
-                <i class="fas fa-signal"></i>
-                <i class="fas fa-wifi"></i>
-                <i class="fas fa-battery-full"></i>
-            </div>
-        </div>
-
-        <!-- Header -->
-        <header class="bg-white px-4 py-4 flex justify-between items-center sticky top-0 z-30 border-b border-slate-100">
-            <div class="flex items-center gap-2">
-                <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo" class="h-8">
-            </div>
-            <button onclick="toggleSidebar()" class="p-2 text-blue-900 bg-blue-50 rounded-full">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </header>
-
-        <!-- Main Content -->
-        <main class="max-w-6xl mx-auto py-6 px-4 pb-20">
-            
-            <!-- Boutons d'action rapides -->
-            <div class="flex justify-center gap-4 py-4 border-b border-slate-200">
-                <a href="https://1-2-html.pages.dev/" target="_blank" class="bg-blue-900 text-white px-6 py-2 rounded shadow hover:bg-blue-800 transition text-xs font-bold">Demander une livraison</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZPHjafAbRoPm-ACpukDd5CBxBWWu1RFLmIh-6jnhW-Hh3NQ/viewform?usp=dialog" target="_blank" class="bg-white border border-slate-300 px-6 py-2 rounded shadow hover:bg-slate-100 transition text-xs font-bold">Signaler un dommage 📦</a>
-            </div>
+    <style>
+    /* Animation de battement */
+    @keyframes heartbeat {
+       /* Le texte est immobile de 0% à 85% du temps (soit environ 7 secondes) */
+        0%, 85%, 100% { transform: scale(1); }
         
-            <!-- Accueil -->
-            <section id="accueil" class="page-section active bg-white p-8 rounded shadow-sm">
-                <h2 class="text-3xl font-bold mb-4">Bienvenue chez X-PRESS</h2>
-                <p class="animate-heartbeat text-lg font-medium text-blue-900">
-                    La rapidité au service de vos envois. Sélectionnez une option dans le menu ou utilisez les boutons ci-dessus.
-                </p>
-            </section>
+        /* La pulsation a lieu uniquement entre 90% et 95% du cycle */
+        90% { transform: scale(1.05); }
+    }
+    .animate-heartbeat {
+        display: inline-block;
+        animation: heartbeat 5s ease-in-out infinite;
+    }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
 
-            <!-- Services -->
-            <section id="services" class="page-section bg-white p-8 rounded shadow-sm">
-                <h2 class="text-3xl font-bold mb-6 text-center">Nos Services</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="https://consultation-html.pages.dev/" target="_blank" class="block p-6 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition text-center">
-                        <i class="fas fa-search text-3xl text-blue-600 mb-3"></i>
-                        <h3 class="font-bold text-blue-900 text-lg mb-2">Suivi des livraisons</h3>
-                        <p class="text-sm text-blue-700">Consultez l'état de votre colis en temps réel.</p>
-                    </a>
-                    <a href="https://1-2-html.pages.dev/" target="_blank" class="block p-6 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition text-center">
-                        <i class="fas fa-truck text-3xl text-emerald-600 mb-3"></i>
-                        <h3 class="font-bold text-emerald-900 text-lg mb-2">Nouvelle commande</h3>
-                        <p class="text-sm text-emerald-700">Effectuez une demande de livraison rapidement.</p>
-                    </a>
-                    <a href="https://index-html-2qm.pages.dev/" target="_blank" class="block p-6 bg-orange-50 hover:bg-orange-100 rounded-lg border border-orange-200 transition text-center">
-                        <i class="fas fa-user-tie text-3xl text-orange-600 mb-3"></i>
-                        <h3 class="font-bold text-orange-900 text-lg mb-2">Espace livreurs</h3>
-                        <p class="text-sm text-orange-700">Accès réservé aux partenaires logistiques.</p>
-                    </a>
-                </div>
-            </section>
+    <!-- En-tête -->
+    <header class="bg-white border-b border-slate-200">
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-2">
+                <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo X-Press" class="h-10">
+            </div>
+            <ul class="flex flex-wrap gap-4 text-sm font-semibold text-slate-600">
+                <li><button onclick="showPage('accueil')" class="hover:text-green-700">Accueil</button></li>
+                <li><button onclick="showPage('services')" class="hover:text-green-700">Nos services</button></li>
+                <li><button onclick="showPage('about')" class="hover:text-green-700">Qui sommes-nous?</button></li>
+                <li><button onclick="showPage('products')" class="hover:text-green-700">Nos produits</button></li>
+                <li><button onclick="showPage('cart')" class="hover:text-green-700">Fret Maritime / Aérien</button></li>
+                <li><button onclick="showPage('faq')" class="hover:text-green-700">FAQ</button></li>
+            </ul>
+        </nav>
+    </header>
 
-            <!-- Produits -->
-            <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
-                <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
-                <div id="page-products-1" class="product-page active grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Articles (Simplifiés pour tenir dans 1 page) -->
-                    <div class="border rounded-lg p-4 hover:shadow-lg transition">
-                        <img src="https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
-                        <h3 class="font-bold text-sm mb-2">Scooter N°001 : 720.000 CFA</h3>
-                        <button onclick="commander('Scooter N°001')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
-                    </div>
-                </div>
-            </section>
+    <!-- Bannière Enseigne -->
+    <section class="bg-white py-6 text-center">
+        <div class="flex flex-wrap justify-center items-center gap-4">
+            <img src="https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png" alt="Bannière 2" class="max-h-32 md:max-h-48">
+            <img src="https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png" alt="Bannière 1" class="max-h-32 md:max-h-48">
+            <img src="https://i.ibb.co/bRPMsXvZ/Capture-d-cran-2026-06-24-022601.png" alt="Bannière 1" class="max-h-32 md:max-h-48">
+        </div>
+    </section>
 
-            <!-- CGU -->
-            <section id="cgu" class="page-section bg-white p-8 rounded shadow-sm text-sm text-slate-700 leading-relaxed">
-                <h2 class="text-2xl font-bold mb-4 text-green-700">CGU</h2>
-                <p><strong>Art 1:</strong> Relations société/utilisateur.</p>
-                <p><strong>Art 2:</strong> Service de suivi CT241.</p>
-            </section>
-        </main>
-
-        <!-- Pied de page -->
-        <footer class="text-center py-6 text-slate-500 text-xs border-t">
-            <p>&copy; 2026 X-press livraison gabon</p>
-            <button onclick="showPage('cgu')" class="text-blue-600 underline">Conditions Générales</button>
-        </footer>
+    <!-- Boutons d'action rapides -->
+    <div class="flex justify-center gap-4 py-4 border-b border-slate-200">
+        <a href="https://1-2-html.pages.dev/" target="_blank" class="bg-blue-900 text-white px-6 py-2 rounded shadow hover:bg-blue-800 transition">Demander une livraison</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZPHjafAbRoPm-ACpukDd5CBxBWWu1RFLmIh-6jnhW-Hh3NQ/viewform?usp=dialog" target="_blank" class="bg-white border border-slate-300 px-6 py-2 rounded shadow hover:bg-slate-100 transition">Signaler un dommage 📦</a>
     </div>
 
-    <script>
-        function toggleSidebar() {
-            console.log("Menu latéral désactivé dans cette version.");
-        }
+    <!-- CONTENU DYNAMIQUE -->
+    <main class="max-w-6xl mx-auto py-12 px-6">
+        
+        <!-- Accueil -->
+        <section id="accueil" class="page-section active bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">Bienvenue chez X-PRESS</h2>
+           <!-- Ajout de la classe animate-heartbeat ici -->
+            <p class="animate-heartbeat text-lg font-medium text-blue-900">
+                La rapidité au service de vos envois. Sélectionnez une option dans le menu ou utilisez les boutons ci-dessus.
+            </p>
+      </section>
 
+        <!-- Services -->
+        <section id="services" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-6 text-center">Nos Services</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://consultation-html.pages.dev/" target="_blank" class="block p-6 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition text-center">
+                    <i class="fas fa-search text-3xl text-blue-600 mb-3"></i>
+                    <h3 class="font-bold text-blue-900 text-lg mb-2">Suivi des livraisons</h3>
+                    <p class="text-sm text-blue-700">Consultez l'état de votre colis en temps réel.</p>
+                </a>
+                <a href="https://1-2-html.pages.dev/" target="_blank" class="block p-6 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition text-center">
+                    <i class="fas fa-truck text-3xl text-emerald-600 mb-3"></i>
+                    <h3 class="font-bold text-emerald-900 text-lg mb-2">Nouvelle commande</h3>
+                    <p class="text-sm text-emerald-700">Effectuez une demande de livraison rapidement.</p>
+                </a>
+                <a href="https://index-html-2qm.pages.dev/" target="_blank" class="block p-6 bg-orange-50 hover:bg-orange-100 rounded-lg border border-orange-200 transition text-center">
+                    <i class="fas fa-user-tie text-3xl text-orange-600 mb-3"></i>
+                    <h3 class="font-bold text-orange-900 text-lg mb-2">Espace livreurs</h3>
+                    <p class="text-sm text-orange-700">Accès réservé aux partenaires logistiques.</p>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZPHjafAbRoPm-ACpukDd5CBxBWWu1RFLmIh-6jnhW-Hh3NQ/viewform?usp=dialog" target="_blank" class="block p-6 bg-red-50 hover:bg-red-100 rounded-lg border border-red-200 transition text-center">
+                   <i class="fas fa-exclamation-triangle text-3xl text-red-600 mb-3"></i>
+                   <h3 class="font-bold text-red-900 text-lg mb-2">Signalement sinistre</h3>
+                  <p class="text-sm text-red-700">Déclarez un incident ou un dommage sur votre colis.</p>
+               </a>
+                <a href="https://votre-lien-formulaire-partenaire.com" target="_blank" class="block p-6 bg-purple-50 hover:bg-purple-100 rounded-lg border border-purple-200 transition text-center">
+                 <i class="fas fa-handshake text-3xl text-purple-600 mb-3"></i>
+                 <h3 class="font-bold text-purple-900 text-lg mb-2">Devenir partenaire</h3>
+                 <p class="text-sm text-purple-700">Rejoignez notre réseau logistique.</p>
+             </a>
+            </div>
+        </section>
+
+        <!-- Qui sommes-nous -->
+        <section id="about" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">Qui sommes-nous ?</h2>
+            <div class="space-y-6 text-slate-700">
+                <p>Bienvenue chez <strong>X-PRESS LIVRAISON</strong>, votre solution privilégiée pour la livraison au Gabon. Comme l'illustre notre identité visuelle, nous avons placé la rapidité et l'efficacité au cœur de notre ADN.</p>
+                
+                <div class="bg-slate-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Contacts</h3>
+                    <p><i class="fas fa-phone mr-2 text-green-600"></i> 077 73 60 65 / 066 13 98 46</p>
+                    <p><i class="fas fa-envelope mr-2 text-blue-600"></i> X-presslivraisoncommercial@gmail.com</p>
+                </div>
+                <!-- Section Localisation -->
+               <section id="contact" class="page-section bg-white p-8 rounded shadow-sm mt-8">
+                   <h2 class="text-3xl font-bold mb-6 text-center">Où nous trouver ?</h2>
+                  <div class="overflow-hidden rounded-lg shadow-inner">
+                  <!-- Remplacez le src par le lien d'intégration que vous avez copié sur Google Maps -->
+                  <iframe 
+                  src="https://maps.app.goo.gl/qXLmSLW7mFYo5gUc6" 
+                  width="100%" 
+                  height="400" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy">
+                </iframe>
+             </div>
+                 <p class="text-center mt-4 text-slate-600">Nos bureaux sont situés au cœur de Libreville.</p>
+            </section>
+                
+                <h3 class="text-xl font-bold text-blue-900">Pourquoi choisir X-PRESS LIVRAISON ?</h3>
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><strong>Expertise locale :</strong> Nous maîtrisons parfaitement la géographie du Grand Libreville et de ses environs, garantissant ainsi des trajets optimisés et des délais respectés.</li>
+                    <li><strong>Polyvalence de livraison :</strong> Nous prenons en charge tous types de colis, répondant aussi bien aux besoins des professionnels qu'aux demandes des particuliers. (voir les conditions générales d'utilisation)</li>
+                    <li><strong>Technologie au service du client :</strong> Nous avons développé une interface de suivi dédiée (OPS X-PRESS) qui vous permet de consulter l'état de vos colis en toute simplicité via un système de recherche par identifiant.</li>
+                    <li><strong>Sécurité et confidentialité :</strong> La protection de vos informations est notre priorité. Nous appliquons un masquage automatique des données sensibles, telles que les chiffres de vos numéros de téléphone.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-blue-900 mt-6">Notre Engagement Qualité, Sûreté et Rapidité</h3>
+                <p>Chez X-PRESS LIVRAISON, nous savons qu'un envoi ne se résume pas à un simple déplacement d'objet. C'est une promesse que nous tenons pour vous. Que votre statut soit "livré", "en cours" ou qu'il nécessite une attention particulière en raison d'une erreur de paiement, problème de connexion ou autre, notre système de suivi est conçu pour vous offrir une transparence totale en temps réel.</p>
+
+                <h3 class="text-xl font-bold text-blue-900 mt-6">Comment fonctionne X-PRESS LIVRAISON ?</h3>
+                <p>Confiez-nous vos colis en toute sérénité. Nous avons simplifié notre processus pour que chaque envoi soit une expérience fluide et sans stress.</p>
+                <ol class="list-decimal ml-5 space-y-2">
+                    <li><strong>Planification de votre envoi :</strong>  Contactez-nous pour définir le lieu de récupération et la destination dans le Grand Libreville</li>
+                    <li><strong>Prise en charge sécurisée :</strong>  Votre colis reçoit un identifiant unique (système CT241).</li>
+                    <li><strong>Suivi en temps réel :</strong> Consultez le statut : en attente , pris en charge , En cours , livré</li>
+                    <li><strong>Livraison à destination :</strong> Remise au destinataire dans les meilleurs délais.</li>
+                </ol>
+            </div>
+            
+        </section>
+
+        <!-- Produits -->
+        <section id="products" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-8 text-center">Notre Vitrine</h2>
+            
+            <!-- Conteneur grille corrigé -->
+            <div id="page-products-1" class="product-page active grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Article 1 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter N°001 : 720.000 CFA TTC</h3>
+                    <h3 class="font-bold text-sm mb-2">(sur commande uniquement)</h3>
+                    <button onclick="commander('Scooter N°001 : 720.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/8L56yXkV/Capture-d-cran-2026-06-18-002116.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter SINSKI 01 : 950.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('Scooter SINSKI 01 : 950.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+                 <!-- Article 3 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/Xkb3C8D4/Capture-d-cran-2026-06-19-212705.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Moto Sonlink 150CC : 960.000 CFA TTC</h3>
+                    <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('Moto Sonlink 150CC : 960.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/gFw6KXp4/Capture-d-cran-2026-06-22-131555.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter HB01 : 950.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(disponible sur commande )</h3>
+                    <button onclick="commander('Scooter SINOTECH HB01 : 950.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/20HVTkQY/Capture-d-cran-2026-06-09-000505.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">Scooter SINOTECH NT 150CC : 870.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('Scooter SINOTECH NT 150CC : 870.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                    <img src="https://i.ibb.co/SF574tk/Capture-d-cran-2026-05-25-030453.png" alt="Scooter" class="w-full h-32 object-cover rounded mb-4">
+                    <h3 class="font-bold text-sm mb-2">cooteSr F8 110CC : 750.000 CFA TTC</h3>
+                     <h3 class="font-bold text-sm mb-2">(sur commande )</h3>
+                    <button onclick="commander('scooteSr F8 110CC : 750.000 CFA TTC')" class="w-full bg-blue-900 text-white text-xs py-2 rounded hover:bg-blue-800 transition">Commander</button>
+                </div>
+            </div>
+            
+            <div id="pagination-container" class="mt-10 flex justify-center items-center gap-4 text-sm text-blue-900 font-semibold">
+                <button onclick="changeProductPage(1, this)" class="page-btn border px-3 py-1 rounded bg-blue-900 text-white">1</button>
+                <button onclick="changeProductPage(2, this)" class="page-btn border px-3 py-1 rounded hover:bg-blue-50">2</button>
+                <button onclick="changeProductPage(3, this)" class="page-btn border px-3 py-1 rounded hover:bg-blue-50">3</button>
+            </div>
+        </section>
+
+        <!-- Fret Maritime / Aérien -->
+        <section id="cart" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">Fret Maritime & Aérien</h2>
+            <p>Bientôt disponible ...</p>
+             <img src="https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png" alt="Logo GLOBEX GABON" class="h-20">
+            <p>Merci pour votre visite , Service GLOBEX GABON .</p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">FAQ</h2>
+            <div class="space-y-4">
+                <details class="bg-slate-50 p-4 rounded-lg"><summary class="font-bold cursor-pointer">Comment suivre mon colis ?</summary><p class="mt-2">Utilisez votre code unique CT241 dans l'onglet suivi.</p></details>
+                <details class="bg-slate-50 p-4 rounded-lg"><summary class="font-bold cursor-pointer">Quels sont les délais ?</summary><p class="mt-2">Nous optimisons les délais pour tout le Grand Libreville.</p></details>
+                <details class="bg-slate-50 p-4 rounded-lg"><summary class="font-bold cursor-pointer">Comment payer ?</summary><p class="mt-2">Nous acceptons Airtel Money et Moov Money avec le code CT241 comme motif.</p></details>
+            </div>
+        </section>
+
+        <!-- CGU -->
+        <section id="cgu" class="page-section bg-white p-8 rounded shadow-sm text-sm text-slate-700 leading-relaxed">
+            <h2 class="text-2xl font-bold mb-4 text-green-700">CONDITIONS GÉNÉRALES D’UTILISATION (CGU)</h2>
+            <p><strong>ARTICLE 1 : PRÉAMBULE ET DÉFINITIONS:</strong>Les présentes Conditions Générales d’Utilisation (ci-après les « CGU ») régissent les relations entre la société X-PRESS LIVRAISON, prestataire de services logistiques opérant dans le Grand Libreville, et toute personne physique ou morale (ci-après l’« Utilisateur ») accédant à nos services de livraison et de suivi en ligne.</p>
+            <p><strong>ARTICLE 2 : OBJET DU SERVICE :</strong> X-PRESS LIVRAISON fournit une solution de transport et de suivi de colis en temps réel. La plateforme permet à l’Utilisateur de solliciter une prestation de livraison et de consulter le statut de son expédition via un identifiant unique dénommé « Code CT241 ».</p>
+            <p><strong>ARTICLE 3 : ACCÈS ET UTILISATION DU SYSTÈME DE SUIVI (CT241)</strong> 3.1. Chaque commande validée génère automatiquement un Code CT241. 3.2. Ce code est la clé d’accès sécurisée aux informations du colis. Il incombe à l’Utilisateur de conserver ce code et de ne pas le divulguer à des tiers non autorisés. 3.3. L'utilisation du Code CT241 permet à l’Utilisateur de visualiser les étapes de sa livraison. X-PRESS LIVRAISON ne saurait être tenu responsable des conséquences liées à la perte ou à la divulgation du code par l’Utilisateur.</p>
+            <p><strong>ARTICLE 4 : PROTECTION DES DONNÉES ET CONFIDENTIALITÉ</strong> X-PRESS LIVRAISON accorde une importance capitale à la protection des données personnelles. 4.1. Données collectées : Nous collectons les informations strictement nécessaires à la prestation (nom, adresse de livraison, numéro de téléphone). 4.2. Engagement de sécurité : Afin de protéger nos clients contre toute tentative d’usurpation ou de harcèlement, nous appliquons un masquage automatique des quatre chiffres centraux des numéros de téléphone sur l’interface de suivi publique. 4.3. Non-divulgation : Aucune donnée personnelle ne sera transmise, vendue ou louée à des tiers à des fins commerciales.</p>
+            <p><strong>ARTICLE 5 : MODALITÉS DE PAIEMENT ET VALIDATION</strong>Les règlements sont effectués via les opérateurs de monnaie électronique (Airtel Money / Moov Money). 5.1. Validation par motif : Pour toute commande, l’Utilisateur doit impérativement indiquer son Code CT241 dans le champ « Motif du transfert ». 5.2. Absence de motif : En cas d'oubli ou d'erreur dans le motif de transfert, la validation automatique sera impossible. X-PRESS LIVRAISON ne pourra être tenu responsable des retards de traitement générés par cette erreur humaine, et des frais de recherche administrative pourront être appliqués. </p>
+            <p><strong>ARTICLE 6 : ENGAGEMENTS ET RESPONSABILITÉS</strong> 6.1. Nature des marchandises : L'Utilisateur garantit que le contenu du colis est licite, non dangereux, non inflammable et conforme à la législation en vigueur au Gabon. Toute marchandise interdite engage la responsabilité pénale exclusive de l'Utilisateur. 6.2. Limitation de responsabilité : X-PRESS LIVRAISON s'engage à mettre en œuvre les moyens nécessaires pour respecter les délais annoncés. Toutefois, nous ne sommes pas responsables des retards liés à la force majeure (intempéries, blocages routiers majeurs, pannes réseau des opérateurs mobiles). 6.3. Assurance : La responsabilité de X-PRESS LIVRAISON est limitée au montant de la prestation de transport. Pour toute marchandise de grande valeur, une assurance complémentaire doit être négociée au moment de la commande.</p>
+             <p><strong>ARTICLE 7 :  DROIT APPLICABLE ET LITIGES</strong>7.1. Les présentes CGU sont régies par le droit gabonais. 7.2. Tout différend relatif à l'exécution des présentes fera l'objet d'une tentative de résolution amiable entre les parties. En cas d'échec, le litige sera porté devant les juridictions compétentes du Tribunal de Libreville. </p>
+          
+            <p>En validant une commande de livraison via le formulaire de commande de X-PRESS LIVRAISON, l'Utilisateur reconnaît avoir lu, compris et accepté sans réserve les présentes conditions.</p>
+        </section>
+
+        <!-- Section Commander -->
+        <section id="commander" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">Nouvelle Commande</h2>
+            <p>Formulaire de commande en préparation...</p>
+        </section>
+
+        <!-- Section Suivi -->
+        <section id="suivi" class="page-section bg-white p-8 rounded shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">Suivi de Colis</h2>
+            <p>Veuillez entrer votre numéro de suivi (CT241).</p>
+        </section>
+
+        <!-- Section WhatsApp -->
+        <section class="mt-12 text-center py-10 bg-orange-100 rounded-lg">
+            <p class="mb-4 font-bold">REJOINDRE NOTRE COMMUNAUTÉ</p>
+            <a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center hover:bg-green-600 transition">
+                <i class="fab fa-whatsapp mr-2 text-xl"></i> WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="text-center py-10 text-slate-500 text-sm border-t">
+        <div class="py-8 text-center">
+             <h3 class="font-bold text-slate-800 mb-4">Suivez-nous sur nos réseaux</h3>
+          <div class="flex justify-center gap-6">
+             <a href="https://facebook.com/votre_page" target="_blank" class="text-blue-600 hover:text-blue-800 transition text-3xl">
+            <i class="fab fa-facebook"></i>
+        </a>
+           <a href="https://instagram.com/votre_profil" target="_blank" class="text-pink-600 hover:text-pink-800 transition text-3xl">
+           <i class="fab fa-instagram"></i>
+        </a>
+           <a href="https://t.me/votre_canal" target="_blank" class="text-sky-500 hover:text-sky-700 transition text-3xl">
+           <i class="fab fa-telegram"></i>
+        </a>
+    </div>
+</div>
+        <p>&copy; 2026 X-press livraison gabon - Tous droits réservés.</p>
+        <p>Contact : 077 73 60 65 / 066 13 98 46 - X-presslivraisoncommercial@gmail.com</p>
+        <button onclick="showPage('cgu')" class="text-blue-600 underline">Voir les Conditions Generales d'Utilisation</button>
+    </footer>
+
+    <script>
         function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
@@ -122,8 +303,19 @@
         }
 
         function commander(nomProduit) {
-            const message = encodeURIComponent(`Salut, je suis intéressé par ${nomProduit}.`);
+            const message = encodeURIComponent(`Salut, je suis très intéressé par l'article ${nomProduit}, possible d'en savoir plus ?`);
             window.open(`https://wa.me/77736065?text=${message}`, '_blank');
+        }
+
+        function changeProductPage(pageNumber, btn) {
+            document.querySelectorAll('.product-page').forEach(page => page.classList.remove('active'));
+            document.getElementById('page-products-' + pageNumber).classList.add('active');
+            
+            document.querySelectorAll('.page-btn').forEach(b => {
+                b.classList.remove('bg-blue-900', 'text-white');
+                b.classList.add('hover:bg-blue-50');
+            });
+            btn.classList.add('bg-blue-900', 'text-white');
         }
     </script>
 </body>
