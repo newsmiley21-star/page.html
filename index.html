@@ -142,16 +142,31 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-lg font-bold text-slate-800 mb-4">Actualités & Offres</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition flex items-center justify-center overflow-hidden h-40">
-                            <img src="https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png" alt="Bannière 2" class="max-h-full object-contain">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fas fa-bullhorn text-brand-500"></i> Actualités & Offres Flash (6s)
+                    </h3>
+                    
+                    <!-- Bannière Publicitaire animée de 6 secondes -->
+                    <div class="relative bg-slate-100 rounded-3xl overflow-hidden border border-slate-150 shadow-sm h-52 md:h-64 mb-8 group" id="banner-carousel" onmouseenter="pauseBanner()" onmouseleave="resumeBanner()">
+                        <!-- Slides Container -->
+                        <div id="carousel-slides" class="w-full h-full relative">
+                            <!-- Injecté de façon dynamique par JavaScript -->
                         </div>
-                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition flex items-center justify-center overflow-hidden h-40">
-                            <img src="https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png" alt="Bannière 1" class="max-h-full object-contain">
-                        </div>
-                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition flex items-center justify-center overflow-hidden h-40">
-                            <img src="https://i.ibb.co/bRPMsXvZ/Capture-d-cran-2026-06-24-022601.png" alt="Bannière 3" class="max-h-full object-contain">
+                        
+                        <!-- Navigation manuelle (Précédent / Suivant) -->
+                        <button onclick="prevBanner(event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition duration-300 z-10">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button onclick="nextBanner(event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition duration-300 z-10">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        
+                        <!-- Barre de progression de 6 secondes -->
+                        <div class="absolute bottom-0 left-0 h-1.5 bg-brand-500 transition-all ease-linear" style="width: 0%;" id="carousel-progress-bar"></div>
+                        
+                        <!-- Puces indicatrices en bas -->
+                        <div class="absolute bottom-4 right-6 flex gap-1.5 z-10" id="carousel-dots">
+                            <!-- Injecté par JavaScript -->
                         </div>
                     </div>
 
@@ -837,6 +852,38 @@
             }
         ];
 
+        var bannersData = [
+            {
+                id: 1,
+                img: "https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png",
+                title: "Livraison Rapide",
+                desc: "X-PRESS s'engage à livrer vos plis et colis sur Libreville en moins d'une heure !",
+                link: "https://1-2-html.pages.dev/"
+            },
+            {
+                id: 2,
+                img: "https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png",
+                title: "Scooters sur Commande",
+                desc: "Une sélection d'engins robustes, maniable et idéals pour le trafic local.",
+                link: "products"
+            },
+            {
+                id: 3,
+                img: "https://i.ibb.co/bRPMsXvZ/Capture-d-cran-2026-06-24-022601.png",
+                title: "Partenariats e-Commerce",
+                desc: "Vous vendez en ligne ? Confiez-nous vos expéditions pour fidéliser vos clients.",
+                link: "services"
+            }
+        ];
+
+        var currentBannerIdx = 0;
+        var bannerInterval;
+        var progressInterval;
+        var progressPercent = 0;
+        var isBannerPaused = false;
+        var bannerDuration = 6000; // Durée de 6 secondes
+        var progressStep = 30; // Rafraîchissement de la barre toutes les 30ms
+
         var currentProductPage = 1;
         var productsPerPage = 6;
         var selectedCategory = "Tout";
@@ -993,6 +1040,116 @@
             paginationContainer.innerHTML = paginationHTML;
         }
 
+        function renderBanners() {
+            var slidesContainer = document.getElementById("carousel-slides");
+            var dotsContainer = document.getElementById("carousel-dots");
+            if (!slidesContainer || !dotsContainer) return;
+
+            var slidesHTML = "";
+            var dotsHTML = "";
+
+            bannersData.forEach(function(banner, idx) {
+                var isActive = idx === currentBannerIdx;
+                var visibilityClass = isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none";
+
+                slidesHTML += `
+                <div class="absolute inset-0 transition-all duration-[800ms] ease-in-out ${visibilityClass} flex items-center cursor-pointer" onclick="handleBannerClick(${idx})">
+                    <!-- Image de fond -->
+                    <img src="${banner.img}" alt="${banner.title}" class="absolute inset-0 w-full h-full object-cover select-none">
+                    
+                    <!-- Voile dégradé sombre chic pour une lisibilité parfaite -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/50 to-transparent"></div>
+                    
+                    <!-- Informations textuelles et bouton d'action -->
+                    <div class="relative p-6 md:p-10 text-white max-w-md z-10 flex flex-col justify-center h-full">
+                        <span class="bg-brand-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full w-max uppercase tracking-wider mb-2.5">
+                            Offre Active
+                        </span>
+                        <h4 class="text-xl md:text-2xl font-bold mb-2 leading-tight drop-shadow-sm">${banner.title}</h4>
+                        <p class="text-xs md:text-sm text-slate-200 font-medium opacity-95 mb-4 line-clamp-2 drop-shadow-sm">${banner.desc}</p>
+                        <span class="flex items-center gap-1.5 bg-white text-slate-950 px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-50 transition shadow-md w-max">
+                            Voir plus <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>`;
+
+                var dotActiveStyle = isActive ? "bg-brand-500 w-6" : "bg-white/40 w-2 hover:bg-white/80";
+                dotsHTML += `<button onclick="goToBanner(${idx}, event)" class="h-2 rounded-full transition-all duration-300 ${dotActiveStyle}"></button>`;
+            });
+
+            slidesContainer.innerHTML = slidesHTML;
+            dotsContainer.innerHTML = dotsHTML;
+
+            resetBannerTimer();
+        }
+
+        function handleBannerClick(idx) {
+            var destination = bannersData[idx].link;
+            if (destination.startsWith("http")) {
+                window.open(destination, "_blank");
+            } else {
+                // Navigation d'onglets interne
+                var navigationButtons = document.querySelectorAll(".nav-btn");
+                var matchingBtn = Array.from(navigationButtons).find(function(btn) {
+                    return btn.getAttribute("onclick").includes(destination);
+                });
+                navigate(destination, matchingBtn);
+            }
+        }
+
+        function resetBannerTimer() {
+            clearInterval(bannerInterval);
+            clearInterval(progressInterval);
+
+            // Recommencer le décompte automatique de 6s
+            if (!isBannerPaused) {
+                bannerInterval = setInterval(nextBanner, bannerDuration);
+            }
+
+            // Animer la barre de progression
+            progressPercent = 0;
+            var progressBar = document.getElementById("carousel-progress-bar");
+            if (progressBar) progressBar.style.width = "0%";
+
+            progressInterval = setInterval(function() {
+                if (!isBannerPaused) {
+                    progressPercent += (progressStep / bannerDuration) * 100;
+                    if (progressPercent <= 100) {
+                        if (progressBar) progressBar.style.width = progressPercent + "%";
+                    } else {
+                        clearInterval(progressInterval);
+                    }
+                }
+            }, progressStep);
+        }
+
+        function nextBanner(event) {
+            if (event) event.stopPropagation();
+            currentBannerIdx = (currentBannerIdx + 1) % bannersData.length;
+            renderBanners();
+        }
+
+        function prevBanner(event) {
+            if (event) event.stopPropagation();
+            currentBannerIdx = (currentBannerIdx - 1 + bannersData.length) % bannersData.length;
+            renderBanners();
+        }
+
+        function goToBanner(idx, event) {
+            if (event) event.stopPropagation();
+            currentBannerIdx = idx;
+            renderBanners();
+        }
+
+        function pauseBanner() {
+            isBannerPaused = true;
+        }
+
+        function resumeBanner() {
+            isBannerPaused = false;
+            resetBannerTimer();
+        }
+
         // Navigation entre onglets
         var pageTitles={accueil:"Vue d'ensemble",services:"Nos Services",about:"Qui sommes-nous ?",products:"Catalogue",cart:"Fret Maritime / Aérien",faq:"Centre d'aide",cgu:"Conditions d'Utilisation"};
         function navigate(a,b){
@@ -1035,6 +1192,7 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             renderProducts();
+            renderBanners();
         });
     </script>
 </body>
