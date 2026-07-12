@@ -58,6 +58,14 @@
         .animate-marquee:hover {
             animation-play-state: paused;
         }
+
+        #cookie-consent-banner {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+        }
+        #cookie-consent-banner.show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans h-screen flex overflow-hidden selection:bg-brand-100 selection:text-brand-900">
@@ -67,7 +75,7 @@
     <aside id="sidebar" class="bg-white w-72 border-r border-slate-200 flex flex-col fixed lg:static h-full z-30 closed lg:transform-none shadow-xl lg:shadow-none">
         <div class="h-20 flex items-center px-6 border-b border-slate-100">
             <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo X-Press" class="h-10 w-auto drop-shadow-sm">
-            <span class="ml-3 font-bold text-lg text-slate-900 tracking-tight">X-PRESS livraison </span>
+            <span class="ml-3 font-bold text-lg text-slate-900 tracking-tight">X-PRESS</span>
             <button class="ml-auto lg:hidden text-slate-400 hover:text-slate-600" onclick="toggleSidebar()">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -143,7 +151,7 @@
                     </div>
                     
                     <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
-                        <i class="fas fa-bullhorn text-brand-500"></i> Actualités & Offres Flash 
+                        <i class="fas fa-bullhorn text-brand-500"></i> Actualités & Offres Flash (6s)
                     </h3>
                     
                     <!-- Bannière Publicitaire animée de 6 secondes -->
@@ -685,6 +693,29 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Bannière d'acceptation des cookies et CGU -->
+    <div id="cookie-consent-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-[400px] bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl z-50 transform translate-y-12 scale-95 opacity-0 hidden">
+        <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fas fa-cookie-bite text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h4 class="font-bold text-slate-900 text-sm">Gestion des cookies & CGU</h4>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                    Pour assurer le bon fonctionnement de notre service, optimiser votre navigation et valider nos règles de sécurité, nous utilisons des cookies. En poursuivant, vous acceptez également nos <button onclick="navigate('cgu', document.querySelectorAll('.nav-btn')[6]); closeCookieBanner();" class="text-brand-600 hover:underline font-semibold focus:outline-none">Conditions Générales d'Utilisation (CGU)</button>.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+            <button onclick="navigate('cgu', document.querySelectorAll('.nav-btn')[6]); closeCookieBanner();" class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition">
+                Consulter les CGU
+            </button>
+            <button onclick="acceptCookiesAndCGU()" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
+                Tout Accepter
+            </button>
+        </div>
+    </div>
+
     <!-- SCRIPTS -->
     <script>
         // Base de données Mockup X-PRESS
@@ -885,7 +916,7 @@
         var progressStep = 30; // Rafraîchissement de la barre toutes les 30ms
 
         var currentProductPage = 1;
-        var productsPerPage = 6;
+        var productsPerPage = 9;
         var selectedCategory = "Tout";
         var productSearchQuery = "";
         var activeImageIndices = {};
@@ -1190,9 +1221,40 @@
             window.open("https://wa.me/24177736065?text="+a,"_blank");
         }
 
+        // Fonction qui affiche le bandeau s'il n'a pas encore été accepté
+        function checkCookieConsent() {
+            if (!localStorage.getItem('cookies_cgu_accepted')) {
+                var banner = document.getElementById('cookie-consent-banner');
+                if (banner) {
+                    banner.classList.remove('hidden');
+                    setTimeout(function() {
+                        banner.classList.add('show');
+                    }, 200);
+                }
+            }
+        }
+
+        // Fonction d'enregistrement de l'acceptation
+        function acceptCookiesAndCGU() {
+            localStorage.setItem('cookies_cgu_accepted', 'true');
+            closeCookieBanner();
+        }
+
+        // Fonction de fermeture avec animation
+        function closeCookieBanner() {
+            var banner = document.getElementById('cookie-consent-banner');
+            if (banner) {
+                banner.classList.remove('show');
+                setTimeout(function() {
+                    banner.classList.add('hidden');
+                }, 500);
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             renderProducts();
             renderBanners();
+            checkCookieConsent(); // Lancement de la vérification au chargement
         });
     </script>
 </body>
