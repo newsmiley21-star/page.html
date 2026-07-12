@@ -136,7 +136,7 @@
                     <div class="bg-gradient-to-r from-brand-900 to-brand-700 rounded-3xl p-8 lg:p-10 text-white shadow-lg mb-8 relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
                         <div class="relative z-10">
-                            <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 inline-block">Edition 2026</span>
+                            <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 inline-block">Édition 2026</span>
                             <h2 class="text-3xl lg:text-4xl font-bold mb-4 leading-tight">Bienvenue sur votre espace<br>X-PRESS Livraison</h2>
                             <p class="animate-heartbeat text-brand-100 text-lg font-medium max-w-2xl"> La rapidité au service de vos envois. Naviguez via le menu pour gérer vos expéditions ou lancer une commande. </p>
                         </div>
@@ -502,9 +502,9 @@
                             <h2 class="text-2xl font-bold text-slate-800">Catalogue & Engins</h2>
                             <p class="text-slate-500 mt-1">Découvrez notre vitrine d'équipements sur commande.</p>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto items-stretch sm:items-center">
+                        <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto items-stretch sm:items-center overflow-hidden">
                             <!-- Barre de recherche -->
-                            <div class="relative flex-1 sm:w-64">
+                            <div class="relative flex-1 sm:w-64 shrink-0">
                                 <input type="text" id="productSearchInput" oninput="filterProducts()" placeholder="Rechercher un article..." class="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition shadow-sm">
                                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
                             </div>
@@ -566,29 +566,32 @@
                             <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2"> 
                                 Nous optimisons les parcours pour garantir les meilleurs délais à travers tout le Grand Libreville. Le statut en temps réel vous indiquera l'heure estimée. 
                             </div>
-                             <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
                             <summary class="flex items-center justify-between p-5 font-semibold text-slate-800"> 
                                 Vais-je recevoir une notification avant la livraison ?
                                 <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
                             </summary>
                             <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2"> 
-                                Oui , vous allez recevoir des alertes proactives (par SMS ou appel) précisant le créneau horaire de passage du livreur dès réception du colis par notre équipe .
+                                Oui, vous allez recevoir des alertes proactives (par SMS ou appel) précisant le créneau horaire de passage du livreur dès réception du colis par notre équipe.
                             </div>
-                             <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
                             <summary class="flex items-center justify-between p-5 font-semibold text-slate-800"> 
                                 Puis-je modifier l'adresse en cours de route ?
                                 <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
                             </summary>
                             <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2"> 
-                                Oui , nous offrons la possibilité au client de modifier l'adresse de la livraison en contactant le service client avec le numero du colis concerné .
+                                Oui, nous offrons la possibilité au client de modifier l'adresse de la livraison en contactant le service client avec le numéro du colis concerné.
                             </div>
-                             <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
                             <summary class="flex items-center justify-between p-5 font-semibold text-slate-800"> 
                                 Que se passe-t-il si je suis absent(e) lors du passage du livreur ?
                                 <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
                             </summary>
                             <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2"> 
-                                les alternatives (dépôt chez un voisin  ou retour en entrepôt ) sont nos deux options. Toutefois , des frais forfaitaires de 200 francs cfa sont appliqués sur chaque colis retourné en entrepôt.
+                                Les alternatives (dépôt chez un voisin ou retour en entrepôt) sont nos deux options. Toutefois, des frais forfaitaires de 200 francs CFA sont appliqués sur chaque colis retourné en entrepôt.
                             </div>
                         </details>
                         <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
@@ -597,14 +600,16 @@
                                 <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
                             </summary>
                             <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2"> 
-                                Nous acceptons les paiements mobiles via Airtel Money , Moov Money , en espèce avant la livraison (par l'expéditeur) ou à destination . Pour les paiements mobiles ,Il est impératif de renseigner votre code CT241 comme motif de transaction et fournir une capture d'écran au support client. 
+                                Nous acceptons les paiements mobiles via Airtel Money, Moov Money, en espèces avant la livraison (par l'expéditeur) ou à destination. Pour les paiements mobiles, il est impératif de renseigner votre code CT241 comme motif de transaction et de fournir une capture d'écran au support client. 
                             </div>
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
                             <summary class="flex items-center justify-between p-5 font-semibold text-slate-800"> 
                                 Comment puis-je retourner un article ?
                                 <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
                             </summary>
                             <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2"> 
-                               Vous devez effectuer une nouvelle commande sur le portail client en renseignant le nom du destinataire/vendeur , vos informations , selectionner l'option "RETOUR" de la zone concernée , dans l'espace instruction entrez le numero de livraison du colis et valider . 
+                                Vous devez effectuer une nouvelle commande sur le portail client en renseignant le nom du destinataire/vendeur, vos informations, sélectionner l'option "RETOUR" de la zone concernée, dans l'espace instruction entrez le numéro de livraison du colis et valider. 
                             </div>
                         </details>
                     </div>
@@ -734,7 +739,7 @@
                 id: 8,
                 name: "Scooter City Run 80CC",
                 type: "Scooters",
-                status: "Disponible 45jrs",
+                status: "Disponible",
                 price: "760.000",
                 desc: "Parfait pour se faufiler rapidement dans Libreville.",
                 images: [
@@ -763,11 +768,77 @@
                 images: [
                     "https://placehold.co/600x400/1e3a8a/ffffff?text=iPhone+15+Pro"
                 ]
+            },
+            {
+                id: 12,
+                name: "Samsung Galaxy S24 Ultra",
+                type: "Smartphones",
+                status: "Disponible",
+                price: "680.000",
+                desc: "Smartphone ultra premium avec stylet intelligent et zoom optique d'exception.",
+                images: [
+                    "https://placehold.co/600x400/1e3a8a/ffffff?text=Galaxy+S24+Ultra"
+                ]
+            },
+            {
+                id: 13,
+                name: "Chapiteau Réception Pro",
+                type: "Evenementiel",
+                status: "Sur commande",
+                price: "1.200.000",
+                desc: "Tente de réception étanche et spacieuse pour tous vos événements de plein air au Gabon.",
+                images: [
+                    "https://placehold.co/600x400/d97706/ffffff?text=Tente+Evenementiel"
+                ]
+            },
+            {
+                id: 14,
+                name: "Suzuki Swift Hatchback 2026",
+                type: "Véhicules",
+                status: "Sur commande",
+                price: "9.500.000",
+                desc: "Citadine moderne, fiable et extrêmement économique pour vos trajets urbains.",
+                images: [
+                    "https://placehold.co/600x400/059669/ffffff?text=Suzuki+Swift+2026"
+                ]
+            },
+            {
+                id: 15,
+                name: "Robe d'été Fleurie Premium",
+                type: "Vêtements femmes",
+                status: "Disponible",
+                price: "18.000",
+                desc: "Tissu léger et confortable de marque, parfait pour le climat tropical.",
+                images: [
+                    "https://placehold.co/600x400/ec4899/ffffff?text=Robe+Chic"
+                ]
+            },
+            {
+                id: 16,
+                name: "Chemise Slim Fit Premium",
+                type: "Vêtements hommes",
+                status: "Disponible",
+                price: "15.000",
+                desc: "Chemise élégante 100% coton, parfaite pour vos rendez-vous professionnels.",
+                images: [
+                    "https://placehold.co/600x400/4f46e5/ffffff?text=Chemise+Homme"
+                ]
+            },
+            {
+                id: 17,
+                name: "Table à Manger 6 Places",
+                type: "Mobilier",
+                status: "Sur commande 15jrs",
+                price: "245.000",
+                desc: "Superbe table à manger moderne en bois massif avec ses 6 chaises confortables.",
+                images: [
+                    "https://placehold.co/600x400/1e293b/ffffff?text=Table+a+Manger"
+                ]
             }
         ];
 
         var currentProductPage = 1;
-        var productsPerPage = 12;
+        var productsPerPage = 6;
         var selectedCategory = "Tout";
         var productSearchQuery = "";
         var activeImageIndices = {};
@@ -860,7 +931,7 @@
                 paginatedItems.forEach(function(p) {
                     var currentImgIdx = activeImageIndices[p.id] || 0;
                     var imgSrc = p.images[currentImgIdx] || p.images[0];
-                    var isAvailable = p.status === "Disponible";
+                    var isAvailable = p.status.toLowerCase().includes("disponible");
                     var statusBg = isAvailable ? "bg-amber-100 text-amber-700" : "bg-brand-100 text-brand-700";
                     
                     var dotsHTML = "";
