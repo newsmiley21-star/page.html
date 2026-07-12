@@ -820,7 +820,7 @@
                 id: 8,
                 name: "Scooter City Run 80CC",
                 type: "Scooters",
-                status: "Disponible",
+                status: "en stock",
                 price: "760.000",
                 desc: "Parfait pour se faufiler rapidement dans Libreville.",
                 images: [
@@ -843,7 +843,7 @@
                 id: 11,
                 name: "iPhone 15 Pro Max 256Go",
                 type: "Smartphones",
-                status: "Disponible",
+                status: "En stock",
                 price: "550.000",
                 desc: "Dernier modèle haut de gamme avec triple capteur photo d'exception. neuf scellé",
                 images: [
@@ -854,7 +854,7 @@
                 id: 12,
                 name: "Samsung Galaxy S24 Ultra",
                 type: "Smartphones",
-                status: "Disponible",
+                status: "En stock",
                 price: "680.000",
                 desc: "Smartphone ultra premium avec stylet intelligent et zoom optique d'exception.",
                 images: [
@@ -887,7 +887,7 @@
                 id: 15,
                 name: "Robe d'été Fleurie Premium",
                 type: "Vêtements femmes",
-                status: "Disponible",
+                status: "En stock",
                 price: "18.000",
                 desc: "Tissu léger et confortable de marque, parfait pour le climat tropical.",
                 images: [
@@ -898,7 +898,7 @@
                 id: 16,
                 name: "Chemise Slim Fit Premium",
                 type: "Vêtements hommes",
-                status: "Disponible",
+                status: "En stock",
                 price: "15.000",
                 desc: "Chemise élégante 100% coton, parfaite pour vos rendez-vous professionnels.",
                 images: [
@@ -1101,7 +1101,7 @@
                 paginatedItems.forEach(function(p) {
                     var currentImgIdx = activeImageIndices[p.id] || 0;
                     var imgSrc = p.images[currentImgIdx] || p.images[0];
-                    var isAvailable = p.status.toLowerCase().includes("disponible");
+                    var isAvailable = p.status.toLowerCase().includes("En stock");
                     var statusBg = isAvailable ? "bg-amber-100 text-amber-700" : "bg-brand-100 text-brand-700";
                     
                     var dotsHTML = "";
