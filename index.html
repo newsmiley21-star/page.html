@@ -28,6 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
+
 <script>var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};$jscomp.findInternal=function(a,b,c){a instanceof String&&(a=String(a));for(var d=a.length,e=0;e<d;e++){var f=a[e];if(b.call(c,f,e,a))return{i:e,v:f}}return{i:-1,v:void 0}};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;
 $jscomp.defineProperty=$jscomp.ASSUME_ES5||"function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){a!=Array.prototype&&a!=Object.prototype&&(a[b]=c.value)};$jscomp.getGlobal=function(a){a=["object"==typeof globalThis&&globalThis,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global,a];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");};$jscomp.global=$jscomp.getGlobal(this);
 $jscomp.polyfill=function(a,b,c,d){if(b){c=$jscomp.global;a=a.split(".");for(d=0;d<a.length-1;d++){var e=a[d];e in c||(c[e]={});c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&null!=b&&$jscomp.defineProperty(c,a,{configurable:!0,writable:!0,value:b})}};$jscomp.polyfill("Array.prototype.find",function(a){return a?a:function(a,c){return $jscomp.findInternal(this,a,c).v}},"es6","es3");$jscomp.polyfill("Object.is",function(a){return a?a:function(a,c){return a===c?0!==a||1/a===1/c:a!==a&&c!==c}},"es6","es3");
@@ -36,9 +37,41 @@ $jscomp.checkStringArgs=function(a,b,c){if(null==a)throw new TypeError("The 'thi
 $jscomp.polyfill("String.prototype.startsWith",function(a){return a?a:function(a,c){var b=$jscomp.checkStringArgs(this,a,"startsWith");a+="";var e=b.length,f=a.length;c=Math.max(0,Math.min(c|0,b.length));for(var g=0;g<f&&c<e;)if(b[c++]!=a[g++])return!1;return g>=f}},"es6","es3");
 $jscomp.polyfill("Array.from",function(a){return a?a:function(a,c,d){c=null!=c?c:function(a){return a};var b=[],f="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];if("function"==typeof f){a=f.call(a);for(var g=0;!(f=a.next()).done;)b.push(c.call(d,f.value,g++))}else for(f=a.length,g=0;g<f;g++)b.push(c.call(d,a[g],g));return b}},"es6","es3");$jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};
 $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwind.config={theme:{extend:{fontFamily:{sans:["Inter","sans-serif"]},colors:{brand:{50:"#eff6ff",100:"#dbeafe",500:"#2563eb",600:"#1d4ed8",700:"#1e40af",900:"#1e3a8a"}}}}};</script>
-<style>.page-section{display:none;opacity:0;transition:opacity .3s ease}.page-section.active{display:block;opacity:1;animation:fadeIn .4s ease forwards}.product-page{display:none}.product-page.active{display:grid;animation:fadeIn .4s ease forwards}@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes heartbeat{0%,85%,100%{transform:scale(1)}90%{transform:scale(1.02)}95%{transform:scale(1.04)}}.animate-heartbeat{display:inline-block;animation:heartbeat 5s ease-in-out infinite}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#94a3b8}#sidebar{transition:transform .3s ease-in-out}@media(max-width:1024px){#sidebar.closed{transform:translateX(-100%)}#sidebar.open{transform:translateX(0)}}@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.animate-marquee{display:flex;width:max-content;animation:marquee 35s linear infinite}.animate-marquee:hover{animation-play-state:paused}#cookie-consent-banner{transition:transform .5s cubic-bezier(0.16,1,0.3,1),opacity .5s ease}#cookie-consent-banner.show{transform:translateY(0) scale(1);opacity:1}</style>
+
+<style>
+    .page-section{display:none;opacity:0;transition:opacity .3s ease}
+    .page-section.active{display:block;opacity:1;animation:fadeIn .4s ease forwards}
+    .product-page{display:none}
+    .product-page.active{display:grid;animation:fadeIn .4s ease forwards}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes heartbeat{0%,85%,100%{transform:scale(1)}90%{transform:scale(1.02)}95%{transform:scale(1.04)}}
+    .animate-heartbeat{display:inline-block;animation:heartbeat 5s ease-in-out infinite}
+    ::-webkit-scrollbar{width:6px;height:6px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}
+    ::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+    #sidebar{transition:transform .3s ease-in-out}
+    @media(max-width:1024px){#sidebar.closed{transform:translateX(-100%)}#sidebar.open{transform:translateX(0)}}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .animate-marquee{display:flex;width:max-content;animation:marquee 35s linear infinite}
+    .animate-marquee:hover{animation-play-state:paused}
+    #cookie-consent-banner{transition:transform .5s cubic-bezier(0.16,1,0.3,1),opacity .5s ease}
+    #cookie-consent-banner.show{transform:translateY(0) scale(1);opacity:1}
+    
+    /* Styles spécifiques pour la galerie plein écran et le zoom */
+    .gallery-img-container { touch-action: none; overflow: hidden; }
+    .gallery-image { 
+        transition: transform 0.2s ease-out; 
+        cursor: grab;
+        transform-origin: center center;
+    }
+    .gallery-image:active { cursor: grabbing; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans h-screen flex overflow-hidden selection:bg-brand-100 selection:text-brand-900">
+
 <div id="mobile-overlay" class="fixed inset-0 bg-slate-900/50 z-20 hidden lg:hidden backdrop-blur-sm transition-opacity" onclick="toggleSidebar()"></div>
 <aside id="sidebar" class="bg-white w-72 border-r border-slate-200 flex flex-col fixed lg:static h-full z-30 closed lg:transform-none shadow-xl lg:shadow-none">
 <div class="h-20 flex items-center px-6 border-b border-slate-100">
@@ -79,6 +112,7 @@ $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwin
 </a>
 </div>
 </aside>
+
 <main class="flex-1 flex flex-col h-full relative overflow-hidden">
 <header class="h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 z-10 sticky top-0">
 <div class="flex items-center gap-4">
@@ -101,6 +135,7 @@ $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwin
 </div>
 </div>
 </header>
+
 <div class="flex-1 overflow-y-auto p-4 lg:p-8">
 <div class="max-w-6xl mx-auto pb-12">
 <section id="accueil" class="page-section active">
@@ -240,6 +275,7 @@ $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwin
 </div>
 </div>
 </div>
+
 <div class="mt-12 pt-8 border-t border-slate-200">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 <div>
@@ -305,6 +341,7 @@ $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwin
 </div>
 </div>
 </section>
+
 <section id="services" class="page-section">
 <div class="mb-8">
 <h2 class="text-2xl font-bold text-slate-800">Nos Services Logistiques</h2>
@@ -329,7 +366,7 @@ $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwin
 <p class="text-sm text-slate-500 mb-4">Planifiez et effectuez une demande de livraison rapidement.</p>
 <span class="text-emerald-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Démarrer <i class="fas fa-arrow-right text-xs"></i></span>
 </a>
-<a href="https://index-html-2qm.pages.dev/"   target="_blank" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all duration-300 relative overflow-hidden">
+<a href="https://wa.me/24177736065"   target="_blank" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all duration-300 relative overflow-hidden">
 <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
 <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
 <i class="fas fa-id-badge"></i>
@@ -358,6 +395,7 @@ $jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};tailwin
 </a>
 </div>
 </section>
+
 <section id="about" class="page-section">
 <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
 <div class="p-8 lg:p-10 border-b border-slate-100 bg-brand-50/50">
@@ -447,6 +485,7 @@ Xpress livraison SARLU est une société de logistique du dernier kilomètre cr�
 </div>
 </div>
 </section>
+
 <section id="products" class="page-section">
 <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-4">
 <div>
@@ -475,6 +514,7 @@ Xpress livraison SARLU est une société de logistique du dernier kilomètre cr�
 <div id="dynamic-products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 <div id="dynamic-pagination-container" class="mt-8 flex justify-center items-center gap-2"></div>
 </section>
+
 <section id="cart" class="page-section">
 <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-12 text-center max-w-2xl mx-auto mt-10">
 <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -598,6 +638,7 @@ Vous devez effectuer une nouvelle commande sur le portail client en renseignant 
 </div>
 </section>
 </div>
+
 <footer class="border-t border-slate-200 mt-auto pt-8 pb-4 text-center">
 <div class="flex justify-center gap-4 mb-6">
 <a href="https://www.facebook.com/profile.php?id=61591969701089" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
@@ -667,6 +708,45 @@ En savoir plus <i class="fas fa-arrow-right text-[10px]"></i>
 </div>
 </div>
 
+<div id="fullscreen-gallery" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col transition-opacity duration-300 opacity-0">
+    <!-- Barre de contrôle supérieure -->
+    <div class="flex items-center justify-between p-4 z-20 absolute top-0 w-full bg-gradient-to-b from-black/60 to-transparent">
+        <div class="text-white">
+            <h3 id="gallery-title" class="font-bold text-lg drop-shadow-md">Nom de l'article</h3>
+            <p id="gallery-counter" class="text-xs text-slate-300">1 / 1</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="toggleZoomGallery()" id="zoom-btn" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition backdrop-blur-sm" title="Zoomer">
+                <i class="fas fa-search-plus"></i>
+            </button>
+            <button onclick="closeGallery()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition backdrop-blur-sm" title="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Zone de l'image (avec prise en charge du zoom et du déplacement) -->
+    <div class="flex-1 gallery-img-container flex items-center justify-center relative w-full h-full" id="gallery-viewport">
+        <!-- Bouton Précédent -->
+        <button onclick="prevGalleryImage(event)" id="gallery-prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition z-20 backdrop-blur-sm">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- L'image en elle-même -->
+        <img id="gallery-image-element" src="" alt="Zoom" class="gallery-image max-w-full max-h-full object-contain select-none" draggable="false">
+
+        <!-- Bouton Suivant -->
+        <button onclick="nextGalleryImage(event)" id="gallery-next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition z-20 backdrop-blur-sm">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Indicateurs / Miniatures (Optionnel) -->
+    <div class="absolute bottom-6 w-full flex justify-center gap-2 z-20" id="gallery-dots">
+        <!-- Les points seront injectés ici par JS -->
+    </div>
+</div>
+
 <script>
 var productsData=[{id:20,name:"Scooter HX01 150CC",type:"Scooters",status:"Sur commande 2mois",price:"820.000",desc:"Modèle urbain classique, maniable et idéal pour le trafic de Libreville.",images:["https://i.ibb.co/PvNLQqWj/Capture-d-cran-2026-07-09-214052.png","https://i.ibb.co/V0bwx8yb/Capture-d-cran-2026-07-09-214146.png","https://i.ibb.co/whtyBCq8/Capture-d-cran-2026-07-09-214248.png"]},{id:21,name:"Scooter City Run 80CC",type:"Scooters",status:"Disponible",price:"840.000",desc:"Parfait pour se faufiler rapidement dans Libreville.",
 images:["https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png"]},{id:60,name:"Toyota BZ3 electrique",type:"Véhicules",status:"Sur commande 2mois",price:"18.500.000",desc:"Batterie 49,92 kWh - Autonomie ~517 km ,SUV familial, autonomie allant jusqu'à 600 km.",images:["https://i.ibb.co/Rpjc882F/ACU90627502-b-Z3-1-2.webp","https://i.ibb.co/rRDcH10S/ACU90627502-b-Z3-6-1.webp"]},{id:70,name:"GEELY Tiggo 5X",type:"Véhicules",status:"Sur commande 2mois",price:"12.600.000",desc:"Modèle occasion urbain classique, maniable et idéal pour le trafic de Libreville.",
@@ -678,15 +758,17 @@ img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fi
 function filterCategory(a){selectedCategory=a;currentProductPage=1;document.querySelectorAll("#categoryFilterContainer .cat-btn").forEach(function(b){b.innerText.trim()===a?b.className="cat-btn px-4 py-1.5 bg-brand-600 text-white rounded-full text-xs font-semibold cursor-pointer transition-all":b.className="cat-btn px-4 py-1.5 bg-white border border-slate-200 text-slate-500 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all"});renderProducts()}
 function filterProducts(){var a=document.getElementById("productSearchInput");productSearchQuery=a?a.value:"";currentProductPage=1;renderProducts()}function setProductPage(a){currentProductPage=a;renderProducts();(a=document.getElementById("products"))&&a.scrollIntoView({behavior:"smooth",block:"start"})}
 function prevProductImg(a,b){b&&b.stopPropagation();if(b=productsData.find(function(c){return c.id===a})){var c=activeImageIndices[a]||0;c=(c-1+b.images.length)%b.images.length;activeImageIndices[a]=c;renderProducts()}}function nextProductImg(a,b){b&&b.stopPropagation();if(b=productsData.find(function(c){return c.id===a})){var c=activeImageIndices[a]||0;c=(c+1)%b.images.length;activeImageIndices[a]=c;renderProducts()}}
+
 function renderProducts(){var a=document.getElementById("dynamic-products-grid"),b=document.getElementById("dynamic-pagination-container");if(a){var c=productsData.filter(function(a){var c="Tout"===selectedCategory||a.type.toLowerCase()===selectedCategory.toLowerCase();a=a.name.toLowerCase().includes(productSearchQuery.toLowerCase())||a.desc.toLowerCase().includes(productSearchQuery.toLowerCase());return c&&a}),d=Math.ceil(c.length/productsPerPage)||1;currentProductPage>d&&(currentProductPage=d);
-var e=(currentProductPage-1)*productsPerPage;c=c.slice(e,e+productsPerPage);var f="";0===c.length?f='<div class="col-span-full text-center py-12 text-slate-500"><i class="fas fa-box-open text-4xl mb-3 block"></i>Aucun article ne correspond à votre recherche.</div>':c.forEach(function(a){var c=activeImageIndices[a.id]||0,b=a.images[c]||a.images[0],d=a.status.toLowerCase().includes("disponible")?"bg-amber-100 text-amber-700":"bg-brand-100 text-brand-700",e="";1<a.images.length&&(e='<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-black/20 px-2 py-1 rounded-full backdrop-blur-sm">',
+var e=(currentProductPage-1)*productsPerPage;c=c.slice(e,e+productsPerPage);var f="";0===c.length?f='<div class="col-span-full text-center py-12 text-slate-500"><i class="fas fa-box-open text-4xl mb-3 block"></i>Aucun article ne correspond à votre recherche.</div>':c.forEach(function(a){var c=activeImageIndices[a.id]||0,b=a.images[c]||a.images[0],d=a.status.toLowerCase().includes("disponible")?"bg-amber-100 text-amber-700":"bg-brand-100 text-brand-700",e="";1<a.images.length&&(e='<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-black/20 px-2 py-1 rounded-full backdrop-blur-sm pointer-events-none">',
 a.images.forEach(function(a,b){e+='<div class="w-1.5 h-1.5 rounded-full transition-all '+(b===c?"bg-white scale-125":"bg-white/50")+'"></div>'}),e+="</div>");var g="";1<a.images.length&&(g='\n                            <button onclick="prevProductImg('+a.id+', event)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition opacity-0 group-hover:opacity-100 z-10"><i class="fas fa-chevron-left text-xs"></i></button>\n                            <button onclick="nextProductImg('+
 a.id+', event)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition opacity-0 group-hover:opacity-100 z-10"><i class="fas fa-chevron-right text-xs"></i></button>\n                        ');f+='\n                    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col relative">\n                        <div class="h-48 overflow-hidden bg-slate-50 relative p-4 flex items-center justify-center">\n                            <span class="absolute top-3 right-3 '+
-d+' text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide z-10">'+a.status+'</span>\n                            <img id="product-img-element-'+a.id+'" src="'+b+'" alt="'+a.name+'" class="max-h-full object-contain mix-blend-multiply group-hover:scale-105 transition-all duration-500">\n                            '+g+"\n                            "+e+'\n                        </div>\n                        <div class="p-5 flex-1 flex flex-col">\n                            <h3 class="font-bold text-slate-800 mb-1 text-base">'+
+d+' text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide z-10">'+a.status+'</span>\n                            <img onclick="openGallery('+a.id+', '+c+')" id="product-img-element-'+a.id+'" src="'+b+'" alt="'+a.name+'" class="max-h-full object-contain mix-blend-multiply group-hover:scale-105 transition-all duration-500 cursor-zoom-in relative z-0" title="Cliquez pour agrandir">\n                            '+g+"\n                            "+e+'\n                        </div>\n                        <div class="p-5 flex-1 flex flex-col">\n                            <h3 class="font-bold text-slate-800 mb-1 text-base">'+
 a.name+'</h3>\n                            <p class="text-sm text-slate-500 mb-4 flex-1">'+a.desc+'</p>\n                            <div class="flex items-end justify-between mt-auto">\n                                <div>\n                                    <span class="block text-xs text-slate-400">Prix TTC</span>\n                                    <span class="font-bold text-brand-600 text-lg">'+a.price+" CFA</span>\n                                </div>\n                                <button onclick=\"commander('"+
 a.name+" : "+a.price+' CFA TTC\')" class="bg-slate-900 text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-brand-600 transition shadow-md" title="Commander via WhatsApp"><i class="fas fa-cart-plus"></i></button>\n                            </div>\n                        </div>\n                    </div>'});a.innerHTML=f;a="";if(1<d){a+="<button "+(1===currentProductPage?'disabled class="w-8 h-8 rounded border border-slate-200 text-slate-300 flex items-center justify-center cursor-not-allowed"':
 'onclick="setProductPage('+(currentProductPage-1)+')" class="w-8 h-8 rounded border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center transition"')+'><i class="fas fa-chevron-left text-xs"></i></button>';for(c=1;c<=d;c++)a+='<button onclick="setProductPage('+c+')" class="page-btn w-8 h-8 rounded border '+(c===currentProductPage?"bg-brand-600 text-white font-medium border-transparent":"border-slate-200 text-slate-600 hover:bg-slate-50")+' font-medium text-sm transition">'+
 c+"</button>";a+="<button "+(currentProductPage===d?'disabled class="w-8 h-8 rounded border border-slate-200 text-slate-300 flex items-center justify-center cursor-not-allowed"':'onclick="setProductPage('+(currentProductPage+1)+')" class="w-8 h-8 rounded border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center transition"')+'><i class="fas fa-chevron-right text-xs"></i></button>'}b.innerHTML=a}}
+
 function renderBanners(){var a=document.getElementById("carousel-slides"),b=document.getElementById("carousel-dots");if(a&&b){var c="",d="";bannersData.forEach(function(a,b){var e=b===currentBannerIdx;c+='\n                <div class="absolute inset-0 transition-all duration-[800ms] ease-in-out '+(e?"opacity-100 z-10":"opacity-0 z-0 pointer-events-none")+' flex items-center cursor-pointer" onclick="handleBannerClick('+b+')">\n                    <img src="'+a.img+'" alt="'+a.title+'" class="absolute inset-0 w-full h-full object-cover select-none">\n                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/50 to-transparent"></div>\n                    <div class="relative p-6 md:p-10 text-white max-w-md z-10 flex flex-col justify-center h-full">\n                        <span class="bg-brand-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full w-max uppercase tracking-wider mb-2.5">\n                            Offre Active\n                        </span>\n                        <h4 class="text-xl md:text-2xl font-bold mb-2 leading-tight drop-shadow-sm">'+
 a.title+'</h4>\n                        <p class="text-xs md:text-sm text-slate-200 font-medium opacity-95 mb-4 line-clamp-2 drop-shadow-sm">'+a.desc+'</p>\n                        <span class="flex items-center gap-1.5 bg-white text-slate-950 px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-50 transition shadow-md w-max">\n                            Voir plus <i class="fas fa-arrow-right text-[10px]"></i>\n                        </span>\n                    </div>\n                </div>';
 d+='<button onclick="goToBanner('+b+', event)" class="h-2 rounded-full transition-all duration-300 '+(e?"bg-brand-500 w-6":"bg-white/40 w-2 hover:bg-white/80")+'"></button>'});a.innerHTML=c;b.innerHTML=d;resetBannerTimer()}}function handleBannerClick(a){var b=bannersData[a].link;b.startsWith("http")?window.open(b,"_blank"):(a=document.querySelectorAll(".nav-btn"),a=Array.from(a).find(function(a){return a.getAttribute("onclick").includes(b)}),navigate(b,a))}
@@ -731,6 +813,216 @@ a=Array.from(a).find(function(a){return a.getAttribute("onclick").includes(c.lin
 0<=g&&(e.innerText=g)},1E3);var h=100;clearInterval(adProgressInterval);adProgressInterval=setInterval(function(){h-=.625;0<=h?f.style.width=h+"%":(f.style.width="0%",clearInterval(adProgressInterval))},50);clearTimeout(adTimer);adTimer=setTimeout(function(){hidePopupAd()},8E3)}}
 function hidePopupAd(){var a=document.getElementById("popup-ad-modal"),b=document.getElementById("popup-ad-card");a&&b&&(a.classList.add("opacity-0"),a.classList.add("pointer-events-none"),a.classList.remove("opacity-100"),b.classList.remove("scale-100"),b.classList.add("scale-95"),clearInterval(adCountdownInterval),clearInterval(adProgressInterval),clearTimeout(adTimer))}
 
+let currentGalleryProduct = null;
+let currentGalleryIndex = 0;
+let zoomScale = 1;
+let panX = 0, panY = 0;
+let isDragging = false;
+let startX, startY;
+
+// Ouvrir la galerie
+function openGallery(productId, imageIndex) {
+    currentGalleryProduct = productsData.find(p => p.id === productId);
+    if (!currentGalleryProduct) return;
+    
+    currentGalleryIndex = imageIndex;
+    const modal = document.getElementById('fullscreen-gallery');
+    
+    updateGalleryDOM();
+    
+    modal.classList.remove('hidden');
+    // Petit délai pour déclencher la transition d'opacité
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+    }, 10);
+}
+
+// Fermer la galerie
+function closeGallery() {
+    const modal = document.getElementById('fullscreen-gallery');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        resetZoom();
+    }, 300); // Temps de la transition CSS
+}
+
+// Mettre à jour l'image et les infos dans la galerie
+function updateGalleryDOM() {
+    const imgElement = document.getElementById('gallery-image-element');
+    const titleElement = document.getElementById('gallery-title');
+    const counterElement = document.getElementById('gallery-counter');
+    const dotsContainer = document.getElementById('gallery-dots');
+    const prevBtn = document.getElementById('gallery-prev-btn');
+    const nextBtn = document.getElementById('gallery-next-btn');
+    
+    // Réinitialiser le zoom à chaque changement d'image
+    resetZoom();
+
+    // Mettre à jour la source
+    const images = currentGalleryProduct.images;
+    imgElement.src = images[currentGalleryIndex];
+    
+    // Mettre à jour le texte
+    titleElement.innerText = currentGalleryProduct.name;
+    counterElement.innerText = `${currentGalleryIndex + 1} / ${images.length}`;
+    
+    // Gérer l'affichage des flèches
+    if (images.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+    } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+    }
+
+    // Créer les indicateurs (petits points)
+    let dotsHTML = '';
+    if (images.length > 1) {
+        images.forEach((_, idx) => {
+            const isActive = idx === currentGalleryIndex;
+            dotsHTML += `<button onclick="goToGalleryImage(event, ${idx})" class="w-2 h-2 rounded-full transition-all ${isActive ? 'bg-white scale-150' : 'bg-white/40 hover:bg-white/80'}"></button>`;
+        });
+    }
+    dotsContainer.innerHTML = dotsHTML;
+}
+
+// Naviguer dans la galerie
+function prevGalleryImage(e) {
+    if(e) e.stopPropagation();
+    const len = currentGalleryProduct.images.length;
+    currentGalleryIndex = (currentGalleryIndex - 1 + len) % len;
+    updateGalleryDOM();
+}
+
+function nextGalleryImage(e) {
+    if(e) e.stopPropagation();
+    const len = currentGalleryProduct.images.length;
+    currentGalleryIndex = (currentGalleryIndex + 1) % len;
+    updateGalleryDOM();
+}
+
+function goToGalleryImage(e, index) {
+    if(e) e.stopPropagation();
+    currentGalleryIndex = index;
+    updateGalleryDOM();
+}
+
+// Logique de Zoom
+function toggleZoomGallery() {
+    if (zoomScale > 1) {
+        resetZoom();
+    } else {
+        zoomScale = 2.5; // Niveau de zoom
+        applyTransform();
+    }
+}
+
+function resetZoom() {
+    zoomScale = 1;
+    panX = 0;
+    panY = 0;
+    applyTransform();
+    const icon = document.querySelector('#zoom-btn i');
+    if(icon) {
+        icon.classList.remove('fa-search-minus');
+        icon.classList.add('fa-search-plus');
+    }
+}
+
+function applyTransform() {
+    const imgElement = document.getElementById('gallery-image-element');
+    if(imgElement) {
+        imgElement.style.transform = `translate(${panX}px, ${panY}px) scale(${zoomScale})`;
+        
+        // Mettre à jour l'icône de la loupe
+        const icon = document.querySelector('#zoom-btn i');
+        if (zoomScale > 1) {
+            if(icon) {
+                icon.classList.remove('fa-search-plus');
+                icon.classList.add('fa-search-minus');
+            }
+        }
+    }
+}
+
+// Logique de glisser (Panoramique) pour l'image zoomée
+const galleryViewport = document.getElementById('gallery-viewport');
+
+// Souris
+galleryViewport.addEventListener('mousedown', (e) => {
+    if (zoomScale <= 1 || e.target.tagName === 'BUTTON' || e.target.tagName === 'I') return;
+    isDragging = true;
+    startX = e.clientX - panX;
+    startY = e.clientY - panY;
+    galleryViewport.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', (e) => {
+    if (!isDragging || zoomScale <= 1) return;
+    e.preventDefault();
+    panX = e.clientX - startX;
+    panY = e.clientY - startY;
+    applyTransform();
+});
+
+window.addEventListener('mouseup', () => {
+    isDragging = false;
+    galleryViewport.style.cursor = 'default';
+});
+
+// Tactile (Mobile)
+galleryViewport.addEventListener('touchstart', (e) => {
+    if (zoomScale <= 1 || e.target.tagName === 'BUTTON' || e.target.tagName === 'I') return;
+    if (e.touches.length === 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX - panX;
+        startY = e.touches[0].clientY - panY;
+    }
+}, { passive: false });
+
+galleryViewport.addEventListener('touchmove', (e) => {
+    if (!isDragging || zoomScale <= 1) return;
+    e.preventDefault(); // Empêche le défilement de la page derrière
+    panX = e.touches[0].clientX - startX;
+    panY = e.touches[0].clientY - startY;
+    applyTransform();
+}, { passive: false });
+
+galleryViewport.addEventListener('touchend', () => {
+    isDragging = false;
+});
+
+// Zoom avec la molette de la souris
+galleryViewport.addEventListener('wheel', (e) => {
+    // Uniquement si on survole l'image
+    if(e.target.id === 'gallery-image-element') {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            zoomScale = Math.min(zoomScale + 0.5, 4); // Max zoom 4x
+        } else {
+            zoomScale = Math.max(zoomScale - 0.5, 1); // Min zoom 1x
+            if (zoomScale === 1) {
+                panX = 0;
+                panY = 0;
+            }
+        }
+        applyTransform();
+    }
+}, { passive: false });
+
+// Double clic / double tap pour zoomer/dézoomer
+galleryViewport.addEventListener('dblclick', (e) => {
+    if(e.target.id === 'gallery-image-element') {
+        toggleZoomGallery();
+    }
+});
+
+
+// Initialisation Globale
 document.addEventListener("DOMContentLoaded",function(){
     renderProducts();
     renderBanners();
