@@ -864,6 +864,9 @@
     <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6]);closeCookieBanner()" class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition">
       Consulter les CGU
     </button>
+    <button onclick="rejectCookiesAndCGU()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
+      Tout refuser
+    </button>
     <button onclick="acceptCookiesAndCGU()" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
       Tout Accepter
     </button>
@@ -1216,7 +1219,7 @@ function renderProducts() {
             <div class="flex items-end justify-between mt-auto pt-3 border-t border-slate-100">
               <div>
                 <span class="block text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Prix TTC</span>
-                <span class="font-bold text-brand-600 text-base">${p.price} CFA</span>
+                <span class="font-mono text-brand-600 text-sm">${p.price} CFA</span>
               </div>
               <button onclick="commander('${p.name.replace(/'/g, "\\'")} : ${p.price} CFA TTC')" class="bg-brand-600 text-white w-10 h-10 rounded-2xl flex items-center justify-center hover:bg-brand-700 transition shadow-md touch-target" title="Commander via WhatsApp">
                 <i class="fas fa-cart-plus"></i>
