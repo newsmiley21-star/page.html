@@ -226,7 +226,7 @@
 
   <div class="p-4 border-t border-slate-100">
     <a href="https://index-html-2qm.pages.dev/" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-yellow-50 text-yellow-700 px-4 py-3 rounded-xl text-sm font-semibold hover:bg-green-100 transition touch-target">
-      <i class="fas fa-sign-in-alt text-sm"></i> s'identifier
+      <i class="fas fa-cogs text-sm"></i> Connexion
     </a>
   </div>
 </aside>
@@ -656,7 +656,7 @@
           <h2 class="text-2xl font-bold text-slate-800 mb-2">Fret Maritime & Aérien</h2>
           <p class="text-slate-500 mb-8">Ce module d'import/export international est en cours de déploiement progressif.</p>
           <img src="https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png" alt="Logo GLOBEX GABON" class="h-16 mx-auto mb-4 drop-shadow-sm">
-          <p class="text-sm font-semibold text-slate-700">Partenariat Service GLOBEX GABON</p>
+          <p class="text-sm font-semibold text-slate-700"> Service GLOBEX GABON</p>
         </div>
       </section>
 
@@ -833,7 +833,7 @@
   </button>
 
   <button onclick="toggleSidebar()" class="flex flex-col items-center gap-1 text-slate-500 px-3 py-1 rounded-xl transition touch-target">
-    <i class="fas fa-ellipsis-h text-lg"></i>
+    <i class="fas fa-plus-h text-lg"></i>
     <span class="text-[10px]">Plus</span>
   </button>
 </div>
@@ -1212,11 +1212,11 @@ function renderProducts() {
           </div>
           <div class="p-5 flex-1 flex flex-col">
             <h3 class="font-bold text-slate-800 mb-1 text-base">${p.name}</h3>
-            <p class="text-xs text-slate-500 mb-4 flex-1 leading-relaxed">${p.desc}</p>
+            <p class="text-xxs text-slate-500 mb-4 flex-1 leading-relaxed">${p.desc}</p>
             <div class="flex items-end justify-between mt-auto pt-3 border-t border-slate-100">
               <div>
                 <span class="block text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Prix TTC</span>
-                <span class="font-bold text-brand-600 text-lg">${p.price} CFA</span>
+                <span class="font-bold text-brand-600 text-base">${p.price} CFA</span>
               </div>
               <button onclick="commander('${p.name.replace(/'/g, "\\'")} : ${p.price} CFA TTC')" class="bg-brand-600 text-white w-10 h-10 rounded-2xl flex items-center justify-center hover:bg-brand-700 transition shadow-md touch-target" title="Commander via WhatsApp">
                 <i class="fas fa-cart-plus"></i>
