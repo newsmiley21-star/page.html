@@ -733,16 +733,6 @@
         </div>
       </section>
 
-      <!-- SECTION 7 : CGU -->
-      <section id="cgu" class="page-section">
-        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 lg:p-12 text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto">
-          <h2 class="text-2xl font-bold text-slate-800 mb-4">Conditions Générales d'Utilisation</h2>
-          <p>Toutes les commandes effectuées via la plateforme et transmises par WhatsApp engagent l'acheteur quant au règlement à la livraison.</p>
-        </div>
-      </section>
-
-    </div>
-
      <!-- SECTION 7 : CGU -->
       <section id="cgu" class="page-section">
         <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 lg:p-12 text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto">
@@ -935,25 +925,22 @@ var productsData = [
 
 var bannersData = [
   {
-    image:"https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png",https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png
-    title: "livraison rapide",
-    subtitle: "Profitez de la livraison efficace et rapide dans tout le grand Libreville !",
+    title: "Scooter City Run 80CC",
+    subtitle: "Profitez de la livraison gratuite dans tout Libreville !",
     tag: "PROMO FLASH",
     bg: "bg-gradient-to-r from-blue-900 to-indigo-900",
     action: "Voir l'offre",
     target: "products"
   },
   {
-    image:"https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png",
     title: "Suivi CT241 en Temps Réel",
-    subtitle: "consulter l'acheminement de vos colis instantanément et en temps reel.",
+    subtitle: "Localisez la position de votre coursier instantanément.",
     tag: "SERVICE EXCLUSIF",
     bg: "bg-gradient-to-r from-emerald-900 to-teal-900",
     action: "Consulter un colis",
     link: "https://consultation-html.pages.dev/"
   },
-  { 
-    image:"https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png",
+  {
     title: "Fret Maritime & Aérien",
     subtitle: "Expédiez vos marchandises vers et depuis le Gabon.",
     tag: "PARTENARIAT GLOBEX",
@@ -1430,11 +1417,11 @@ function renderProducts() {
             <div class="flex items-center justify-between mt-auto pt-3 border-t border-slate-100">
               <div>
                 <span class="block text-[10px] uppercase text-slate-400 font-semibold">Prix</span>
-                <span class="font-mono text-brand-600 font-bold text-x">${p.price} CFA</span>
+                <span class="font-mono text-brand-600 font-bold text-sm">${p.price} CFA</span>
               </div>
               
               <button onclick="addToCart(${p.id}, event)" class="bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold hover:bg-brand-700 transition flex items-center gap-1.5 touch-target">
-                <i class="fas fa-cart-plus  text-xs"></i> Ajouter au panier
+                <i class="fas fa-cart-plus"></i> Ajouter au panier
               </button>
             </div>
           </div>
