@@ -262,6 +262,10 @@
     </div>
 
     <!-- En-tête : Actions Rapides, Signalement Incident, Favoris & Panier -->
+    <bouton clic="ouvrir le tiroir des favoris()"classe="relative p-2.5 arrondi-xl bg-slate-100 text-slate-700 hover:text-rose-600 hover:bg-rose-50 transition touch-target"titre="Mes favoris">
+        <je classe="fas fa-heart text-lg"></je>
+        <portée identifiant="badge favori d'en-tête"classe="absolu -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</portée>
+      </bouton>
     
       <a href="sms:+24177736065?body=Bonjour%20x-press%20%2C%20%0Aje%20souhaite%20signaler%20un%20incident%20survenu%20lors%20de%20la%20livraison%20du%20colis%20N%C2%B0" target="_blank" rel="noopener" class="flex items-center gap-2 bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-sm shadow-brand-200 hover:bg-brand-700 transition transform hover:-translate-y-0.5 touch-target">
         <i class="fas fa-bell text-sm"></i>
@@ -882,12 +886,6 @@
     <i class="fas fa-shopping-cart text-base"></i>
     <span class="text-[10px]">Panier</span>
     <span id="mobile-cart-badge" class="absolute -top-1 right-2 bg-brand-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-  </button>
-
-  <button onclick="openFavoritesDrawer()" class="relative flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
-    <i class="fas fa-heart text-base"></i>
-    <span class="text-[10px]">Favoris</span>
-    <span id="mobile-fav-badge" class="absolute -top-1 right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
   </button>
 
   <button onclick="toggleSidebar()" class="flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
