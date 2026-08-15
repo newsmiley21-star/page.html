@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<!-- ========================================== -->
+<!-- BALISES PWA & METADONNÉES APPLICATIVES    -->
+<!-- ========================================== -->
+<meta name="theme-color" content="#1e3a8a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="X-PRESS Gabon">
+<link rel="apple-touch-icon" href="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png">
+
+<!-- Web App Manifest en ligne -->
+<link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlgtUFJFU1MgTGl2cmFpc29uIEdhYm9uIiwKICAic2hvcnRfbmFtZSI6ICJYLVBSRVNTIiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjhhZmYwIiwKICAidGhlbWVfY29sb3IiOiAiIzFlM2E4YSIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImh0dHBzOi8vaS5pYmIuY28vVE10ZlpCMVEvR2VtaW5pLUdlbmVyYXRlZC1JbWFnZS1jYWM3MzRjYWM3MzRjYWM3LnBuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0KfQ==">
+
+<!-- ========================================== -->
+<!-- SEO & INDEXATION GOOGLE STRATÉGIQUE       -->
+<!-- ========================================== -->
+<title>X-PRESS Livraison Gabon | Service Express & Boutique Libreville</title>
+<meta name="description" content="X-PRESS Livraison Gabon : Service de transport, livraisons express dans le Grand Libreville avec suivi en temps réel CT241, boutique en ligne, scooters, smartphones et fret.">
+<meta name="keywords" content="livraison gabon, transport libreville, colis gabon, express livraison, CT241, fret gabon, coursiers libreville, x-press, scooters libreville, smartphones gabon">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://page-html-ccu.pages.dev/">
+
+<!-- Google Site Verification -->
+<meta name="google-site-verification" content="TMVJB6lLxdI38F_t1_ijlb9zRgBQIQTWM9uEPV2A5ys" />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_GA">
+<meta property="og:site_name" content="X-PRESS Livraison Gabon">
+<meta property="og:title" content="X-PRESS Livraison Gabon - Rapidité, Sécurité & E-Commerce">
+<meta property="og:description" content="Faites livrer vos colis dans tout le Grand Libreville en toute sécurité. Suivi CT241 en temps réel, catalogue produits et fret.">
+<meta property="og:image" content="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png">
+<meta property="og:url" content="https://page-html-ccu.pages.dev/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="X-PRESS Livraison Gabon">
+<meta name="twitter:description" content="Service de transport et livraison express dans le Grand Libreville. Suivi en temps réel avec code CT241.">
+<meta name="twitter:image" content="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png">
+
+<!-- Données Structurées Schema.org JSON-LD pour Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LogisticsService",
+      "@id": "https://page-html-ccu.pages.dev/#organization",
+      "name": "X-PRESS Livraison Gabon",
+      "url": "https://page-html-ccu.pages.dev/",
+      "logo": "https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png",
+      "image": "https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png",
+      "description": "Société de logistique du dernier kilomètre opérant dans le Grand Libreville au Gabon.",
+      "telephone": "+24177736065",
+      "email": "helloxpresslivraison@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Libreville",
+        "addressCountry": "GA"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Grand Libreville"
+      },
+      "priceRange": "CFA"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment suivre mon colis ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Utilisez votre code unique CT241 directement dans le module 'Suivi des livraisons' sur le tableau de bord."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les délais d'expédition ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nous optimisons les parcours pour garantir les meilleurs délais à travers tout le Grand Libreville."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ["Inter", "sans-serif"] },
+        colors: {
+          brand: {
+            50: "#eff6ff",
+            100: "#dbeafe",
+            500: "#2563eb",
+            600: "#1d4ed8",
+            700: "#1e40af",
+            900: "#1e3a8a"
+          }
+        }
+      }
+    }
+  };
+</script>
+
+<style>
+    /* Transitions et visibilité des sections */
+    .page-section { display: none; opacity: 0; transition: opacity .3s ease; }
+    .page-section.active { display: block; opacity: 1; animation: fadeIn .4s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* Animation heartbeat */
+    @keyframes heartbeat { 0%, 85%, 100% { transform: scale(1); } 90% { transform: scale(1.02); } 95% { transform: scale(1.04); } }
+    .animate-heartbeat { display: inline-block; animation: heartbeat 5s ease-in-out infinite; }
+    
+    /* Custom scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Sidebar Drawer Mobile */
+    #sidebar { transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1); }
+    @media(max-width: 1024px) {
+        #sidebar.closed { transform: translateX(-100%); }
+        #sidebar.open { transform: translateX(0); }
+    }
+
+    /* Modals / Drawers slide transition */
+    .drawer-slide { transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1); }
+
+    /* Animation Marquee des Avis */
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { display: flex; width: max-content; animation: marquee 35s linear infinite; }
+    .animate-marquee:hover { animation-play-state: paused; }
+
+    /* Cookie Banner Animation */
+    #cookie-consent-banner { transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), opacity .5s ease; }
+    #cookie-consent-banner.show { transform: translateY(0) scale(1); opacity: 1; }
+
+    /* Styles pour Visionneuse / Lightbox Galerie */
+    .gallery-img-container { touch-action: none; overflow: hidden; }
+    .gallery-image { transition: transform 0.2s ease-out; cursor: grab; transform-origin: center center; }
+    .gallery-image:active { cursor: grabbing; }
+
+    /* Améliorations Ergonomiques Tactiles pour Mobile */
+    .touch-target { min-height: 44px; min-width: 44px; }
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom, 1rem); }
+</style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans h-full flex flex-col lg:flex-row overflow-hidden selection:bg-brand-100 selection:text-brand-900">
+
+<!-- Overlay de fond pour mobile -->
+<div id="mobile-overlay" class="fixed inset-0 bg-slate-900/60 z-40 hidden lg:hidden backdrop-blur-sm transition-opacity" onclick="toggleSidebar()"></div>
+
+<!-- ========================================== -->
+<!-- BARRE DE NAVIGATION LATÉRALE (SIDEBAR)     -->
+<!-- ========================================== -->
+<aside id="sidebar" class="bg-white w-72 border-r border-slate-200 flex flex-col fixed lg:static h-full z-50 closed lg:transform-none shadow-2xl lg:shadow-none">
+  <div class="h-20 flex items-center px-6 border-b border-slate-100 justify-between">
+    <a href="/" class="lg:hidden text-slate-600 hover:text-brand-600 bg-slate-100 p-2.5 rounded-xl touch-target flex items-center justify-center" aria-label="Accueil">
+     <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="x-press livraison gabon" class="w-6 h-6 object-contain">
+     <span class="font-extrabold text-lg text-brand-900 tracking-tight">X-PRESS <span class="text-brand-600">GABON</span></span>
+   </a>
+    <button class="lg:hidden text-slate-400 hover:text-slate-600 p-2 touch-target" onclick="toggleSidebar()" aria-label="Fermer le menu">
+      <i class="fas fa-times text-xl"></i>
+    </button>
+  </div>
+
+  <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+    <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Menu Principal</p>
+    
+    <button onclick="navigate('accueil',this)" class="nav-btn active w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-brand-700 bg-brand-50 transition-colors touch-target">
+      <i class="fas fa-home w-5 text-center text-brand-600"></i> Vue d'ensemble
+    </button>
+    
+    <button onclick="navigate('services',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
+      <i class="fas fa-layer-group w-5 text-center text-slate-400"></i> Nos Services
+    </button>
+    
+    <button onclick="navigate('products',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
+      <i class="fas fa-store w-5 text-center text-slate-400"></i> Boutique & Engins
+    </button>
+
+    <div class="pt-2 pb-1 space-y-1 border-t border-slate-100 my-2">
+      <button onclick="openCartDrawer()" class="w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors touch-target">
+        <span class="flex items-center gap-3">
+          <i class="fas fa-shopping-cart w-5 text-center text-brand-600"></i> Mon Panier
+        </span>
+        <span id="sidebar-cart-badge" class="bg-brand-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">0</span>
+      </button>
+
+      <button onclick="openFavoritesDrawer()" class="w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors touch-target">
+        <span class="flex items-center gap-3">
+          <i class="fas fa-heart w-5 text-center text-rose-500"></i> Mes Favoris
+        </span>
+        <span id="sidebar-fav-badge" class="bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">0</span>
+      </button>
+    </div>
+
+    <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mt-4 mb-2">Informations</p>
+
+    <button onclick="navigate('about',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
+      <i class="fas fa-users w-5 text-center text-slate-400"></i> Qui sommes-nous ?
+    </button>
+
+    <button onclick="navigate('cart',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
+      <i class="fas fa-ship w-5 text-center text-slate-400"></i> Fret Maritime / Aérien
+    </button>
+
+    <button onclick="navigate('faq',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
+      <i class="fas fa-question-circle w-5 text-center text-slate-400"></i> Centre d'aide (FAQ)
+    </button>
+
+    <button onclick="navigate('cgu',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
+      <i class="fas fa-file-contract w-5 text-center text-slate-400"></i> Conditions d'Utilisation
+    </button>
+  </nav>
+
+  <div class="p-4 border-t border-slate-100 space-y-2">
+    <a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-green-50 text-green-700 px-4 py-3 rounded-xl text-sm font-semibold hover:bg-green-100 transition touch-target">
+      <i class="fab fa-whatsapp text-lg"></i> Support WhatsApp
+    </a>
+    
+    <a href="https://index-html-2qm.pages.dev/" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-yellow-50 text-yellow-700 px-4 py-3 rounded-xl text-sm font-semibold hover:bg-yellow-100 transition touch-target">
+      <i class="fas fa-cogs text-sm"></i> Connexion
+    </a>
+  </div>
+</aside>
+
+<!-- ========================================== -->
+<!-- CONTENU PRINCIPAL & EN-TÊTE               -->
+<!-- ========================================== -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden pb-16 lg:pb-0">
+  <!-- Top App Bar -->
+  <header class="h-20 bg-white/90 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 z-30 sticky top-0">
+    <div class="flex items-center gap-3">
+    <a href="/" class="lg:hidden text-slate-600 hover:text-brand-600 bg-slate-100 p-2.5 rounded-xl touch-target flex items-center justify-center" aria-label="Accueil">
+     <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="x-press livraison gabon" class="w-6 h-6 object-contain">
+   </a>
+      <h1 id="page-title" class="text-sm lg:text-xl font-bold text-slate-800">ACCEUIL</h1>
+    </div>
+
+    <!-- En-tête : Actions Rapides, Signalement Incident, Favoris & Panier -->
+      <div class="flex items-center gap-2 sm:gap-3">
+      <button onclick="openFavoritesDrawer()" class="relative p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-rose-600 hover:bg-rose-50 transition touch-target" title="Mes Favoris">
+        <i class="fas fa-heart text-lg"></i>
+        <span id="header-fav-badge" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+      </button>
+
+      <button onclick="openCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 transition touch-target flex items-center gap-2 font-bold text-xs" title="Voir le Panier">
+        <i class="fas fa-shopping-cart text-lg text-brand-600"></i>
+        <span class="hidden sm:inline">Panier</span>
+        <span id="header-cart-badge" class="bg-brand-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Zone de contenu avec scroll interne -->
+  <div class="flex-1 overflow-y-auto p-4 lg:p-8">
+    <div class="max-w-6xl mx-auto pb-12">
+
+      <!-- SECTION 1 : ACCUEIL -->
+    <section id="accueil" class="page-section active">
+    <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-700 rounded-3xl p-6 lg:p-10 text-white shadow-lg mb-8 relative overflow-hidden">
+        
+        <!-- Logo en fond cliquable -->
+        <a href="/" class="absolute -right-10 -bottom-10 w-72 h-72 opacity-10 hover:opacity-20 transition z-0 flex items-center justify-center" aria-label="Accueil">
+            <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo filigrane" class="w-full h-full object-contain">
+        </a>
+
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="relative z-10">
+            <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 inline-block">Édition Libreville 2026</span>
+            <h2 class="text-2xl lg:text-4xl font-extrabold mb-3 leading-tight">Bienvenue sur votre espace<br>X-PRESS Livraison Gabon</h2>
+            <p class="animate-heartbeat text-brand-100 text-sm lg:text-base font-medium max-w-2xl">
+              La rapidité au service de vos envois. Gérez vos coups de cœur, constituez votre panier personnalisé et effectuez vos demandes en toute simplicité.
+            </p>
+        </div>
+        </div>
+
+        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <i class="fas fa-bullhorn text-brand-500"></i> Actualités & Offres Flash
+        </h3>
+
+        <!-- Carrousel Banner Interactive -->
+        <div class="relative bg-slate-100 rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-52 md:h-64 mb-8 group" id="banner-carousel" onmouseenter="pauseBanner()" onmouseleave="resumeBanner()">
+          <div id="carousel-slides" class="w-full h-full relative"></div>
+          <button onclick="prevBanner(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-md opacity-90 lg:opacity-0 group-hover:opacity-100 transition z-20 touch-target" aria-label="Précédent">
+            <i class="fas fa-chevron-left text-sm"></i>
+          </button>
+          <button onclick="nextBanner(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-md opacity-90 lg:opacity-0 group-hover:opacity-100 transition z-20 touch-target" aria-label="Suivant">
+            <i class="fas fa-chevron-right text-sm"></i>
+          </button>
+          <div class="absolute bottom-0 left-0 h-1.5 bg-brand-500 transition-all ease-linear" style="width:0" id="carousel-progress-bar"></div>
+          <div class="absolute bottom-4 right-6 flex gap-1.5 z-20" id="carousel-dots"></div>
+        </div>
+
+        <!-- Accès Rapides -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <button onclick="navigate('products',document.querySelectorAll('.nav-btn')[2])" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <i class="fas fa-shopping-bag text-xl"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Nos boutiques</span>
+          </button>
+
+          <button onclick="openFavoritesDrawer()" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <i class="fas fa-heart text-xl"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Mes Favoris</span>
+          </button>
+
+          <button onclick="openCartDrawer()" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <i class="fas fa-shopping-cart text-xl"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Mon Panier</span>
+          </button>
+
+          <a href="https://consultation-html.pages.dev/" target="_blank" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <i class="fas fa-search-location text-xl"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Suivi de colis</span>
+          </a>
+        </div>
+
+        <!-- Avis Clients Marquee -->
+        <div class="mt-12 bg-white rounded-3xl p-6 lg:p-8 border border-slate-100 shadow-sm">
+          <div class="mb-6">
+            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <i class="fas fa-star text-amber-500"></i> Avis & Retours de nos clients
+            </h3>
+            <p class="text-sm text-slate-500 mt-1">Découvrez la satisfaction de notre communauté au Gabon.</p>
+          </div>
+          
+          <div class="relative w-full overflow-hidden bg-slate-50 py-4 rounded-2xl border border-slate-200">
+            <div class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="flex gap-6 animate-marquee whitespace-nowrap">
+              <div class="flex gap-6">
+                <div class="inline-flex flex-col bg-white p-5 rounded-2xl border border-slate-100 shadow-sm w-[300px] shrink-0 whitespace-normal">
+                  <div class="flex items-center gap-1 text-amber-500 mb-2">
+                    <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i>
+                  </div>
+                  <p class="text-xs text-slate-600 italic flex-1">"Service ultra rapide ! Mon colis a été récupéré à Akanda et livré à Glass en seulement 35 minutes. Je recommande !"</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center font-bold text-xs border border-brand-100">SM</div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-900">Sandrine Mba</h4>
+                      <span class="text-[10px] text-slate-400">Commerçante • Libreville</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inline-flex flex-col bg-white p-5 rounded-2xl border border-slate-100 shadow-sm w-[300px] shrink-0 whitespace-normal">
+                  <div class="flex items-center gap-1 text-amber-500 mb-2">
+                    <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i>
+                  </div>
+                  <p class="text-xs text-slate-600 italic flex-1">"Le système CT241 est tout simplement magique. On suit les étapes sans aucune prise de tête."</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-100">MO</div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-900">Marc Ovono</h4>
+                      <span class="text-[10px] text-slate-400">Client Régulier • Owendo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inline-flex flex-col bg-white p-5 rounded-2xl border border-slate-100 shadow-sm w-[300px] shrink-0 whitespace-normal">
+                  <div class="flex items-center gap-1 text-amber-500 mb-2">
+                    <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i>
+                  </div>
+                  <p class="text-xs text-slate-600 italic flex-1">"Superbe pour l'application, je ne m'en passe plus..."</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-purple-50 text-purple-700 flex items-center justify-center font-bold text-xs border border-purple-100">OA</div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-900">Ozembo Andrix</h4>
+                      <span class="text-[10px] text-slate-400">Élève • Libreville</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inline-flex flex-col bg-white p-5 rounded-2xl border border-slate-100 shadow-sm w-[300px] shrink-0 whitespace-normal">
+                  <div class="flex items-center gap-1 text-amber-500 mb-2">
+                    <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i>
+                  </div>
+                  <p class="text-xs text-slate-600 italic flex-1">"J'ai commandé un cadeau pour ma maman et j'ai été livré avec une rapidité incroyable"</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-100">AOE</div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-900">Allegra Ondzaga Ellya</h4>
+                      <span class="text-[10px] text-slate-400">Cliente Régulière • PK9</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notre Équipe -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="mb-8">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <i class="fas fa-users text-brand-600"></i> Notre Équipe
+            </h3>
+            <p class="text-sm text-slate-500 mt-1">Les visages derrière la rapidité de vos livraisons au Gabon.</p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
+              <div class="relative w-24 h-24 mb-4">
+                <img src="https://i.ibb.co/FkZTBFJQ/IMG-0662.jpg" alt="Daniel Mvey" class="w-24 h-24 rounded-full object-cover border-4 border-brand-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=DM'">
+                <span class="absolute bottom-1 right-1 bg-brand-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-crown"></i></span>
+              </div>
+              <h4 class="font-bold text-slate-950 text-base">Daniel Mvey</h4>
+              <span class="text-xs font-semibold px-2.5 py-1 bg-brand-50 text-brand-700 rounded-full mt-2">Directeur Général & Commercial</span>
+              <p class="text-xs text-slate-500 mt-3 flex-1">Pilotage stratégique et développement du réseau de transport au Gabon.</p>
+              <div class="flex gap-2 mt-4">
+                <a href="mailto:newsmiley21@gmail.com" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-600 flex items-center justify-center transition" title="Email"><i class="fas fa-envelope text-sm"></i></a>
+                <a href="https://wa.me/24177736065" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-green-50 text-slate-500 hover:text-green-600 flex items-center justify-center transition" title="WhatsApp"><i class="fab fa-whatsapp text-sm"></i></a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
+              <div class="relative w-24 h-24 mb-4">
+                <img src="" alt="Charly Mapaga" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=CM'">
+                <span class="absolute bottom-1 right-1 bg-emerald-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-route"></i></span>
+              </div>
+              <h4 class="font-bold text-slate-950 text-base">Charly Mapaga</h4>
+              <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-50 text-emerald-700 rounded-full mt-2">Resp. des Opérations</span>
+              <p class="text-xs text-slate-500 mt-3 flex-1">Supervision de la logistique en temps réel et optimisation des trajets.</p>
+              <div class="flex gap-2 mt-4">
+                <a href="mailto:helloxpresslivraison@gmail.com" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-600 flex items-center justify-center transition"><i class="fas fa-envelope text-sm"></i></a>
+                <a href="https://wa.me/24177736065" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-green-50 text-slate-500 hover:text-green-600 flex items-center justify-center transition"><i class="fab fa-whatsapp text-sm"></i></a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
+              <div class="relative w-24 h-24 mb-4">
+                <img src="" alt="Amandine Nse" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=AN'">
+                <span class="absolute bottom-1 right-1 bg-purple-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-headset"></i></span>
+              </div>
+              <h4 class="font-bold text-slate-950 text-base">Amandine Nse</h4>
+              <span class="text-xs font-semibold px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full mt-2">Service Client & Suivi</span>
+              <p class="text-xs text-slate-500 mt-3 flex-1">Accompagnement personnalisé et support client dédié 7j/7.</p>
+              <div class="flex gap-2 mt-4">
+                <a href="mailto:helloxpresslivraison@gmail.com" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-600 flex items-center justify-center transition"><i class="fas fa-envelope text-sm"></i></a>
+                <a href="https://wa.me/24177736065" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-green-50 text-slate-500 hover:text-green-600 flex items-center justify-center transition"><i class="fab fa-whatsapp text-sm"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 : SERVICES -->
+      <section id="services" class="page-section">
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-slate-800">Nos Services Logistiques</h2>
+          <p class="text-slate-500 mt-1">Sélectionnez un module pour y accéder directement.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="https://my-chatbot-2nz.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-yellow-200 transition-all">
+            <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Chabot </h3>
+            <p class="text-sm text-slate-500 mb-4">Consultez la bibliotheque I.A pour mieux comprendre le fonctionnement .</p>
+            <span class="text-yellow-600 font-semibold text-sm flex items-center gap-1">se renseigner <i class="fas fa-arrow-right text-xs"></i></span>
+          </a>
+
+           <a href="https://1-2-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all">
+            <div class="w-14 h-14 bg-emerald-100 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fas fa-truck-fast"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Nouvelle commande Express</h3>
+            <p class="text-sm text-slate-500 mb-4">Planifiez et effectuez une demande de livraison de colis rapidement.</p>
+            <span class="text-emerald-600 font-semibold text-sm flex items-center gap-1">Démarrer <i class="fas fa-arrow-right text-xs"></i></span>
+          </a>
+          
+          <a href="https://consultation-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all">
+            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fas fa-search-location"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Suivi des livraisons</h3>
+            <p class="text-sm text-slate-500 mb-4">Consultez l'état de votre colis en temps réel avec votre code CT241.</p>
+            <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">Accéder <i class="fas fa-arrow-right text-xs"></i></span>
+          </a>
+
+          <a href="https://wa.me/24177736065?text=Salut%20mr%2FMme%2C%0A%0Aj'esp%C3%A8re%20que%20vous%20vous%20portez%20bien%20%3F%0AJe%20vous%20contacte%20afin%20d'explorer%20une%20opportunit%C3%A9%20de%20partenariat%20entre%20%20votre%20entreprise%20et%20la%20n%C3%B4tre." target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+            <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Devenir partenaire</h3>
+            <p class="text-sm text-slate-500 mb-4">Rejoignez notre réseau de livreurs et développez votre activité.</p>
+            <span class="text-purple-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Postuler <i class="fas fa-arrow-right text-xs"></i></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION 3 : À PROPOS -->
+      <section id="about" class="page-section">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="p-6 lg:p-10 border-b border-slate-100 bg-brand-50/50">
+            <h2 class="text-2xl lg:text-3xl font-bold text-brand-900 mb-4">À propos de X-PRESS</h2>
+            <p class="text-base lg:text-lg text-slate-700 leading-relaxed max-w-3xl">
+              Xpress livraison SARLU est une société de logistique du dernier kilomètre créée au Gabon en 2026 par MR MBENG MVEY EPIPHANE DANIEL. Elle a pour objectif principal la fourniture de prestations logistiques croisées pour une clientèle nationale. De la demande à la satisfaction du client, en passant par la prestation logistique, l’entreprise assure l’accomplissement des missions de livraison dans le grand Libreville avec rapidité, efficacité et discipline.
+              <strong class="block mt-2">Elle relève avec assurance le challenge de mettre à disposition des professionnels pour le transport et la livraison en toute sécurité de vos marchandises.</strong>
+            </p>
+          </div>
+
+          <div class="p-6 lg:p-10 grid lg:grid-cols-2 gap-10">
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fas fa-star text-brand-500"></i> Pourquoi nous choisir ?</h3>
+                <ul class="space-y-3">
+                  <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl">
+                    <i class="fas fa-map-marked-alt text-brand-500 mt-1"></i>
+                    <div>
+                      <strong class="block text-slate-800">Expertise locale</strong>
+                      <span class="text-sm text-slate-600">Maîtrise parfaite du Grand Libreville garantissant des trajets optimisés.</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl">
+                    <i class="fas fa-boxes text-brand-500 mt-1"></i>
+                    <div>
+                      <strong class="block text-slate-800">Polyvalence</strong>
+                      <span class="text-sm text-slate-600">Prise en charge de tous types de colis pour pros et particuliers.</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl">
+                    <i class="fas fa-shield-alt text-brand-500 mt-1"></i>
+                    <div>
+                      <strong class="block text-slate-800">Sécurité & Technologie</strong>
+                      <span class="text-sm text-slate-600">Suivi dédié via OPS X-PRESS et masquage automatique des données.</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-brand-900 text-white p-6 rounded-2xl shadow-lg">
+                <h3 class="font-bold text-lg mb-4 opacity-90">Comment ça marche ?</h3>
+                <ol class="space-y-4 text-sm relative border-l border-brand-700 ml-3">
+                  <li class="pl-6 relative">
+                    <span class="absolute -left-3.5 top-0 bg-brand-500 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-brand-900">1</span>
+                    <strong>Planification</strong> - Définition du lieu de récupération.
+                  </li>
+                  <li class="pl-6 relative">
+                    <span class="absolute -left-3.5 top-0 bg-brand-500 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-brand-900">2</span>
+                    <strong>Prise en charge</strong> - Code unique CT241 généré.
+                  </li>
+                  <li class="pl-6 relative">
+                    <span class="absolute -left-3.5 top-0 bg-brand-500 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-brand-900">3</span>
+                    <strong>Suivi & Livraison</strong> - Transparence totale jusqu'à la remise.
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                <h3 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2">Nous contacter</h3>
+                <div class="space-y-4">
+                  <a href="tel:077736065" class="flex items-center gap-4 text-slate-600 hover:text-brand-600 transition p-2 rounded-lg hover:bg-slate-50 touch-target">
+                    <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
+                      <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                      <span class="block text-xs uppercase text-slate-400 font-bold">Téléphones</span>
+                      <span class="font-semibold text-slate-800">+241 77 73 60 65 / 066 13 98 46</span>
+                    </div>
+                  </a>
+
+                  <div class="flex items-start gap-4 text-slate-600 p-2 rounded-lg">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shrink-0">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                      <span class="block text-xs uppercase text-slate-400 font-bold">Infoline</span>
+                      <a href="mailto:helloxpresslivraison@gmail.com" class="font-medium hover:text-brand-600 transition block">helloxpresslivraison@gmail.com</a>
+                      <span class="block text-xs uppercase text-slate-400 font-bold mt-2">Directeur commercial</span>
+                      <a href="mailto:directeurxpressdanielmvey241@gmail.com" class="font-medium hover:text-brand-600 transition block">directeurxpressdanielmvey241@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-slate-100 rounded-2xl p-2 h-64 overflow-hidden border border-slate-200 shadow-inner">
+                <iframe src="https://i.ibb.co/nMQ9RMLt/image.png" width="100%" height="100%" style="border:0;border-radius:.75rem" allowfullscreen loading="lazy" title="Carte Libreville"></iframe>
+              </div>
+              <p class="text-center text-sm text-slate-500"><i class="fas fa-map-pin text-brand-500 mr-1"></i> Nos bureaux au cœur de Libreville, Gabon.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 : BOUTIQUE / CATALOGUE -->
+      <section id="products" class="page-section">
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-slate-800">Catalogue </h2>
+            <p class="text-slate-500 mt-1">Ajoutez vos articles préférés dans les favoris ou directement au panier.</p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto items-stretch sm:items-center">
+            <div class="relative flex-1 sm:w-64 shrink-0">
+              <input type="text" id="productSearchInput" oninput="filterProducts()" placeholder="Rechercher un article..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition shadow-sm">
+              <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            </div>
+
+            <!-- Scroll Horizontal des Filtres -->
+            <div class="overflow-x-auto whitespace-nowrap py-1 flex gap-2 max-w-full lg:max-w-md xl:max-w-xl scrollbar-none" id="categoryFilterContainer">
+              <button onclick="filterCategory('Tout')" class="cat-btn px-4 py-2 bg-brand-600 text-white rounded-full text-xs font-semibold cursor-pointer transition-all touch-target">Tout</button>
+              <button onclick="filterCategory('Scooters')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Scooters</button>
+              <button onclick="filterCategory('Motos')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Motos</button>
+              <button onclick="filterCategory('Electromenager')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Électroménager</button>
+              <button onclick="filterCategory('Evenementiel')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Événementiel</button>
+              <button onclick="filterCategory('Véhicules')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Véhicules</button>
+              <button onclick="filterCategory('Sac')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Sacs</button>  
+              <button onclick="filterCategory('Electronique')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Electronique</button> 
+              <button onclick="filterCategory('Smartphones')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Smartphones</button>
+              <button onclick="filterCategory('Vêtements femmes')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Femmes</button>
+              <button onclick="filterCategory('Vêtements hommes')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Hommes</button>
+              <button onclick="filterCategory('Mobilier')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Mobilier</button>
+              <button onclick="filterCategory('Accessoires')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Accessoires</button>    
+            </div>
+          </div>
+        </div>
+
+        <div id="dynamic-products-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="dynamic-pagination-container" class="mt-8 flex justify-center items-center gap-2"></div>
+      </section>
+
+      <!-- SECTION 5 : FRET -->
+        <section id="cart" class="page-section">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 lg:p-12 text-center max-w-2xl mx-auto mt-6">
+          <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+            <i class="fas fa-ship text-3xl text-brand-600"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-800 mb-2">Fret Maritime & Aérien</h2>
+          <p class="text-slate-500 mb-8">Ce module d'import/export international est en cours de déploiement progressif.</p>
+          <img src="https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png" alt="Logo GLOBEX GABON" class="h-16 mx-auto mb-4 drop-shadow-sm">
+          <p class="text-sm font-semibold text-slate-700"> Service GLOBEX GABON</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 : FAQ -->
+      <section id="faq" class="page-section max-w-3xl mx-auto">
+         <h2 class="text-2xl font-bold text-slate-800 mb-6">Foire Aux Questions</h2>
+        <div class="space-y-4">
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Comment suivre mon colis ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Utilisez votre code unique CT241 directement dans le module "Suivi des livraisons" disponible sur le tableau de bord.
+            </div>
+          </details>
+
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Quels sont les délais d'expédition ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Nous optimisons les parcours pour garantir les meilleurs délais à travers tout le Grand Libreville. Le statut en temps réel vous indiquera l'heure estimée.
+            </div>
+          </details>
+
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Vais-je recevoir une notification avant la livraison ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Oui, vous allez recevoir des alertes proactives (par SMS ou appel) précisant le créneau horaire de passage du livreur dès réception du colis par notre équipe.
+            </div>
+          </details>
+
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Puis-je modifier l'adresse en cours de route ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Oui, nous offrons la possibilité au client de modifier l'adresse de la livraison en contactant le service client avec le numéro du colis concerné.
+            </div>
+          </details>
+
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Que se passe-t-il si je suis absent(e) lors du passage du livreur ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Les alternatives (dépôt chez un voisin ou retour en entrepôt) sont nos deux options. Toutefois, des frais forfaitaires de 200 francs CFA sont appliqués sur chaque colis retourné en entrepôt.
+            </div>
+          </details>
+
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Comment procéder au paiement ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Nous acceptons les paiements mobiles via Airtel Money, Moov Money, en espèces avant la livraison (par l'expéditeur) ou à destination. Pour les paiements mobiles, il est impératif de renseigner votre code CT241 comme motif de transaction et de fournir une capture d'écran au support client.
+            </div>
+          </details>
+
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
+              Comment puis-je retourner un article ?
+              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
+              Vous devez effectuer une nouvelle commande sur le portail client en renseignant le nom du destinataire/vendeur, vos informations, sélectionner l'option "RETOUR" de la zone concernée, dans l'espace instruction entrez le numéro de livraison du colis et valider.
+            </div>
+          </details>
+        </div>
+      </section>
+
+     <!-- SECTION 7 : CGU -->
+      <section id="cgu" class="page-section">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 lg:p-12 text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto">
+          <div class="text-center mb-10">
+            <i class="fas fa-scale-balanced text-4xl text-brand-600 mb-3"></i>
+            <h2 class="text-2xl font-bold text-slate-800">Conditions Générales d'Utilisation</h2>
+            <p class="text-slate-400 mt-1">Dernière mise à jour : 2026</p>
+          </div>
+
+          <div class="space-y-8">
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 1 : PRÉAMBULE ET DÉFINITIONS</h3>
+              <p>Les présentes Conditions Générales d’Utilisation (ci-après les « CGU ») régissent les relations entre la société X-PRESS LIVRAISON, prestataire de services logistiques opérant dans le Grand Libreville, et toute personne physique ou morale (ci-après l’« Utilisateur ») accédant à nos services de livraison et de suivi en ligne.</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 2 : OBJET DU SERVICE</h3>
+              <p>X-PRESS LIVRAISON fournit une solution de transport et de suivi de colis en temps réel. La plateforme permet à l’Utilisateur de solliciter une prestation de livraison et de consulter le statut de son expédition via un identifiant unique dénommé « Code CT241 ».</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 3 : ACCÈS ET UTILISATION DU SYSTÈME (CT241)</h3>
+              <p>3.1. Chaque commande validée génère automatiquement un Code CT241. 3.2. Ce code est la clé d’accès sécurisée aux informations du colis. Il incombe à l’Utilisateur de conserver ce code et de ne pas le divulguer à des tiers non autorisés. 3.3. L'utilisation du Code CT241 permet à l’Utilisateur de visualiser les étapes de sa livraison. X-PRESS LIVRAISON ne saurait être tenu responsable des conséquences liées à la perte ou à la divulgation du code par l’Utilisateur.</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 4 : PROTECTION DES DONNÉES</h3>
+              <p>X-PRESS LIVRAISON accorde une importance capitale à la protection des données personnelles. 4.1. Données collectées : Nous collectons les informations strictly nécessaires à la prestation (nom, adresse de livraison, numéro de téléphone). 4.2. Engagement de sécurité : Afin de protéger nos clients contre toute tentative d’usurpation ou de harcèlement, nous appliquons un masquage automatique des quatre chiffres centraux des numéros de téléphone sur l’interface de suivi publique. 4.3. Non-divulgation : Aucune donnée personnelle ne sera transmise, vendue ou louée à des tiers à des fins commerciales.</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 5 : MODALITÉS DE PAIEMENT ET VALIDATION</h3>
+              <p>Les règlements sont effectués via les opérateurs de monnaie électronique (Airtel Money / Moov Money). 5.1. Validation par motif : Pour toute commande, l’Utilisateur doit impérativement indiquer son Code CT241 dans le champ « Motif du transfert ». 5.2. Absence de motif : En cas d'oubli ou d'erreur dans le motif de transfert, la validation automatique sera impossible. X-PRESS LIVRAISON ne pourra être tenu responsable des retards de traitement générés par cette erreur humaine, et des frais de recherche administrative pourront être appliqués.</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 6 : ENGAGEMENTS ET RESPONSABILITÉS</h3>
+              <p>6.1. Nature des marchandises : L'Utilisateur garantit que le contenu du colis est licite, non dangereux, non inflammable et conforme à la législation en vigueur au Gabon. Toute marchandise interdite engage la responsabilité pénale exclusive de l'Utilisateur. 6.2. Limitation de responsabilité : X-PRESS LIVRAISON s'engage à mettre en œuvre les moyens nécessaires pour respecter les délais annoncés. Toutefois, nous ne sommes pas responsables des retards liés à la force majeure (intempéries, blocages routiers majeurs, pannes réseau des opérateurs mobiles). 6.3. Assurance : La responsabilité de X-PRESS LIVRAISON est limitée au montant de la prestation de transport. Pour toute marchandise de grande valeur, une assurance complémentaire doit être négociée au moment de la commande.</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 7 : DROIT APPLICABLE ET LITIGES</h3>
+              <p>7.1. Les présentes CGU sont régies par le droit gabonais. 7.2. Tout différend relatif à l'exécution des présentes fera l'objet d'une tentative de résolution amiable entre les parties. En cas d'échec, le litige sera porté devant les juridictions compétentes du Tribunal de Libreville.</p>
+            </div>
+
+            <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
+              <h3 class="font-bold text-brand-900 text-base mb-1">Acceptation des Conditions Générales d'Utilisation :</h3>
+              <p class="text-brand-800">En validant une commande de livraison via le formulaire de X-PRESS LIVRAISON, l'Utilisateur reconnaît avoir lu, compris et accepté sans réserve les présentes conditions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Pied de Page -->
+     <footer class="border-t border-slate-200 mt-auto pt-8 pb-6 text-center">
+      <div class="flex justify-center gap-4 mb-6">
+        <a href="https://www.facebook.com/profile.php?id=61591969701089" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-blue-600 transition touch-target" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-pink-100 hover:text-pink-600 transition touch-target" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-emerald-100 hover:text-emerald-600 transition touch-target" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="text-slate-400 text-sm mb-2">&copy; 2026 X-press livraison Gabon - Tous droits réservés</p>
+      <div class="flex flex-wrap justify-center items-center gap-3 text-xs text-slate-500">
+        <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6])" class="hover:text-brand-600 transition">Mentions Légales & CGU</button>
+        <span>&bull;</span>
+        <span>Support: +241 77736065 / 066182284</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- DRAWER / TIROIR DU PANIER DE COMMANDE      -->
+<!-- ========================================== -->
+<div id="cart-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 drawer-slide translate-x-full flex flex-col">
+  <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-shopping-cart text-brand-600 text-lg"></i>
+      <h3 class="font-bold text-slate-800 text-lg">Mon Panier</h3>
+      <span id="cart-drawer-count" class="bg-brand-100 text-brand-700 text-xs font-bold px-2.5 py-0.5 rounded-full">0 article</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="clearCart()" class="text-xs text-red-500 hover:text-red-700 font-semibold px-2 py-1 rounded hover:bg-red-50 transition" title="Vider le panier">
+        Vider
+      </button>
+      <button onclick="closeCartDrawer()" class="text-slate-400 hover:text-slate-600 p-2 touch-target">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+    <!-- Liste dynamique des articles -->
+  </div>
+
+  <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-4">
+    <div class="flex justify-between items-center text-slate-700">
+      <span class="font-medium text-sm">Total estimé :</span>
+      <span id="cart-total-price" class="font-mono font-bold text-xl text-brand-600">0 CFA</span>
+    </div>
+
+    <button onclick="checkoutCartWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition flex items-center justify-center gap-2 touch-target">
+      <i class="fab fa-whatsapp text-lg"></i> Valider la commande
+    </button>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- DRAWER / TIROIR DES FAVORIS               -->
+<!-- ========================================== -->
+<div id="fav-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 drawer-slide translate-x-full flex flex-col">
+  <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-rose-50/50">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-heart text-rose-500 text-lg"></i>
+      <h3 class="font-bold text-slate-800 text-lg">Mes Favoris</h3>
+    </div>
+    <button onclick="closeFavoritesDrawer()" class="text-slate-400 hover:text-slate-600 p-2 touch-target">
+      <i class="fas fa-times text-lg"></i>
+    </button>
+  </div>
+
+  <div id="fav-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+    <!-- Liste dynamique des favoris -->
+  </div>
+
+  <div id="fav-drawer-footer" class="p-4 border-t border-slate-100 bg-slate-50 hidden">
+    <button onclick="addAllFavoritesToCart()" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-bold text-xs shadow-md transition flex items-center justify-center gap-2 touch-target">
+      <i class="fas fa-cart-plus"></i> Tout ajouter au panier
+    </button>
+  </div>
+</div>
+
+<!-- BARRE TACTILE MOBILE (BOTTOM NAV) -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 z-40 flex items-center justify-around py-2 px-2 pb-safe shadow-lg">
+  <button onclick="navigate('accueil', document.querySelectorAll('.nav-btn')[0])" class="mobile-nav-btn flex flex-col items-center gap-1 text-brand-600 font-bold px-2 py-1 rounded-xl transition touch-target" data-target="accueil">
+    <i class="fas fa-home text-base"></i>
+    <span class="text-[10px]">Accueil</span>
+  </button>
+
+  <button onclick="navigate('products', document.querySelectorAll('.nav-btn')[2])" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target" data-target="products">
+    <i class="fas fa-store text-base"></i>
+    <span class="text-[10px]">Boutique</span>
+  </button>
+
+  <button onclick="toggleSidebar(); window.location.href='sms:+24177736065?body=Bonjour%20x-press%20%2C%20%0Aje%20souhaite%20signaler%20un%20incident%20survenu%20lors%20de%20la%20livraison%20du%20colis%20N%C2%B0';" class="flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
+    <i class="fas fa-bell text-base"></i>
+    <span class="text-[10px]">Signaler</span>
+</button>
+
+  <button onclick="toggleSidebar()" class="flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
+    <i class="fas fa-bars text-base"></i>
+    <span class="text-[10px]">Menu</span>
+  </button>
+</div>
+
+<!-- ========================================== -->
+<!-- CODE JAVASCRIPT COMPLET                   -->
+<!-- ========================================== -->
+<script>
+var productsData = [
+  {id:1,name:"Sac à main chic noir",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/nqYxsLp0/Capture-d-cran-2026-07-12-174100.png"]},
+  {id:2,name:"Sac à main chic marron",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/b5jS3Vnw/Capture-d-cran-2026-07-12-173939.png"]},
+  {id:3,name:"Sac à dos urbain pro",type:"Sac",status:"disponible",price:"18.000",desc:"Idéal pour vos déplacements quotidiens et transporter votre ordinateur.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Sac+a+Dos"]},
+  {id:4,name:"Sacoche en cuir Premium",type:"Sac",status:"disponible",price:"25.000",desc:"Élégance et robustesse pour vos documents importants.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Sacoche+Cuir"]},
+  {id:10,name:"iPhone 15 Plus",type:"Smartphones",status:"Disponible",price:"350.000",desc:"Article neuf sous emballage. Autonomie exceptionnelle.",images:["https://i.ibb.co/h1MfGcbv/Capture-d-cran-2026-07-24-034737.png"]},
+  {id:11,name:"iPhone 15 Pro Max",type:"Smartphones",status:"Disponible",price:"520.000",desc:"Article haute qualité 256GB / 512GB. Performances ultimes.",images:["https://i.ibb.co/TB2bqxLB/Capture-d-cran-2026-07-12-171021.png"]},
+  {id:12,name:"Samsung Galaxy S24 Ultra",type:"Smartphones",status:"Sur commande",price:"650.000",desc:"Le summum de la technologie Android avec stylet intégré.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Galaxy+S24"]},
+  {id:13,name:"Xiaomi Redmi Note 13 Pro",type:"Smartphones",status:"Disponible",price:"180.000",desc:"Excellent rapport qualité-prix, charge ultra-rapide.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Redmi+Note+13"]},
+  {id:16,name:"Écouteurs Mt900",type:"Electronique",status:"Disponible",price:"7.000",desc:"Excellente autonomie et basses équilibrées.",images:["https://i.ibb.co/bRLCJwQd/Capture-d-cran-2026-07-12-182112.png"]},
+  {id:17,name:"Casque Audio Sans Fil",type:"Electronique",status:"Disponible",price:"22.500",desc:"Réduction de bruit active et confort maximal pour vos trajets.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Casque+Audio"]},
+  {id:18,name:"Lampe d'ambience Barre",type:"Electronique",status:"Disponible",price:"15.000",desc:"Barre lumineuse multicolore pour vos pièces.",images:["https://i.ibb.co/XZRNWk9w/Capture-d-cran-2026-07-12-173101.png"]},
+  {id:19,name:"Lampe d'ambiance soleil",type:"Electronique",status:"Disponible",price:"9.500",desc:"Éclairage tamisé et chaleureux.",images:["https://i.ibb.co/RTP7hMrD/Capture-d-cran-2026-07-12-172715.png"]},
+  {id:20,name:"Maxi scooter NT01 150CC",type:"Scooters",status:"Sur commande",price:"820.000",desc:"Modèle urbain classique pour Libreville.",images:["https://i.ibb.co/PvNLQqWj/Capture-d-cran-2026-07-09-214052.png"]},
+  {id:21,name:"Scooter City Run 80CC",type:"Scooters",status:"Disponible",price:"840.000",desc:"Parfait pour se faufiler rapidement.",images:["https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png"]},
+  {id:22,name:"Moto Cross Enduro 250CC",type:"Scooters",status:"Sur commande",price:"1.200.000",desc:"Pour les terrains difficiles et les aventures hors route.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Moto+Cross"]},
+  {id:32,name:"Fauteuil crapaud",type:"Mobilier",status:"Sur commande",price:"285.000",desc:"Petit siège rembourré hyper confortable.",images:["https://i.ibb.co/vx3gQR2t/Capture-d-cran-2026-07-12-173400.png"]},
+  {id:33,name:"Bureau ergonomique Pro",type:"Mobilier",status:"Disponible",price:"120.000",desc:"Bureau spacieux avec espaces de rangement pour le télétravail.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Bureau+Pro"]},
+  {id:34,name:"Chaise de bureau pivotante",type:"Mobilier",status:"Disponible",price:"65.000",desc:"Soutien lombaire et hauteur ajustable pour un confort optimal.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Chaise+Bureau"]},
+  {id:40,name:"Montre Connectée Sport",type:"Electronique",status:"Disponible",price:"35.000",desc:"Suivi d'activité, rythme cardiaque et notifications au poignet.",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Montre+Sport"]},
+  {id:41,name:"Enceinte Bluetooth Portable",type:"Electronique",status:"Disponible",price:"28.000",desc:"Son puissant à 360° et résistance à l'eau (IP67).",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Enceinte+BT"]}
+];
+
+var bannersData = [
+  {
+    title: "Scooter City Run 80CC",
+    subtitle: "Profitez de la livraison gratuite dans tout Libreville !",
+    tag: "PROMO FLASH",
+    bg: "bg-gradient-to-r from-blue-900 to-indigo-900",
+    action: "Voir l'offre",
+    target: "products"
+  },
+  {
+    title: "Suivi CT241 en Temps Réel",
+    subtitle: "Localisez la position de votre coursier instantanément.",
+    tag: "SERVICE EXCLUSIF",
+    bg: "bg-gradient-to-r from-emerald-900 to-teal-900",
+    action: "Consulter un colis",
+    link: "https://consultation-html.pages.dev/"
+  },
+  {
+    title: "Fret Maritime & Aérien",
+    subtitle: "Expédiez vos marchandises vers et depuis le Gabon.",
+    tag: "PARTENARIAT GLOBEX",
+    bg: "bg-gradient-to-r from-slate-900 to-blue-950",
+    action: "En savoir plus",
+    target: "cart"
+  }
+];
+
+// --- ÉTAT ET PERSISTANCE LOCALSTORAGE ---
+var cart = JSON.parse(localStorage.getItem('xpress_cart') || '[]');
+var favorites = JSON.parse(localStorage.getItem('xpress_favorites') || '[]');
+
+var selectedCategory = "Tout", productSearchQuery = "", currentSlideIndex = 0, bannerTimer = null;
+
+function saveState() {
+  localStorage.setItem('xpress_cart', JSON.stringify(cart));
+  localStorage.setItem('xpress_favorites', JSON.stringify(favorites));
+  updateBadges();
+}
+
+function updateBadges() {
+  const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const favCount = favorites.length;
+
+  ['header-cart-badge', 'mobile-cart-badge', 'sidebar-cart-badge'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.innerText = totalCartCount;
+  });
+
+  const cartDrawerCount = document.getElementById('cart-drawer-count');
+  if(cartDrawerCount) cartDrawerCount.innerText = totalCartCount + (totalCartCount > 1 ? ' articles' : ' article');
+
+  ['header-fav-badge', 'mobile-fav-badge', 'sidebar-fav-badge'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.innerText = favCount;
+  });
+}
+
+// --- CARROUSEL INTERACTIF ---
+function initCarousel() {
+  const slidesContainer = document.getElementById('carousel-slides');
+  const dotsContainer = document.getElementById('carousel-dots');
+  if(!slidesContainer || !dotsContainer) return;
+
+  let slidesHtml = '';
+  let dotsHtml = '';
+
+  bannersData.forEach((b, idx) => {
+    slidesHtml += `
+      <div class="carousel-slide absolute inset-0 ${b.bg} text-white p-6 md:p-8 flex flex-col justify-center transition-opacity duration-500 ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}">
+        <span class="bg-white/20 text-white text-[10px] md:text-xs font-bold px-2.5 py-0.5 rounded-full w-max uppercase mb-2">${b.tag}</span>
+        <h3 class="text-xl md:text-3xl font-extrabold mb-1">${b.title}</h3>
+        <p class="text-xs md:text-sm text-slate-200 mb-4 max-w-lg">${b.subtitle}</p>
+        <div>
+          ${b.link 
+            ? `<a href="${b.link}" target="_blank" class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-xl text-xs font-bold hover:bg-slate-100 transition touch-target">${b.action} <i class="fas fa-arrow-right text-[10px]"></i></a>`
+            : `<button onclick="navigate('${b.target}', document.querySelectorAll('.nav-btn')[2])" class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-xl text-xs font-bold hover:bg-slate-100 transition touch-target">${b.action} <i class="fas fa-arrow-right text-[10px]"></i></button>`
+          }
+        </div>
+      </div>`;
+
+    dotsHtml += `<button onclick="goToSlide(${idx})" class="w-2.5 h-2.5 rounded-full transition-all ${idx === 0 ? 'bg-white w-6' : 'bg-white/50'}" aria-label="Slide ${idx+1}"></button>`;
+  });
+
+  slidesContainer.innerHTML = slidesHtml;
+  dotsContainer.innerHTML = dotsHtml;
+  startBannerTimer();
+}
+
+function showSlide(index) {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('#carousel-dots button');
+  if(!slides.length) return;
+
+  currentSlideIndex = (index + slides.length) % slides.length;
+
+  slides.forEach((slide, idx) => {
+    if(idx === currentSlideIndex) {
+      slide.classList.remove('opacity-0', 'z-0');
+      slide.classList.add('opacity-100', 'z-10');
+    } else {
+      slide.classList.remove('opacity-100', 'z-10');
+      slide.classList.add('opacity-0', 'z-0');
+    }
+  });
+
+  dots.forEach((dot, idx) => {
+    if(idx === currentSlideIndex) {
+      dot.className = "w-6 h-2.5 bg-white rounded-full transition-all";
+    } else {
+      dot.className = "w-2.5 h-2.5 bg-white/50 rounded-full transition-all";
+    }
+  });
+}
+
+function nextBanner(e) {
+  if(e) e.stopPropagation();
+  showSlide(currentSlideIndex + 1);
+  resetBannerTimer();
+}
+
+function prevBanner(e) {
+  if(e) e.stopPropagation();
+  showSlide(currentSlideIndex - 1);
+  resetBannerTimer();
+}
+
+function goToSlide(index) {
+  showSlide(index);
+  resetBannerTimer();
+}
+
+function startBannerTimer() {
+  if(bannerTimer) clearInterval(bannerTimer);
+  bannerTimer = setInterval(() => {
+    showSlide(currentSlideIndex + 1);
+  }, 6000);
+}
+
+function pauseBanner() { if(bannerTimer) clearInterval(bannerTimer); }
+function resumeBanner() { startBannerTimer(); }
+function resetBannerTimer() { pauseBanner(); resumeBanner(); }
+
+function addToCart(productId, event) {
+  if(event) event.stopPropagation();
+  const product = productsData.find(p => p.id === productId);
+  if(!product) return;
+
+  const existingIndex = cart.findIndex(item => item.id === productId);
+  if(existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      quantity: 1
+    });
+  }
+
+  saveState();
+  renderCartItems();
+  openCartDrawer();
+  
+  // Feedback visuel sur le bouton
+  const btn = event ? event.currentTarget : null;
+  if(btn && !btn.classList.contains('in-drawer')) {
+    const originalHtml = btn.innerHTML;
+    const originalClasses = btn.className;
+    
+    btn.innerHTML = '<i class="fas fa-check"></i> Ajouté';
+    btn.classList.add('bg-green-600', 'text-white', 'border-green-600');
+    btn.classList.remove('bg-brand-600', 'bg-white', 'text-brand-600');
+    
+    setTimeout(() => {
+      btn.innerHTML = originalHtml;
+      btn.className = originalClasses;
+    }, 1500);
+  }
+}
+
+function updateCartQuantity(productId, delta) {
+  const itemIndex = cart.findIndex(item => item.id === productId);
+  if(itemIndex > -1) {
+    cart[itemIndex].quantity += delta;
+    if(cart[itemIndex].quantity <= 0) {
+      cart.splice(itemIndex, 1);
+    }
+  }
+  saveState();
+  renderCartItems();
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  saveState();
+  renderCartItems();
+}
+
+function clearCart() {
+  if(cart.length === 0) return;
+  cart = [];
+  saveState();
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cart-items-container');
+  const totalPriceEl = document.getElementById('cart-total-price');
+  if(!container) return;
+
+  if(cart.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 text-slate-400">
+        <i class="fas fa-shopping-basket text-4xl mb-3 block"></i>
+        Votre panier est vide.
+      </div>`;
+    if(totalPriceEl) totalPriceEl.innerText = '0 CFA';
+    return;
+  }
+
+  let html = '';
+  let totalCFA = 0;
+
+  cart.forEach(item => {
+    const numericPrice = parseInt(item.price.replace(/\./g, ''), 10) || 0;
+    const itemTotal = numericPrice * item.quantity;
+    totalCFA += itemTotal;
+
+    html += `
+      <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain rounded-xl bg-white p-1 shrink-0">
+        <div class="flex-1 min-w-0">
+          <h4 class="font-bold text-slate-800 text-xs truncate">${item.name}</h4>
+          <span class="text-xs text-brand-600 font-mono font-semibold">${item.price} CFA</span>
+          
+          <div class="flex items-center gap-2 mt-2">
+            <button onclick="updateCartQuantity(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs hover:bg-slate-100 touch-target" title="Diminuer">-</button>
+            <span class="text-xs font-bold w-5 text-center">${item.quantity}</span>
+            <button onclick="updateCartQuantity(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs hover:bg-slate-100 touch-target" title="Augmenter">+</button>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-end gap-1">
+          <span class="text-xs font-bold text-slate-900 font-mono">${itemTotal.toLocaleString('fr-FR')} CFA</span>
+          <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 p-1 touch-target" title="Supprimer de la commande">
+            <i class="fas fa-trash-alt text-xs"></i>
+          </button>
+        </div>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+  if(totalPriceEl) totalPriceEl.innerText = totalCFA.toLocaleString('fr-FR') + ' CFA';
+}
+
+function checkoutCartWhatsApp() {
+  if(cart.length === 0) return;
+
+  let text = "Bonjour l'équipe X-PRESS Livraison ! 👋\n\nJe souhaite passer une commande pour les articles suivants :\n\n";
+  let totalCFA = 0;
+
+  cart.forEach((item, idx) => {
+    const numericPrice = parseInt(item.price.replace(/\./g, ''), 10) || 0;
+    const itemTotal = numericPrice * item.quantity;
+    totalCFA += itemTotal;
+    text += `🛒 *${item.quantity}x ${item.name}*\n   Prix unitaire: ${item.price} CFA\n   Sous-total: ${itemTotal.toLocaleString('fr-FR')} CFA\n\n`;
+  });
+
+  text += `════════════════════\n`;
+  text += `💰 *MONTANT TOTAL ESTIME : ${totalCFA.toLocaleString('fr-FR')} CFA*\n`;
+  text += `════════════════════\n\n`;
+  text += "Merci de me confirmer la disponibilité des produits et le délai de livraison à Libreville.";
+
+  window.open("https://wa.me/24177736065?text=" + encodeURIComponent(text), "_blank");
+}
+
+function toggleFavorite(productId, event) {
+  if(event) event.stopPropagation();
+  const index = favorites.indexOf(productId);
+  if(index > -1) {
+    favorites.splice(index, 1);
+  } else {
+    favorites.push(productId);
+  }
+  saveState();
+  renderProducts();
+  renderFavoriteItems();
+}
+
+function addAllFavoritesToCart() {
+  favorites.forEach(favId => {
+    const product = productsData.find(p => p.id === favId);
+    if(product) {
+      const existing = cart.find(c => c.id === favId);
+      if(!existing) {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.images[0],
+          quantity: 1
+        });
+      }
+    }
+  });
+  saveState();
+  renderCartItems();
+  closeFavoritesDrawer();
+  openCartDrawer();
+}
+
+function renderFavoriteItems() {
+  const container = document.getElementById('fav-items-container');
+  const footer = document.getElementById('fav-drawer-footer');
+  if(!container) return;
+
+  const favProducts = productsData.filter(p => favorites.includes(p.id));
+
+  if(favProducts.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 text-slate-400">
+        <i class="fas fa-heart text-4xl mb-3 block text-rose-200"></i>
+        Aucun coup de cœur enregistré.
+      </div>`;
+    if(footer) footer.classList.add('hidden');
+    return;
+  }
+
+  if(footer) footer.classList.remove('hidden');
+
+  let html = '';
+  favProducts.forEach(product => {
+    html += `
+      <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100 relative group">
+        <img src="${product.images[0]}" alt="${product.name}" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0">
+        <div class="flex-1 min-w-0 pr-6">
+          <h4 class="font-bold text-slate-800 text-xs truncate">${product.name}</h4>
+          <span class="text-xs text-brand-600 font-mono font-semibold">${product.price} CFA</span>
+        </div>
+        
+        <button onclick="addToCart(${product.id}, event)" class="in-drawer bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 rounded-xl text-xs font-semibold transition touch-target flex items-center gap-1" title="Ajouter au panier">
+          <i class="fas fa-cart-plus"></i>
+        </button>
+
+        <button onclick="toggleFavorite(${product.id}, event)" class="absolute top-2 right-2 text-slate-300 hover:text-rose-500 transition-colors p-1" title="Retirer des favoris">
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function openCartDrawer() {
+  closeAllDrawers();
+  renderCartItems();
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.remove('translate-x-full');
+  if(overlay) overlay.classList.remove('hidden');
+}
+
+function closeCartDrawer() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.add('translate-x-full');
+  if(overlay) overlay.classList.add('hidden');
+}
+
+function openFavoritesDrawer() {
+  closeAllDrawers();
+  renderFavoriteItems();
+  const drawer = document.getElementById('fav-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.remove('translate-x-full');
+  if(overlay) overlay.classList.remove('hidden');
+}
+
+function closeFavoritesDrawer() {
+  const drawer = document.getElementById('fav-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.add('translate-x-full');
+  if(overlay) overlay.classList.add('hidden');
+}
+
+function closeAllDrawers() {
+  closeCartDrawer();
+  closeFavoritesDrawer();
+  closeSidebar();
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("mobile-overlay");
+  if (sidebar.classList.contains("closed")) {
+    sidebar.classList.remove("closed");
+    sidebar.classList.add("open");
+    overlay.classList.remove("hidden");
+  } else {
+    sidebar.classList.remove("open");
+    sidebar.classList.add("closed");
+    overlay.classList.add("hidden");
+  }
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  if(sidebar) {
+    sidebar.classList.remove("open");
+    sidebar.classList.add("closed");
+  }
+}
+
+function navigate(sectionId, btnElement) {
+  document.querySelectorAll(".page-section").forEach(sec => sec.classList.remove("active"));
+  const targetSection = document.getElementById(sectionId);
+  if (targetSection) targetSection.classList.add("active");
+
+  const titleEl = document.getElementById("page-title");
+  if (titleEl) {
+    const titles = {
+      accueil: "Vue d'ensemble",
+      services: "Nos Services Logistiques",
+      about: "Qui sommes-nous ?",
+      products: "Boutique & Catalogue",
+      cart: "Fret Maritime / Aérien",
+      faq: "Centre d'aide & FAQ",
+      cgu: "Conditions Générales d'Utilisation"
+    };
+    if(titles[sectionId]) titleEl.innerText = titles[sectionId];
+  }
+
+  closeAllDrawers();
+}
+
+function filterCategory(cat) {
+  selectedCategory = cat;
+  document.querySelectorAll("#categoryFilterContainer .cat-btn").forEach(btn => {
+    if (btn.innerText.trim().toLowerCase().includes(cat.toLowerCase())) {
+      btn.className = "cat-btn px-4 py-2 bg-brand-600 text-white rounded-full text-xs font-semibold cursor-pointer transition-all touch-target";
+    } else {
+      btn.className = "cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target";
+    }
+  });
+  renderProducts();
+}
+
+function filterProducts() {
+  const input = document.getElementById("productSearchInput");
+  productSearchQuery = input ? input.value : "";
+  renderProducts();
+}
+
+function renderProducts() {
+  const grid = document.getElementById("dynamic-products-grid");
+  if (!grid) return;
+
+  let filtered = productsData.filter(p => {
+    let matchCat = false;
+    if(selectedCategory === "Tout") matchCat = true;
+    else if(selectedCategory === "Favoris") matchCat = favorites.includes(p.id);
+    else matchCat = (p.type.toLowerCase() === selectedCategory.toLowerCase());
+
+    const matchSearch = p.name.toLowerCase().includes(productSearchQuery.toLowerCase()) || p.desc.toLowerCase().includes(productSearchQuery.toLowerCase());
+    return matchCat && matchSearch;
+  });
+
+  let html = "";
+  if (filtered.length === 0) {
+    html = `<div class="col-span-full text-center py-12 text-slate-500">
+              <i class="fas fa-box-open text-4xl mb-3 block"></i>
+              Aucun article ne correspond à votre recherche.
+            </div>`;
+  } else {
+    filtered.forEach(p => {
+      const isFav = favorites.includes(p.id);
+
+      html += `
+        <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col relative">
+          <div class="h-52 overflow-hidden bg-slate-50 relative p-4 flex items-center justify-center">
+            <button onclick="toggleFavorite(${p.id}, event)" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 shadow-md flex items-center justify-center text-slate-400 hover:text-rose-500 transition z-10 touch-target" title="Favori">
+              <i class="fas fa-heart ${isFav ? 'text-rose-500' : ''}"></i>
+            </button>
+
+            <span class="absolute top-3 right-3 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase z-10">${p.status}</span>
+            <img src="${p.images[0]}" alt="${p.name}" class="max-h-full object-contain">
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <h3 class="font-bold text-slate-800 mb-1 text-base">${p.name}</h3>
+            <p class="text-xs text-slate-500 mb-4 flex-1">${p.desc}</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-slate-100">
+              <div>
+                <span class="block text-[10px] uppercase text-slate-400 font-semibold">Prix</span>
+                <span class="font-mono text-brand-600 font-bold text-sm">${p.price} CFA</span>
+              </div>
+              
+              <button onclick="addToCart(${p.id}, event)" class="bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold hover:bg-brand-700 transition flex items-center gap-1.5 touch-target">
+                <i class="fas fa-cart-plus"></i> Ajouter au panier
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }
+  grid.innerHTML = html;
+}
+
+// INITIALISATION GLOBALE
+window.addEventListener("DOMContentLoaded", () => {
+  renderProducts();
+  initCarousel();
+  saveState();
+});
+</script>
+</body>
+</html>
