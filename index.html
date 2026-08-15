@@ -178,10 +178,9 @@
 <!-- ========================================== -->
 <aside id="sidebar" class="bg-white w-72 border-r border-slate-200 flex flex-col fixed lg:static h-full z-50 closed lg:transform-none shadow-2xl lg:shadow-none">
   <div class="h-20 flex items-center px-6 border-b border-slate-100 justify-between">
-    <a href="#accueil" onclick="navigate('accueil', document.querySelectorAll('.nav-btn')[0]); return false;" class="flex items-center gap-3">
-      <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo X-Press Gabon" class="h-10 w-auto drop-shadow-sm">
-      <span class="font-bold text-xs text-slate-900 tracking-tight">x-ress livraison gabon</span>
-    </a>
+    <a href="/" class="lg:hidden text-slate-600 hover:text-brand-600 bg-slate-100 p-2.5 rounded-xl touch-target flex items-center justify-center" aria-label="Accueil">
+     <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="x-press livraison gabon" class="w-6 h-6 object-contain">
+   </a>
     <button class="lg:hidden text-slate-400 hover:text-slate-600 p-2 touch-target" onclick="toggleSidebar()" aria-label="Fermer le menu">
       <i class="fas fa-times text-xl"></i>
     </button>
@@ -284,17 +283,17 @@
     <section id="accueil" class="page-section active">
     <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-700 rounded-3xl p-6 lg:p-10 text-white shadow-lg mb-8 relative overflow-hidden">
         
-      <!-- Logo en fond cliquable -->
+        <!-- Logo en fond cliquable -->
         <a href="/" class="absolute -right-10 -bottom-10 w-72 h-72 opacity-10 hover:opacity-20 transition z-0 flex items-center justify-center" aria-label="Accueil">
-            <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.pn" alt="Logo filigrane" class="w-full h-full object-contain">
+            <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo filigrane" class="w-full h-full object-contain">
         </a>
 
         <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         
         <div class="relative z-10">
-            <span class="bg-white/10 text-slate-200 border border-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 inline-block">Édition Libreville 2026</span>
-            <h2 class="text-2xl lg:text-4xl font-extrabold mb-3 leading-tight text-white">Bienvenue sur votre espace<br>X-PRESS Livraison Gabon</h2>
-            <p class="animate-heartbeat text-slate-300 text-sm lg:text-base font-medium max-w-2xl">
+            <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 inline-block">Édition Libreville 2026</span>
+            <h2 class="text-2xl lg:text-4xl font-extrabold mb-3 leading-tight">Bienvenue sur votre espace<br>X-PRESS Livraison Gabon</h2>
+            <p class="animate-heartbeat text-brand-100 text-sm lg:text-base font-medium max-w-2xl">
               La rapidité au service de vos envois. Gérez vos coups de cœur, constituez votre panier personnalisé et effectuez vos demandes en toute simplicité.
             </p>
         </div>
