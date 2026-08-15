@@ -599,7 +599,7 @@
               </div>
 
               <div class="bg-slate-100 rounded-2xl p-2 h-64 overflow-hidden border border-slate-200 shadow-inner">
-                <iframe src="https://maps.app.goo.gl/eH4NMQZfsdNbBLKW6" width="100%" height="100%" style="border:0;border-radius:.75rem" allowfullscreen loading="lazy" title="Carte Libreville"></iframe>
+                <iframe src="https://i.ibb.co/nMQ9RMLt/image.png" width="100%" height="100%" style="border:0;border-radius:.75rem" allowfullscreen loading="lazy" title="Carte Libreville"></iframe>
               </div>
               <p class="text-center text-sm text-slate-500"><i class="fas fa-map-pin text-brand-500 mr-1"></i> Nos bureaux au cœur de Libreville, Gabon.</p>
             </div>
@@ -732,6 +732,16 @@
           </details>
         </div>
       </section>
+
+      <!-- SECTION 7 : CGU -->
+      <section id="cgu" class="page-section">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 lg:p-12 text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-slate-800 mb-4">Conditions Générales d'Utilisation</h2>
+          <p>Toutes les commandes effectuées via la plateforme et transmises par WhatsApp engagent l'acheteur quant au règlement à la livraison.</p>
+        </div>
+      </section>
+
+    </div>
 
      <!-- SECTION 7 : CGU -->
       <section id="cgu" class="page-section">
@@ -896,134 +906,10 @@
   </button>
 </div>
 
-  <!-- ========================================== -->
-<!-- BOUTON FLOTTANT WHATSAPP MOBILES / TABLETTES -->
-<!-- ========================================== -->
-<a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" rel="noopener" class="lg:hidden fixed bottom-20 right-5 w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-3xl shadow-xl shadow-emerald-200 z-40 touch-target" aria-label="Canal WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
 <!-- ========================================== -->
 <!-- CODE JAVASCRIPT COMPLET                   -->
 <!-- ========================================== -->
-
-  <!-- ========================================== -->
-<!-- BANNIÈRE BANDEAU COOKIES / CGU            -->
-<!-- ========================================== -->
-<div id="cookie-consent-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-[400px] bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl z-50 transform translate-y-12 scale-95 opacity-0 hidden">
-  <div class="flex items-start gap-4">
-    <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
-      <i class="fas fa-cookie-bite text-lg"></i>
-    </div>
-    <div class="flex-1">
-      <h4 class="font-bold text-slate-900 text-sm">Gestion des cookies & CGU</h4>
-      <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-        Pour assurer le bon fonctionnement de notre service et valider nos règles de sécurité, nous utilisons des cookies. En poursuivant, vous acceptez également nos <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6]);closeCookieBanner()" class="text-brand-600 hover:underline font-semibold focus:outline-none">CGU</button>.
-      </p>
-    </div>
-  </div>
-  <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
-    <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6]);closeCookieBanner()" class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition">
-      Consulter les CGU
-    </button>
-    <button onclick="rejectCookiesAndCGU()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
-      Tout refuser
-    </button>
-    <button onclick="acceptCookiesAndCGU()" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
-      Tout Accepter
-    </button>
-  </div>
-</div>
-
-  <!-- ========================================== -->
-<!-- MODAL POPUP PUB AVEC MINUTEUR             -->
-<!-- ========================================== -->
-<div id="popup-ad-modal" class="fixed inset-0 bg-slate-950/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-500 ease-out">
-  <div class="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-md w-full relative transform scale-95 transition-all duration-500 ease-out" id="popup-ad-card">
-    <button onclick="hidePopupAd()" class="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center z-10 transition touch-target" aria-label="Fermer">
-      <i class="fas fa-times text-sm"></i>
-    </button>
-    <div class="relative h-48 bg-slate-100 overflow-hidden">
-      <img id="ad-image" src="" alt="Publicité" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-      <div class="absolute bottom-4 left-6 right-6 text-white">
-        <span class="bg-brand-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-1.5 inline-block">Offre Flash</span>
-        <h4 id="ad-title" class="text-lg font-bold">Titre de la publicité</h4>
-      </div>
-    </div>
-    <div class="p-6">
-      <p id="ad-desc" class="text-slate-600 text-sm mb-5 leading-relaxed">Description de la publicité...</p>
-      <div class="flex items-center justify-between">
-        <a id="ad-link" href="#" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-1.5 touch-target">
-          En savoir plus <i class="fas fa-arrow-right text-[10px]"></i>
-        </a>
-        <span class="text-xs text-slate-400 font-semibold flex items-center gap-1.5">
-          <i class="far fa-clock"></i> Fermeture dans <span id="ad-countdown" class="text-brand-600 font-bold">5</span>s
-        </span>
-      </div>
-    </div>
-    <div class="h-1.5 bg-slate-100 w-full overflow-hidden">
-      <div id="ad-progress-bar" class="h-full bg-brand-500 transition-all ease-linear w-full"></div>
-    </div>
-  </div>
-</div>
-
-  <!-- ========================================== -->
-<!-- GALERIE PLEIN ÉCRAN LIGHTBOX AVEC ZOOM     -->
-<!-- ========================================== -->
-<div id="fullscreen-gallery" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col transition-opacity duration-300 opacity-0">
-  <div class="flex items-center justify-between p-4 z-20 absolute top-0 w-full bg-gradient-to-b from-black/60 to-transparent">
-    <div class="text-white">
-      <h3 id="gallery-title" class="font-bold text-lg drop-shadow-md">Nom de l'article</h3>
-      <p id="gallery-counter" class="text-xs text-slate-300">1 / 1</p>
-    </div>
-    <div class="flex items-center gap-3">
-      <button onclick="toggleZoomGallery()" id="zoom-btn" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition backdrop-blur-sm touch-target" title="Zoomer">
-        <i class="fas fa-search-plus"></i>
-      </button>
-      <button onclick="closeGallery()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition backdrop-blur-sm touch-target" title="Fermer">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-  </div>
-
-  <div class="flex-1 gallery-img-container flex items-center justify-center relative w-full h-full" id="gallery-viewport">
-    <button onclick="prevGalleryImage(event)" id="gallery-prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition z-20 backdrop-blur-sm touch-target" aria-label="Précédent">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-
-    <img id="gallery-image-element" src="" alt="Zoom produit" class="gallery-image max-w-full max-h-full object-contain select-none" draggable="false">
-
-    <button onclick="nextGalleryImage(event)" id="gallery-next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition z-20 backdrop-blur-sm" aria-label="Suivant">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-
-  <div class="absolute bottom-6 w-full flex justify-center gap-2 z-20" id="gallery-dots"></div>
-</div>
-  
-  
 <script>
-  // --- Service Worker PWA Registration ---
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const swCode = `
-      const CACHE_NAME = 'xpress-pwa-v2';
-      self.addEventListener('install', e => self.skipWaiting());
-      self.addEventListener('activate', e => self.clients.claim());
-      self.addEventListener('fetch', e => {
-        if (e.request.method !== 'GET') return;
-        e.respondWith(
-          fetch(e.request).catch(() => caches.match(e.request))
-        );
-      });
-    `;
-    const blob = new Blob([swCode], { type: 'text/javascript' });
-    navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
-  });
-}
-
-// --- Données Intégrales des Produits ---
 var productsData = [
   {id:1,name:"Sac à main chic noir",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/nqYxsLp0/Capture-d-cran-2026-07-12-174100.png"]},
   {id:2,name:"Sac à main chic marron",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/b5jS3Vnw/Capture-d-cran-2026-07-12-173939.png"]},
@@ -1047,25 +933,34 @@ var productsData = [
   {id:41,name:"Enceinte Bluetooth Portable",type:"Electronique",status:"Disponible",price:"28.000",desc:"Son puissant à 360° et résistance à l'eau (IP67).",images:["https://placehold.co/300x300/1e3a8a/ffffff?text=Enceinte+BT"]}
 ];
 
-  // Nettoyage des tableaux d'images pour retirer les éléments vides
-productsData.forEach(p => {
-  if(Array.isArray(p.images)) {
-    p.images = p.images.filter(img => img && img.trim() !== "");
-  }
-});
-
-  // Bannières du carrousel
 var bannersData = [
-  {id:1,img:"https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png",title:"Livraison Rapide",desc:"X-PRESS s'engage à livrer vos plis et colis sur Libreville en moins d'une heure !",link:"https://1-2-html.pages.dev/"},
-  {id:2,img:"https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png",title:"Scooters sur Commande",desc:"Une sélection d'engins robustes, maniables et idéals pour le trafic local.",link:"products"},
-  {id:3,img:"https://i.ibb.co/bRPMsXvZ/Capture-d-cran-2026-06-24-022601.png",title:"Partenariats e-Commerce",desc:"Vous vendez en ligne ? Confiez-nous vos expéditions pour fidéliser vos clients.",link:"services"}
-];
-
-// Publicités Popup
-var popupAdsData = [
-  {title:"Promo -15% sur vos Envois !",desc:"Bénéficiez de 15% de réduction exclusive sur votre premier envoi avec le code promo XPRESS26.",img:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&h=400&q=80",link:"https://1-2-html.pages.dev/"},
-  {title:"Rejoignez l'équipe des Livreurs !",desc:"Gagnez jusqu'à 300 000 CFA/mois en rejoignant notre équipe de professionnels qualifiés.",img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=400&q=80",link:"services"},
-  {title:"Découvrez notre boutique !",desc:"Achetez de vrais smartphones, scooters et équipements livrés directement à domicile.",img:"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&h=400&q=80",link:"products"}
+  {
+    image:"https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png",https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png
+    title: "livraison rapide",
+    subtitle: "Profitez de la livraison efficace et rapide dans tout le grand Libreville !",
+    tag: "PROMO FLASH",
+    bg: "bg-gradient-to-r from-blue-900 to-indigo-900",
+    action: "Voir l'offre",
+    target: "products"
+  },
+  {
+    image:"https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png",
+    title: "Suivi CT241 en Temps Réel",
+    subtitle: "consulter l'acheminement de vos colis instantanément et en temps reel.",
+    tag: "SERVICE EXCLUSIF",
+    bg: "bg-gradient-to-r from-emerald-900 to-teal-900",
+    action: "Consulter un colis",
+    link: "https://consultation-html.pages.dev/"
+  },
+  { 
+    image:"https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png",
+    title: "Fret Maritime & Aérien",
+    subtitle: "Expédiez vos marchandises vers et depuis le Gabon.",
+    tag: "PARTENARIAT GLOBEX",
+    bg: "bg-gradient-to-r from-slate-900 to-blue-950",
+    action: "En savoir plus",
+    target: "cart"
+  }
 ];
 
 // --- ÉTAT ET PERSISTANCE LOCALSTORAGE ---
@@ -1535,11 +1430,11 @@ function renderProducts() {
             <div class="flex items-center justify-between mt-auto pt-3 border-t border-slate-100">
               <div>
                 <span class="block text-[10px] uppercase text-slate-400 font-semibold">Prix</span>
-                <span class="font-mono text-brand-600 font-bold text-sm">${p.price} CFA</span>
+                <span class="font-mono text-brand-600 font-bold text-x">${p.price} CFA</span>
               </div>
               
               <button onclick="addToCart(${p.id}, event)" class="bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold hover:bg-brand-700 transition flex items-center gap-1.5 touch-target">
-                <i class="fas fa-cart-plus"></i> Ajouter au panier
+                <i class="fas fa-cart-plus  text-xs"></i> Ajouter au panier
               </button>
             </div>
           </div>
