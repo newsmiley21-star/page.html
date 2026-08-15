@@ -256,7 +256,7 @@
   <header class="h-20 bg-white/90 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 z-30 sticky top-0">
     <div class="flex items-center gap-3">
       <button class="lg:hidden text-slate-600 hover:text-brand-600 bg-slate-100 p-2.5 rounded-xl touch-target flex items-center justify-center" onclick="toggleSidebar()" aria-label="Ouvrir le menu">
-        <i class="fas fa-bars text-xl"></i>
+        <i class=" text-xl"></i>
       </button>
       <h1 id="page-title" class="text-sm lg:text-xl font-bold text-slate-800">Vue d'ensemble</h1>
     </div>
@@ -264,8 +264,8 @@
     <!-- En-tête : Actions Rapides, Signalement Incident, Favoris & Panier -->
     
       <a href="sms:+24177736065?body=Bonjour%20x-press%20%2C%20%0Aje%20souhaite%20signaler%20un%20incident%20survenu%20lors%20de%20la%20livraison%20du%20colis%20N%C2%B0" target="_blank" rel="noopener" class="flex items-center gap-2 bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-sm shadow-brand-200 hover:bg-brand-700 transition transform hover:-translate-y-0.5 touch-target">
-        <i class="fas fa-comments text-sm"></i>
-        <span class="hidden md:inline">sihnaler un colis </span>
+        <i class="fas fa-bell text-sm"></i>
+        <span class="hidden md:inline">signaler un colis </span>
       </a>
     </div>
   </header>
@@ -331,7 +331,7 @@
             <div class="w-12 h-12 mx-auto bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
               <i class="fas fa-search-location text-xl"></i>
             </div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-700">Suivi CT241</span>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Suivi de colis</span>
           </a>
         </div>
 
@@ -418,7 +418,7 @@
             <p class="text-sm text-slate-500 mt-1">Les visages derrière la rapidité de vos livraisons au Gabon.</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
               <div class="relative w-24 h-24 mb-4">
                 <img src="https://i.ibb.co/FkZTBFJQ/IMG-0662.jpg" alt="Daniel Mvey" class="w-24 h-24 rounded-full object-cover border-4 border-brand-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=DM'">
@@ -435,7 +435,7 @@
 
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
               <div class="relative w-24 h-24 mb-4">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&h=300&q=80" alt="Charly Mapaga" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=CM'">
+                <img src="" alt="Charly Mapaga" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=CM'">
                 <span class="absolute bottom-1 right-1 bg-emerald-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-route"></i></span>
               </div>
               <h4 class="font-bold text-slate-950 text-base">Charly Mapaga</h4>
@@ -449,7 +449,7 @@
 
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
               <div class="relative w-24 h-24 mb-4">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&h=300&q=80" alt="Amandine Nse" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=AN'">
+                <img src="" alt="Amandine Nse" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=AN'">
                 <span class="absolute bottom-1 right-1 bg-purple-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-headset"></i></span>
               </div>
               <h4 class="font-bold text-slate-950 text-base">Amandine Nse</h4>
@@ -472,6 +472,15 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="https://my-chatbot-2nz.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all">
+            <div class="w-14 h-14 bg-yellow-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fas fa-search-location"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Chabot </h3>
+            <p class="text-sm text-slate-500 mb-4">Consultez la bibliotheque I.A pour mieux comprendre le fonctionnement .</p>
+            <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">se renseigner <i class="fas fa-arrow-right text-xs"></i></span>
+          </a>
+          
           <a href="https://consultation-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all">
             <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
               <i class="fas fa-search-location"></i>
