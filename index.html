@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-title" content="X-PRESS Gabon">
 <link rel="apple-touch-icon" href="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png">
 
-<!-- Web App Manifest en ligne -->
+<!-- Web App Manifest -->
 <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlgtUFJFU1MgTGl2cmFpc29uIEdhYm9uIiwKICAic2hvcnRfbmFtZSI6ICJYLVBSRVNTIiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjhhZmYwIiwKICAidGhlbWVfY29sb3IiOiAiIzFlM2E4YSIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImh0dHBzOi8vaS5pYmIuY28vVE10ZlpCMVEvR2VtaW5pLUdlbmVyYXRlZC1JbWFnZS1jYWM3MzRjYWM3MzRjYWM3LnBuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0KfQ==">
 
 <!-- ========================================== -->
@@ -145,6 +145,9 @@
         #sidebar.open { transform: translateX(0); }
     }
 
+    /* Modals / Drawers slide transition */
+    .drawer-slide { transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1); }
+
     /* Animation Marquee des Avis */
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-marquee { display: flex; width: max-content; animation: marquee 35s linear infinite; }
@@ -154,12 +157,7 @@
     #cookie-consent-banner { transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), opacity .5s ease; }
     #cookie-consent-banner.show { transform: translateY(0) scale(1); opacity: 1; }
 
-    /* Styles pour Visionneuse / Lightbox Galerie */
-    .gallery-img-container { touch-action: none; overflow: hidden; }
-    .gallery-image { transition: transform 0.2s ease-out; cursor: grab; transform-origin: center center; }
-    .gallery-image:active { cursor: grabbing; }
-
-    /* Améliorations Ergonomiques Tactiles pour Mobile */
+    /* Ergonomie Tactile */
     .touch-target { min-height: 44px; min-width: 44px; }
     .pb-safe { padding-bottom: env(safe-area-inset-bottom, 1rem); }
 </style>
@@ -168,7 +166,7 @@
 <body class="bg-slate-50 text-slate-800 font-sans h-full flex flex-col lg:flex-row overflow-hidden selection:bg-brand-100 selection:text-brand-900">
 
 <!-- Overlay de fond pour mobile -->
-<div id="mobile-overlay" class="fixed inset-0 bg-slate-900/60 z-40 hidden lg:hidden backdrop-blur-sm transition-opacity" onclick="toggleSidebar()"></div>
+<div id="mobile-overlay" class="fixed inset-0 bg-slate-900/60 z-40 hidden backdrop-blur-sm transition-opacity" onclick="closeAllDrawers()"></div>
 
 <!-- ========================================== -->
 <!-- BARRE DE NAVIGATION LATÉRALE (SIDEBAR)     -->
@@ -177,7 +175,7 @@
   <div class="h-20 flex items-center px-6 border-b border-slate-100 justify-between">
     <a href="#accueil" onclick="navigate('accueil', document.querySelectorAll('.nav-btn')[0]); return false;" class="flex items-center gap-3">
       <img src="https://i.ibb.co/TMtfZB1Q/Gemini-Generated-Image-cac734cac734cac7.png" alt="Logo X-Press Gabon" class="h-10 w-auto drop-shadow-sm">
-      <span class="font-bold text-xs text-slate-900 tracking-tight">x-ress livraison gabon</span>
+      <span class="font-bold text-xs text-slate-900 tracking-tight">X-PRESS LIVRAISON GABON</span>
     </a>
     <button class="lg:hidden text-slate-400 hover:text-slate-600 p-2 touch-target" onclick="toggleSidebar()" aria-label="Fermer le menu">
       <i class="fas fa-times text-xl"></i>
@@ -199,7 +197,23 @@
       <i class="fas fa-store w-5 text-center text-slate-400"></i> Boutique & Engins
     </button>
 
-    <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mt-6 mb-2">Informations</p>
+    <div class="pt-2 pb-1 space-y-1 border-t border-slate-100 my-2">
+      <button onclick="openCartDrawer()" class="w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors touch-target">
+        <span class="flex items-center gap-3">
+          <i class="fas fa-shopping-cart w-5 text-center text-brand-600"></i> Mon Panier
+        </span>
+        <span id="sidebar-cart-badge" class="bg-brand-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+      </button>
+
+      <button onclick="openFavoritesDrawer()" class="w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors touch-target">
+        <span class="flex items-center gap-3">
+          <i class="fas fa-heart w-5 text-center text-rose-500"></i> Mes Favoris
+        </span>
+        <span id="sidebar-fav-badge" class="bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+      </button>
+    </div>
+
+    <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mt-4 mb-2">Informations</p>
 
     <button onclick="navigate('about',this)" class="nav-btn w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors touch-target">
       <i class="fas fa-users w-5 text-center text-slate-400"></i> Qui sommes-nous ?
@@ -218,14 +232,12 @@
     </button>
   </nav>
 
-  <div class="p-4 border-t border-slate-100">
+  <div class="p-4 border-t border-slate-100 space-y-2">
     <a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-green-50 text-green-700 px-4 py-3 rounded-xl text-sm font-semibold hover:bg-green-100 transition touch-target">
       <i class="fab fa-whatsapp text-lg"></i> Support WhatsApp
     </a>
-  </div>
-
-  <div class="p-4 border-t border-slate-100">
-    <a href="https://index-html-2qm.pages.dev/" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-yellow-50 text-yellow-700 px-4 py-3 rounded-xl text-sm font-semibold hover:bg-green-100 transition touch-target">
+    
+    <a href="https://index-html-2qm.pages.dev/" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-yellow-50 text-yellow-700 px-4 py-3 rounded-xl text-sm font-semibold hover:bg-yellow-100 transition touch-target">
       <i class="fas fa-cogs text-sm"></i> Connexion
     </a>
   </div>
@@ -239,17 +251,32 @@
   <header class="h-20 bg-white/90 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 z-30 sticky top-0">
     <div class="flex items-center gap-3">
       <button class="lg:hidden text-slate-600 hover:text-brand-600 bg-slate-100 p-2.5 rounded-xl touch-target flex items-center justify-center" onclick="toggleSidebar()" aria-label="Ouvrir le menu">
-        <i class="fas fa-bell text-xl"></i>
+        <i class="fas fa-bars text-xl"></i>
       </button>
-    <h1 id="Rejoignez l'équipe des Livreurs !" class="text-sm lg:text-xl font-bold text-slate-800"></h1>
-    <a href="sms:+24177736065?body=Bonjour%20x-press%20%2C%20%0Aje%20souhaite%20signaler%20un%20incident%20survenu%20lors%20de%20la%20livraison%20du%20colis%20N%C2%B0">
-        <i class="fas fa-exclamation-circle text-red-500"></i> un souci ?
+      <h1 id="page-title" class="text-sm lg:text-xl font-bold text-slate-800">Vue d'ensemble</h1>
+    </div>
+
+    <!-- En-tête : Actions Rapides, Signalement Incident, Favoris & Panier -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="sms:+24177736065?body=Bonjour%20x-press%20%2C%20%0Aje%20souhaite%20signaler%20un%20incident%20survenu%20lors%20de%20la%20livraison%20du%20colis%20N%C2%B0" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 px-3 py-2 rounded-xl transition touch-target">
+        <i class="fas fa-exclamation-circle text-red-500"></i>
+        <span>Un souci ?</span>
       </a>
-  </div>
-      </div>
-      <a href="https://my-chatbot-2nz.pages.dev/" target="_blank" rel="noopener" class="flex items-center gap-2 bg-brand-600 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-sm shadow-brand-200 hover:bg-brand-700 transition transform hover:-translate-y-0.5 touch-target">
-        <i class="fas fa-message-bot text-sm"></i>
-        <span>IA conseillé </span>
+
+      <button onclick="openFavoritesDrawer()" class="relative p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-rose-600 hover:bg-rose-50 transition touch-target" title="Mes Favoris">
+        <i class="fas fa-heart text-lg"></i>
+        <span id="header-fav-badge" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+      </button>
+
+      <button onclick="openCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 transition touch-target flex items-center gap-2 font-bold text-xs" title="Voir le Panier">
+        <i class="fas fa-shopping-cart text-lg text-brand-600"></i>
+        <span class="hidden sm:inline">Panier</span>
+        <span id="header-cart-badge" class="bg-brand-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </button>
+
+      <a href="https://my-chatbot-2nz.pages.dev/" target="_blank" rel="noopener" class="flex items-center gap-2 bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-sm shadow-brand-200 hover:bg-brand-700 transition transform hover:-translate-y-0.5 touch-target">
+        <i class="fas fa-robot text-sm"></i>
+        <span class="hidden md:inline">Conseiller IA</span>
       </a>
     </div>
   </header>
@@ -266,7 +293,7 @@
             <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 inline-block">Édition PWA 2026</span>
             <h2 class="text-2xl lg:text-4xl font-extrabold mb-3 leading-tight">Bienvenue sur votre espace<br>X-PRESS Livraison Gabon</h2>
             <p class="animate-heartbeat text-brand-100 text-sm lg:text-base font-medium max-w-2xl">
-              La rapidité au service de vos envois. Naviguez facilement pour suivre vos colis, commander ou acheter en ligne.
+              La rapidité au service de vos envois. Gérez vos coups de cœur, constituez votre panier personnalisé et effectuez vos demandes en toute simplicité.
             </p>
           </div>
         </div>
@@ -275,7 +302,7 @@
           <i class="fas fa-bullhorn text-brand-500"></i> Actualités & Offres Flash
         </h3>
 
-        <!-- Carrousel Banner -->
+        <!-- Carrousel Banner Interactive -->
         <div class="relative bg-slate-100 rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-52 md:h-64 mb-8 group" id="banner-carousel" onmouseenter="pauseBanner()" onmouseleave="resumeBanner()">
           <div id="carousel-slides" class="w-full h-full relative"></div>
           <button onclick="prevBanner(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-md opacity-90 lg:opacity-0 group-hover:opacity-100 transition z-20 touch-target" aria-label="Précédent">
@@ -290,18 +317,25 @@
 
         <!-- Accès Rapides -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <button onclick="navigate('services',document.querySelectorAll('.nav-btn')[1])" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
-            <div class="w-12 h-12 mx-auto bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-              <i class="fas fa-box-open text-xl"></i>
-            </div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-700">Gérer mes envois</span>
-          </button>
-
           <button onclick="navigate('products',document.querySelectorAll('.nav-btn')[2])" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
             <div class="w-12 h-12 mx-auto bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
               <i class="fas fa-shopping-bag text-xl"></i>
             </div>
             <span class="text-xs sm:text-sm font-semibold text-slate-700">Nos boutiques</span>
+          </button>
+
+          <button onclick="openFavoritesDrawer()" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <i class="fas fa-heart text-xl"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Mes Favoris</span>
+          </button>
+
+          <button onclick="openCartDrawer()" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <i class="fas fa-shopping-cart text-xl"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-700">Mon Panier</span>
           </button>
 
           <a href="https://consultation-html.pages.dev/" target="_blank" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
@@ -310,16 +344,9 @@
             </div>
             <span class="text-xs sm:text-sm font-semibold text-slate-700">Suivi CT241</span>
           </a>
-
-          <a href="https://1-2-html.pages.dev/" target="_blank" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center hover:bg-slate-50 transition group touch-target flex flex-col items-center justify-center">
-            <div class="w-12 h-12 mx-auto bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-              <i class="fas fa-truck-fast text-xl"></i>
-            </div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-700">Commander Express</span>
-          </a>
         </div>
 
-        <!-- Avis Clients -->
+        <!-- Avis Clients Marquee -->
         <div class="mt-12 bg-white rounded-3xl p-6 lg:p-8 border border-slate-100 shadow-sm">
           <div class="mb-6">
             <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
@@ -402,10 +429,10 @@
             <p class="text-sm text-slate-500 mt-1">Les visages derrière la rapidité de vos livraisons au Gabon.</p>
           </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
               <div class="relative w-24 h-24 mb-4">
-                <img src="https://i.ibb.co/FkZTBFJQ/IMG-0662.jpg?auto=format&fit=crop&w=300&h=300&q=80" alt="Daniel Mvey" class="w-24 h-24 rounded-full object-cover border-4 border-brand-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=DM'">
+                <img src="https://i.ibb.co/FkZTBFJQ/IMG-0662.jpg" alt="Daniel Mvey" class="w-24 h-24 rounded-full object-cover border-4 border-brand-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=DM'">
                 <span class="absolute bottom-1 right-1 bg-brand-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-crown"></i></span>
               </div>
               <h4 class="font-bold text-slate-950 text-base">Daniel Mvey</h4>
@@ -437,22 +464,8 @@
                 <span class="absolute bottom-1 right-1 bg-purple-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-headset"></i></span>
               </div>
               <h4 class="font-bold text-slate-950 text-base">Amandine Nse</h4>
-              <span class="text-xs font-semibold px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full mt-2">Relation Client & Support</span>
-              <p class="text-xs text-slate-500 mt-3 flex-1">Gestion des requêtes, du SAV et assistance sur la plateforme de suivi.</p>
-              <div class="flex gap-2 mt-4">
-                <a href="mailto:helloxpresslivraison@gmail.com" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-600 flex items-center justify-center transition"><i class="fas fa-envelope text-sm"></i></a>
-                <a href="https://wa.me/24177736065" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-green-50 text-slate-500 hover:text-green-600 flex items-center justify-center transition"><i class="fab fa-whatsapp text-sm"></i></a>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition text-center flex flex-col items-center">
-              <div class="relative w-24 h-24 mb-4">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&h=300&q=80" alt="Junior Obiang" class="w-24 h-24 rounded-full object-cover border-4 border-slate-100 shadow-sm" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=JO'">
-                <span class="absolute bottom-1 right-1 bg-amber-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-sm"><i class="fas fa-motorcycle"></i></span>
-              </div>
-              <h4 class="font-bold text-slate-950 text-base">Junior Obiang</h4>
-              <span class="text-xs font-semibold px-2.5 py-1 bg-amber-50 text-amber-700 rounded-full mt-2">Chef d'Équipe des Livreurs</span>
-              <p class="text-xs text-slate-500 mt-3 flex-1">Coordination de notre flotte terrestre active sur le terrain gabonais.</p>
+              <span class="text-xs font-semibold px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full mt-2">Service Client & Suivi</span>
+              <p class="text-xs text-slate-500 mt-3 flex-1">Accompagnement personnalisé et support client dédié 7j/7.</p>
               <div class="flex gap-2 mt-4">
                 <a href="mailto:helloxpresslivraison@gmail.com" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-600 flex items-center justify-center transition"><i class="fas fa-envelope text-sm"></i></a>
                 <a href="https://wa.me/24177736065" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-green-50 text-slate-500 hover:text-green-600 flex items-center justify-center transition"><i class="fab fa-whatsapp text-sm"></i></a>
@@ -470,141 +483,36 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <a href="https://consultation-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+          <a href="https://consultation-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all">
+            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
               <i class="fas fa-search-location"></i>
             </div>
             <h3 class="font-bold text-slate-800 text-lg mb-2">Suivi des livraisons</h3>
             <p class="text-sm text-slate-500 mb-4">Consultez l'état de votre colis en temps réel avec votre code CT241.</p>
-            <span class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Accéder <i class="fas fa-arrow-right text-xs"></i></span>
+            <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">Accéder <i class="fas fa-arrow-right text-xs"></i></span>
           </a>
 
-          <a href="https://1-2-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all duration-300 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-            <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+          <a href="https://1-2-html.pages.dev/" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all">
+            <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
               <i class="fas fa-truck-fast"></i>
             </div>
-            <h3 class="font-bold text-slate-800 text-lg mb-2">Nouvelle commande</h3>
-            <p class="text-sm text-slate-500 mb-4">Planifiez et effectuez une demande de livraison rapidement.</p>
-            <span class="text-emerald-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Démarrer <i class="fas fa-arrow-right text-xs"></i></span>
-          </a>
-
-          <a href="https://wa.me/24177736065?text=Bonjour%2CJe%20vous%20contacte%20concernant%20une%20commande%20de%20livraison%20.%20%C3%80%20sa%20r%C3%A9ception%2C%20j'ai%20malheureusement%20constat%C3%A9%20que%20mon%20colis%20est%20arriv%C3%A9%20endommag%C3%A9.%20Je%20vous%20joins%20%C3%A0%20ce%20message%20des%20photos%20du%20carton%20et%20du%20produit%20ab%C3%AEm%C3%A9.%20Que%20devons-nous%20faire%20pour%20proc%C3%A9der%20%C3%A0%20un%20%C3%A9change%20ou%20un%20remboursement%20dans%20les%20plus%20brefs%20d%C3%A9lais%20%3FMerci%20d'avance%20pour%20votre%20aide.%0A%0AAjouter%20le%20numero%20de%20commande%20ici%20%3A%0AN%C2%B0%20Colis%20-" target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-200 transition-all duration-300 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-            <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
-              <i class="fas fa-triangle-exclamation"></i>
-            </div>
-            <h3 class="font-bold text-slate-800 text-lg mb-2">Signalement sinistre</h3>
-            <p class="text-sm text-slate-500 mb-4">Déclarez un incident ou un dommage constaté sur votre expédition.</p>
-            <span class="text-red-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Déclarer <i class="fas fa-arrow-right text-xs"></i></span>
-          </a>
-
-          <a href="https://wa.me/24177736065?text=Salut%20mr%2FMme%2C%0A%0Aj'esp%C3%A8re%20que%20vous%20vous%20portez%20bien%20%3F%0AJe%20vous%20contacte%20afin%20d'explorer%20une%20opportunit%C3%A9%20de%20partenariat%20entre%20%20votre%20entreprise%20et%20la%20n%C3%B4tre." target="_blank" rel="noopener" class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-            <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
-              <i class="fas fa-handshake"></i>
-            </div>
-            <h3 class="font-bold text-slate-800 text-lg mb-2">Devenir partenaire</h3>
-            <p class="text-sm text-slate-500 mb-4">Rejoignez notre réseau de livreurs et développez votre activité.</p>
-            <span class="text-purple-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Postuler <i class="fas fa-arrow-right text-xs"></i></span>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Nouvelle commande Express</h3>
+            <p class="text-sm text-slate-500 mb-4">Planifiez et effectuez une demande de livraison de colis rapidement.</p>
+            <span class="text-emerald-600 font-semibold text-sm flex items-center gap-1">Démarrer <i class="fas fa-arrow-right text-xs"></i></span>
           </a>
         </div>
       </section>
 
       <!-- SECTION 3 : À PROPOS -->
       <section id="about" class="page-section">
-        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-          <div class="p-6 lg:p-10 border-b border-slate-100 bg-brand-50/50">
-            <h2 class="text-2xl lg:text-3xl font-bold text-brand-900 mb-4">À propos de X-PRESS</h2>
-            <p class="text-base lg:text-lg text-slate-700 leading-relaxed max-w-3xl">
-              Xpress livraison SARLU est une société de logistique du dernier kilomètre créée au Gabon en 2026 par MR MBENG MVEY EPIPHANE DANIEL. Elle a pour objectif principal la fourniture de prestations logistiques croisées pour une clientèle nationale. De la demande à la satisfaction du client, en passant par la prestation logistique, l’entreprise assure l’accomplissement des missions de livraison dans le grand Libreville avec rapidité, efficacité et discipline.
-              <strong class="block mt-2">Elle relève avec assurance le challenge de mettre à disposition des professionnels pour le transport et la livraison en toute sécurité de vos marchandises.</strong>
-            </p>
-          </div>
-
-          <div class="p-6 lg:p-10 grid lg:grid-cols-2 gap-10">
-            <div class="space-y-8">
-              <div>
-                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fas fa-star text-brand-500"></i> Pourquoi nous choisir ?</h3>
-                <ul class="space-y-3">
-                  <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl">
-                    <i class="fas fa-map-marked-alt text-brand-500 mt-1"></i>
-                    <div>
-                      <strong class="block text-slate-800">Expertise locale</strong>
-                      <span class="text-sm text-slate-600">Maîtrise parfaite du Grand Libreville garantissant des trajets optimisés.</span>
-                    </div>
-                  </li>
-                  <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl">
-                    <i class="fas fa-boxes text-brand-500 mt-1"></i>
-                    <div>
-                      <strong class="block text-slate-800">Polyvalence</strong>
-                      <span class="text-sm text-slate-600">Prise en charge de tous types de colis pour pros et particuliers.</span>
-                    </div>
-                  </li>
-                  <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl">
-                    <i class="fas fa-shield-alt text-brand-500 mt-1"></i>
-                    <div>
-                      <strong class="block text-slate-800">Sécurité & Technologie</strong>
-                      <span class="text-sm text-slate-600">Suivi dédié via OPS X-PRESS et masquage automatique des données.</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="bg-brand-900 text-white p-6 rounded-2xl shadow-lg">
-                <h3 class="font-bold text-lg mb-4 opacity-90">Comment ça marche ?</h3>
-                <ol class="space-y-4 text-sm relative border-l border-brand-700 ml-3">
-                  <li class="pl-6 relative">
-                    <span class="absolute -left-3.5 top-0 bg-brand-500 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-brand-900">1</span>
-                    <strong>Planification</strong> - Définition du lieu de récupération.
-                  </li>
-                  <li class="pl-6 relative">
-                    <span class="absolute -left-3.5 top-0 bg-brand-500 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-brand-900">2</span>
-                    <strong>Prise en charge</strong> - Code unique CT241 généré.
-                  </li>
-                  <li class="pl-6 relative">
-                    <span class="absolute -left-3.5 top-0 bg-brand-500 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-brand-900">3</span>
-                    <strong>Suivi & Livraison</strong> - Transparence totale jusqu'à la remise.
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            <div class="space-y-6">
-              <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
-                <h3 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2">Nous contacter</h3>
-                <div class="space-y-4">
-                  <a href="tel:077736065" class="flex items-center gap-4 text-slate-600 hover:text-brand-600 transition p-2 rounded-lg hover:bg-slate-50 touch-target">
-                    <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
-                      <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                      <span class="block text-xs uppercase text-slate-400 font-bold">Téléphones</span>
-                      <span class="font-semibold text-slate-800">+241 77 73 60 65 / 066 13 98 46</span>
-                    </div>
-                  </a>
-
-                  <div class="flex items-start gap-4 text-slate-600 p-2 rounded-lg">
-                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shrink-0">
-                      <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                      <span class="block text-xs uppercase text-slate-400 font-bold">Infoline</span>
-                      <a href="mailto:helloxpresslivraison@gmail.com" class="font-medium hover:text-brand-600 transition block">helloxpresslivraison@gmail.com</a>
-                      <span class="block text-xs uppercase text-slate-400 font-bold mt-2">Directeur commercial</span>
-                      <a href="mailto:directeurxpressdanielmvey241@gmail.com" class="font-medium hover:text-brand-600 transition block">directeurxpressdanielmvey241@gmail.com</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-slate-100 rounded-2xl p-2 h-64 overflow-hidden border border-slate-200 shadow-inner">
-                <iframe src="https://i.ibb.co/nMQ9RMLt/image.png" width="100%" height="100%" style="border:0;border-radius:.75rem" allowfullscreen loading="lazy" title="Carte Libreville"></iframe>
-              </div>
-              <p class="text-center text-sm text-slate-500"><i class="fas fa-map-pin text-brand-500 mr-1"></i> Nos bureaux au cœur de Libreville, Gabon.</p>
-            </div>
-          </div>
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden p-6 lg:p-10">
+          <h2 class="text-2xl lg:text-3xl font-bold text-brand-900 mb-4">À propos de X-PRESS</h2>
+          <p class="text-base text-slate-700 leading-relaxed mb-4">
+            Xpress livraison SARLU est une société de logistique du dernier kilomètre opérant au Gabon. Elle garantit l'expédition rapide et sécurisée de vos marchandises dans tout le Grand Libreville.
+          </p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Grâce à notre infrastructure technologique et nos coursiers qualifiés, nous assurons un suivi précis (code CT241) et une traçabilité complète de l'expédition à la remise en main propre.
+          </p>
         </div>
       </section>
 
@@ -613,10 +521,10 @@
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-4">
           <div>
             <h2 class="text-2xl font-bold text-slate-800">Catalogue & Engins</h2>
-            <p class="text-slate-500 mt-1">Découvrez notre vitrine d'équipements, smartphones, scooters et plus.</p>
+            <p class="text-slate-500 mt-1">Ajoutez vos articles préférés dans les favoris ou directement au panier.</p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto items-stretch sm:items-center overflow-hidden">
+          <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto items-stretch sm:items-center">
             <div class="relative flex-1 sm:w-64 shrink-0">
               <input type="text" id="productSearchInput" oninput="filterProducts()" placeholder="Rechercher un article..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition shadow-sm">
               <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
@@ -625,24 +533,17 @@
             <!-- Scroll Horizontal des Filtres -->
             <div class="overflow-x-auto whitespace-nowrap py-1 flex gap-2 max-w-full lg:max-w-md xl:max-w-xl scrollbar-none" id="categoryFilterContainer">
               <button onclick="filterCategory('Tout')" class="cat-btn px-4 py-2 bg-brand-600 text-white rounded-full text-xs font-semibold cursor-pointer transition-all touch-target">Tout</button>
+              <button onclick="filterCategory('Favoris')" class="cat-btn px-4 py-2 bg-white border border-rose-200 text-rose-600 rounded-full text-xs font-semibold hover:bg-rose-50 cursor-pointer transition-all touch-target"><i class="fas fa-heart text-xs mr-1"></i> Favoris</button>
               <button onclick="filterCategory('Scooters')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Scooters</button>
-              <button onclick="filterCategory('Motos')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Motos</button>
-              <button onclick="filterCategory('Electromenager')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Électroménager</button>
-              <button onclick="filterCategory('Evenementiel')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Événementiel</button>
-              <button onclick="filterCategory('Véhicules')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Véhicules</button>
-              <button onclick="filterCategory('Sac')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Sacs</button>  
-              <button onclick="filterCategory('Electronique')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Electronique</button> 
               <button onclick="filterCategory('Smartphones')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Smartphones</button>
-              <button onclick="filterCategory('Vêtements femmes')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Femmes</button>
-              <button onclick="filterCategory('Vêtements hommes')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Hommes</button>
+              <button onclick="filterCategory('Sac')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Sacs</button>  
+              <button onclick="filterCategory('Electronique')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Électronique</button> 
               <button onclick="filterCategory('Mobilier')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Mobilier</button>
-              <button onclick="filterCategory('Accessoires')" class="cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target">Accessoires</button>    
             </div>
           </div>
         </div>
 
-        <div id="dynamic-products-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        <div id="dynamic-pagination-container" class="mt-8 flex justify-center items-center gap-2"></div>
+        <div id="dynamic-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
 
       <!-- SECTION 5 : FRET -->
@@ -652,9 +553,7 @@
             <i class="fas fa-ship text-3xl text-brand-600"></i>
           </div>
           <h2 class="text-2xl font-bold text-slate-800 mb-2">Fret Maritime & Aérien</h2>
-          <p class="text-slate-500 mb-8">Ce module d'import/export international est en cours de déploiement progressif.</p>
-          <img src="https://i.ibb.co/g2nj0VL/Gemini-Generated-Image-feiw09feiw09feiw.png" alt="Logo GLOBEX GABON" class="h-16 mx-auto mb-4 drop-shadow-sm">
-          <p class="text-sm font-semibold text-slate-700"> Service GLOBEX GABON</p>
+          <p class="text-slate-500 mb-8">Service d'import/export international assuré en partenariat avec GLOBEX GABON.</p>
         </div>
       </section>
 
@@ -662,74 +561,24 @@
       <section id="faq" class="page-section max-w-3xl mx-auto">
         <h2 class="text-2xl font-bold text-slate-800 mb-6">Foire Aux Questions</h2>
         <div class="space-y-4">
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Comment suivre mon colis ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+          <details class="group bg-white border border-slate-200 rounded-2xl cursor-pointer p-5 shadow-sm">
+            <summary class="font-semibold text-slate-800 flex justify-between items-center">
+              Comment modifier mon panier avant la validation ?
+              <i class="fas fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
             </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Utilisez votre code unique CT241 directement dans le module "Suivi des livraisons" disponible sur le tableau de bord.
-            </div>
+            <p class="text-slate-600 text-sm mt-3 border-t pt-3">
+              Ouvrez votre panier en cliquant sur l'icône de caddie. Vous pourrez librement réduire la quantité de chaque produit (`-`), en ajouter (`+`), ou supprimer un article.
+            </p>
           </details>
 
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Quels sont les délais d'expédition ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
+          <details class="group bg-white border border-slate-200 rounded-2xl cursor-pointer p-5 shadow-sm">
+            <summary class="font-semibold text-slate-800 flex justify-between items-center">
+              Comment suivre la livraison de mon colis ?
+              <i class="fas fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
             </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Nous optimisons les parcours pour garantir les meilleurs délais à travers tout le Grand Libreville. Le statut en temps réel vous indiquera l'heure estimée.
-            </div>
-          </details>
-
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Vais-je recevoir une notification avant la livraison ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
-            </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Oui, vous allez recevoir des alertes proactives (par SMS ou appel) précisant le créneau horaire de passage du livreur dès réception du colis par notre équipe.
-            </div>
-          </details>
-
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Puis-je modifier l'adresse en cours de route ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
-            </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Oui, nous offrons la possibilité au client de modifier l'adresse de la livraison en contactant le service client avec le numéro du colis concerné.
-            </div>
-          </details>
-
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Que se passe-t-il si je suis absent(e) lors du passage du livreur ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
-            </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Les alternatives (dépôt chez un voisin ou retour en entrepôt) sont nos deux options. Toutefois, des frais forfaitaires de 200 francs CFA sont appliqués sur chaque colis retourné en entrepôt.
-            </div>
-          </details>
-
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Comment procéder au paiement ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
-            </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Nous acceptons les paiements mobiles via Airtel Money, Moov Money, en espèces avant la livraison (par l'expéditeur) ou à destination. Pour les paiements mobiles, il est impératif de renseigner votre code CT241 comme motif de transaction et de fournir une capture d'écran au support client.
-            </div>
-          </details>
-
-          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between p-5 font-semibold text-slate-800">
-              Comment puis-je retourner un article ?
-              <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span>
-            </summary>
-            <div class="p-5 pt-0 text-slate-600 text-sm border-t border-slate-100 mt-2">
-              Vous devez effectuer une nouvelle commande sur le portail client en renseignant le nom du destinataire/vendeur, vos informations, sélectionner l'option "RETOUR" de la zone concernée, dans l'espace instruction entrez le numéro de livraison du colis et valider.
-            </div>
+            <p class="text-slate-600 text-sm mt-3 border-t pt-3">
+              Saisissez votre code unique CT241 dans la rubrique "Suivi des livraisons" pour voir en direct l'avancement de votre transport.
+            </p>
           </details>
         </div>
       </section>
@@ -737,53 +586,8 @@
       <!-- SECTION 7 : CGU -->
       <section id="cgu" class="page-section">
         <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 lg:p-12 text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto">
-          <div class="text-center mb-10">
-            <i class="fas fa-scale-balanced text-4xl text-brand-600 mb-3"></i>
-            <h2 class="text-2xl font-bold text-slate-800">Conditions Générales d'Utilisation</h2>
-            <p class="text-slate-400 mt-1">Dernière mise à jour : 2026</p>
-          </div>
-
-          <div class="space-y-8">
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 1 : PRÉAMBULE ET DÉFINITIONS</h3>
-              <p>Les présentes Conditions Générales d’Utilisation (ci-après les « CGU ») régissent les relations entre la société X-PRESS LIVRAISON, prestataire de services logistiques opérant dans le Grand Libreville, et toute personne physique ou morale (ci-après l’« Utilisateur ») accédant à nos services de livraison et de suivi en ligne.</p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 2 : OBJET DU SERVICE</h3>
-              <p>X-PRESS LIVRAISON fournit une solution de transport et de suivi de colis en temps réel. La plateforme permet à l’Utilisateur de solliciter une prestation de livraison et de consulter le statut de son expédition via un identifiant unique dénommé « Code CT241 ».</p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 3 : ACCÈS ET UTILISATION DU SYSTÈME (CT241)</h3>
-              <p>3.1. Chaque commande validée génère automatiquement un Code CT241. 3.2. Ce code est la clé d’accès sécurisée aux informations du colis. Il incombe à l’Utilisateur de conserver ce code et de ne pas le divulguer à des tiers non autorisés. 3.3. L'utilisation du Code CT241 permet à l’Utilisateur de visualiser les étapes de sa livraison. X-PRESS LIVRAISON ne saurait être tenu responsable des conséquences liées à la perte ou à la divulgation du code par l’Utilisateur.</p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 4 : PROTECTION DES DONNÉES</h3>
-              <p>X-PRESS LIVRAISON accorde une importance capitale à la protection des données personnelles. 4.1. Données collectées : Nous collectons les informations strictly nécessaires à la prestation (nom, adresse de livraison, numéro de téléphone). 4.2. Engagement de sécurité : Afin de protéger nos clients contre toute tentative d’usurpation ou de harcèlement, nous appliquons un masquage automatique des quatre chiffres centraux des numéros de téléphone sur l’interface de suivi publique. 4.3. Non-divulgation : Aucune donnée personnelle ne sera transmise, vendue ou louée à des tiers à des fins commerciales.</p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 5 : MODALITÉS DE PAIEMENT ET VALIDATION</h3>
-              <p>Les règlements sont effectués via les opérateurs de monnaie électronique (Airtel Money / Moov Money). 5.1. Validation par motif : Pour toute commande, l’Utilisateur doit impérativement indiquer son Code CT241 dans le champ « Motif du transfert ». 5.2. Absence de motif : En cas d'oubli ou d'erreur dans le motif de transfert, la validation automatique sera impossible. X-PRESS LIVRAISON ne pourra être tenu responsable des retards de traitement générés par cette erreur humaine, et des frais de recherche administrative pourront être appliqués.</p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 6 : ENGAGEMENTS ET RESPONSABILITÉS</h3>
-              <p>6.1. Nature des marchandises : L'Utilisateur garantit que le contenu du colis est licite, non dangereux, non inflammable et conforme à la législation en vigueur au Gabon. Toute marchandise interdite engage la responsabilité pénale exclusive de l'Utilisateur. 6.2. Limitation de responsabilité : X-PRESS LIVRAISON s'engage à mettre en œuvre les moyens nécessaires pour respecter les délais annoncés. Toutefois, nous ne sommes pas responsables des retards liés à la force majeure (intempéries, blocages routiers majeurs, pannes réseau des opérateurs mobiles). 6.3. Assurance : La responsabilité de X-PRESS LIVRAISON est limitée au montant de la prestation de transport. Pour toute marchandise de grande valeur, une assurance complémentaire doit être négociée au moment de la commande.</p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-slate-800 text-base mb-2">ARTICLE 7 : DROIT APPLICABLE ET LITIGES</h3>
-              <p>7.1. Les présentes CGU sont régies par le droit gabonais. 7.2. Tout différend relatif à l'exécution des présentes fera l'objet d'une tentative de résolution amiable entre les parties. En cas d'échec, le litige sera porté devant les juridictions compétentes du Tribunal de Libreville.</p>
-            </div>
-
-            <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
-              <h3 class="font-bold text-brand-900 text-base mb-1">Acceptation des Conditions Générales d'Utilisation :</h3>
-              <p class="text-brand-800">En validant une commande de livraison via le formulaire de X-PRESS LIVRAISON, l'Utilisateur reconnaît avoir lu, compris et accepté sans réserve les présentes conditions.</p>
-            </div>
-          </div>
+          <h2 class="text-2xl font-bold text-slate-800 mb-4">Conditions Générales d'Utilisation</h2>
+          <p>Toutes les commandes effectuées via la plateforme et transmises par WhatsApp engagent l'acheteur quant au règlement à la livraison.</p>
         </div>
       </section>
 
@@ -791,240 +595,495 @@
 
     <!-- Pied de Page -->
     <footer class="border-t border-slate-200 mt-auto pt-8 pb-6 text-center">
-      <div class="flex justify-center gap-4 mb-6">
-        <a href="https://www.facebook.com/profile.php?id=61591969701089" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-blue-600 transition touch-target" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-pink-100 hover:text-pink-600 transition touch-target" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-emerald-100 hover:text-emerald-600 transition touch-target" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <p class="text-slate-400 text-sm mb-2">&copy; 2026 X-press livraison Gabon - Tous droits réservés</p>
-      <div class="flex flex-wrap justify-center items-center gap-3 text-xs text-slate-500">
-        <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6])" class="hover:text-brand-600 transition">Mentions Légales & CGU</button>
-        <span>&bull;</span>
-        <span>Support: +241 77736065 / 066182284</span>
-      </div>
+      <p class="text-slate-400 text-sm mb-2">&copy; 2026 X-PRESS Livraison Gabon - Tous droits réservés</p>
     </footer>
   </div>
 </main>
 
 <!-- ========================================== -->
-<!-- BARRE TACTILE MOBILES ÉNERGIQUE (BOTTOM NAV) -->
+<!-- DRAWER / TIROIR DU PANIER DE COMMANDE      -->
 <!-- ========================================== -->
+<div id="cart-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 drawer-slide translate-x-full flex flex-col">
+  <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-shopping-cart text-brand-600 text-lg"></i>
+      <h3 class="font-bold text-slate-800 text-lg">Mon Panier</h3>
+      <span id="cart-drawer-count" class="bg-brand-100 text-brand-700 text-xs font-bold px-2.5 py-0.5 rounded-full">0 article</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="clearCart()" class="text-xs text-red-500 hover:text-red-700 font-semibold px-2 py-1 rounded hover:bg-red-50 transition" title="Vider le panier">
+        Vider
+      </button>
+      <button onclick="closeCartDrawer()" class="text-slate-400 hover:text-slate-600 p-2 touch-target">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Conteneur des articles du panier -->
+  <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+    <!-- Liste dynamique des articles -->
+  </div>
+
+  <!-- Pied du Tiroir Panier -->
+  <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-4">
+    <div class="flex justify-between items-center text-slate-700">
+      <span class="font-medium text-sm">Total estimé :</span>
+      <span id="cart-total-price" class="font-mono font-bold text-xl text-brand-600">0 CFA</span>
+    </div>
+
+    <button onclick="checkoutCartWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition flex items-center justify-center gap-2 touch-target">
+      <i class="fab fa-whatsapp text-lg"></i> Valider la commande
+    </button>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- DRAWER / TIROIR DES FAVORIS               -->
+<!-- ========================================== -->
+<div id="fav-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 drawer-slide translate-x-full flex flex-col">
+  <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-rose-50/50">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-heart text-rose-500 text-lg"></i>
+      <h3 class="font-bold text-slate-800 text-lg">Mes Favoris</h3>
+    </div>
+    <button onclick="closeFavoritesDrawer()" class="text-slate-400 hover:text-slate-600 p-2 touch-target">
+      <i class="fas fa-times text-lg"></i>
+    </button>
+  </div>
+
+  <div id="fav-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+    <!-- Liste dynamique des favoris -->
+  </div>
+
+  <div id="fav-drawer-footer" class="p-4 border-t border-slate-100 bg-slate-50 hidden">
+    <button onclick="addAllFavoritesToCart()" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-bold text-xs shadow-md transition flex items-center justify-center gap-2 touch-target">
+      <i class="fas fa-cart-plus"></i> Tout ajouter au panier
+    </button>
+  </div>
+</div>
+
+<!-- BARRE TACTILE MOBILE (BOTTOM NAV) -->
 <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 z-40 flex items-center justify-around py-2 px-2 pb-safe shadow-lg">
-  <button onclick="navigate('accueil', document.querySelectorAll('.nav-btn')[0])" class="mobile-nav-btn flex flex-col items-center gap-1 text-brand-600 font-bold px-3 py-1 rounded-xl transition touch-target" data-target="accueil">
-    <i class="fas fa-home text-lg"></i>
+  <button onclick="navigate('accueil', document.querySelectorAll('.nav-btn')[0])" class="mobile-nav-btn flex flex-col items-center gap-1 text-brand-600 font-bold px-2 py-1 rounded-xl transition touch-target" data-target="accueil">
+    <i class="fas fa-home text-base"></i>
     <span class="text-[10px]">Accueil</span>
   </button>
 
-  <button onclick="navigate('services', document.querySelectorAll('.nav-btn')[1])" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-500 px-3 py-1 rounded-xl transition touch-target" data-target="services">
-    <i class="fas fa-layer-group text-lg"></i>
-    <span class="text-[10px]">Services</span>
-  </button>
-
-  <button onclick="navigate('products', document.querySelectorAll('.nav-btn')[2])" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-500 px-3 py-1 rounded-xl transition touch-target" data-target="products">
-    <i class="fas fa-store text-lg"></i>
+  <button onclick="navigate('products', document.querySelectorAll('.nav-btn')[2])" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target" data-target="products">
+    <i class="fas fa-store text-base"></i>
     <span class="text-[10px]">Boutique</span>
   </button>
 
-  <button onclick="navigate('cart', document.querySelectorAll('.nav-btn')[4])" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-500 px-3 py-1 rounded-xl transition touch-target" data-target="cart">
-    <i class="fas fa-ship text-lg"></i>
-    <span class="text-[10px]">Fret</span>
+  <button onclick="openCartDrawer()" class="relative flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
+    <i class="fas fa-shopping-cart text-base"></i>
+    <span class="text-[10px]">Panier</span>
+    <span id="mobile-cart-badge" class="absolute -top-1 right-2 bg-brand-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
   </button>
 
-  <button onclick="toggleSidebar()" class="flex flex-col items-center gap-1 text-slate-500 px-3 py-1 rounded-xl transition touch-target">
-    <i class="fas fa-plus text-lg"></i>
-    <span class="text-[10px]">Plus</span>
+  <button onclick="openFavoritesDrawer()" class="relative flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
+    <i class="fas fa-heart text-base"></i>
+    <span class="text-[10px]">Favoris</span>
+    <span id="mobile-fav-badge" class="absolute -top-1 right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
   </button>
-</div>
 
-<!-- ========================================== -->
-<!-- BOUTON FLOTTANT WHATSAPP MOBILES / TABLETTES -->
-<!-- ========================================== -->
-<a href="https://whatsapp.com/channel/0029VbAhrG13rZZfAoHAiy0E" target="_blank" rel="noopener" class="lg:hidden fixed bottom-20 right-5 w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-3xl shadow-xl shadow-emerald-200 z-40 touch-target" aria-label="Canal WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- ========================================== -->
-<!-- BANNIÈRE BANDEAU COOKIES / CGU            -->
-<!-- ========================================== -->
-<div id="cookie-consent-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-[400px] bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl z-50 transform translate-y-12 scale-95 opacity-0 hidden">
-  <div class="flex items-start gap-4">
-    <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
-      <i class="fas fa-cookie-bite text-lg"></i>
-    </div>
-    <div class="flex-1">
-      <h4 class="font-bold text-slate-900 text-sm">Gestion des cookies & CGU</h4>
-      <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-        Pour assurer le bon fonctionnement de notre service et valider nos règles de sécurité, nous utilisons des cookies. En poursuivant, vous acceptez également nos <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6]);closeCookieBanner()" class="text-brand-600 hover:underline font-semibold focus:outline-none">CGU</button>.
-      </p>
-    </div>
-  </div>
-  <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
-    <button onclick="navigate('cgu',document.querySelectorAll('.nav-btn')[6]);closeCookieBanner()" class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition">
-      Consulter les CGU
-    </button>
-    <button onclick="rejectCookiesAndCGU()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
-      Tout refuser
-    </button>
-    <button onclick="acceptCookiesAndCGU()" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition">
-      Tout Accepter
-    </button>
-  </div>
-</div>
-
-<!-- ========================================== -->
-<!-- MODAL POPUP PUB AVEC MINUTEUR             -->
-<!-- ========================================== -->
-<div id="popup-ad-modal" class="fixed inset-0 bg-slate-950/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-500 ease-out">
-  <div class="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-md w-full relative transform scale-95 transition-all duration-500 ease-out" id="popup-ad-card">
-    <button onclick="hidePopupAd()" class="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center z-10 transition touch-target" aria-label="Fermer">
-      <i class="fas fa-times text-sm"></i>
-    </button>
-    <div class="relative h-48 bg-slate-100 overflow-hidden">
-      <img id="ad-image" src="" alt="Publicité" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-      <div class="absolute bottom-4 left-6 right-6 text-white">
-        <span class="bg-brand-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-1.5 inline-block">Offre Flash</span>
-        <h4 id="ad-title" class="text-lg font-bold">Titre de la publicité</h4>
-      </div>
-    </div>
-    <div class="p-6">
-      <p id="ad-desc" class="text-slate-600 text-sm mb-5 leading-relaxed">Description de la publicité...</p>
-      <div class="flex items-center justify-between">
-        <a id="ad-link" href="#" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-1.5 touch-target">
-          En savoir plus <i class="fas fa-arrow-right text-[10px]"></i>
-        </a>
-        <span class="text-xs text-slate-400 font-semibold flex items-center gap-1.5">
-          <i class="far fa-clock"></i> Fermeture dans <span id="ad-countdown" class="text-brand-600 font-bold">5</span>s
-        </span>
-      </div>
-    </div>
-    <div class="h-1.5 bg-slate-100 w-full overflow-hidden">
-      <div id="ad-progress-bar" class="h-full bg-brand-500 transition-all ease-linear w-full"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ========================================== -->
-<!-- GALERIE PLEIN ÉCRAN LIGHTBOX AVEC ZOOM     -->
-<!-- ========================================== -->
-<div id="fullscreen-gallery" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col transition-opacity duration-300 opacity-0">
-  <div class="flex items-center justify-between p-4 z-20 absolute top-0 w-full bg-gradient-to-b from-black/60 to-transparent">
-    <div class="text-white">
-      <h3 id="gallery-title" class="font-bold text-lg drop-shadow-md">Nom de l'article</h3>
-      <p id="gallery-counter" class="text-xs text-slate-300">1 / 1</p>
-    </div>
-    <div class="flex items-center gap-3">
-      <button onclick="toggleZoomGallery()" id="zoom-btn" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition backdrop-blur-sm touch-target" title="Zoomer">
-        <i class="fas fa-search-plus"></i>
-      </button>
-      <button onclick="closeGallery()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition backdrop-blur-sm touch-target" title="Fermer">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-  </div>
-
-  <div class="flex-1 gallery-img-container flex items-center justify-center relative w-full h-full" id="gallery-viewport">
-    <button onclick="prevGalleryImage(event)" id="gallery-prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition z-20 backdrop-blur-sm touch-target" aria-label="Précédent">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-
-    <img id="gallery-image-element" src="" alt="Zoom produit" class="gallery-image max-w-full max-h-full object-contain select-none" draggable="false">
-
-    <button onclick="nextGalleryImage(event)" id="gallery-next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition z-20 backdrop-blur-sm" aria-label="Suivant">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-
-  <div class="absolute bottom-6 w-full flex justify-center gap-2 z-20" id="gallery-dots"></div>
+  <button onclick="toggleSidebar()" class="flex flex-col items-center gap-1 text-slate-500 px-2 py-1 rounded-xl transition touch-target">
+    <i class="fas fa-bars text-base"></i>
+    <span class="text-[10px]">Menu</span>
+  </button>
 </div>
 
 <!-- ========================================== -->
 <!-- CODE JAVASCRIPT COMPLET                   -->
 <!-- ========================================== -->
 <script>
-// --- Service Worker PWA Registration ---
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const swCode = `
-      const CACHE_NAME = 'xpress-pwa-v2';
-      self.addEventListener('install', e => self.skipWaiting());
-      self.addEventListener('activate', e => self.clients.claim());
-      self.addEventListener('fetch', e => {
-        if (e.request.method !== 'GET') return;
-        e.respondWith(
-          fetch(e.request).catch(() => caches.match(e.request))
-        );
-      });
-    `;
-    const blob = new Blob([swCode], { type: 'text/javascript' });
-    navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+var productsData = [
+  {id:1,name:"Sac à main chic noir",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/nqYxsLp0/Capture-d-cran-2026-07-12-174100.png"]},
+  {id:2,name:"Sac à main chic marron",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/b5jS3Vnw/Capture-d-cran-2026-07-12-173939.png"]},
+  {id:18,name:"Lampe d'ambience Barre",type:"Electronique",status:"Disponible",price:"15.000",desc:"Barre lumineuse multicolore pour vos pièces.",images:["https://i.ibb.co/XZRNWk9w/Capture-d-cran-2026-07-12-173101.png"]},
+  {id:19,name:"Lampe d'ambiance soleil",type:"Electronique",status:"Disponible",price:"9.500",desc:"Éclairage tamisé et chaleureux.",images:["https://i.ibb.co/RTP7hMrD/Capture-d-cran-2026-07-12-172715.png"]},
+  {id:32,name:"Fauteuil crapaud",type:"Mobilier",status:"Sur commande",price:"285.000",desc:"Petit siège rembourré hyper confortable.",images:["https://i.ibb.co/vx3gQR2t/Capture-d-cran-2026-07-12-173400.png"]},
+  {id:20,name:"Maxi scooter NT01 150CC",type:"Scooters",status:"Sur commande",price:"820.000",desc:"Modèle urbain classique pour Libreville.",images:["https://i.ibb.co/PvNLQqWj/Capture-d-cran-2026-07-09-214052.png"]},
+  {id:21,name:"Scooter City Run 80CC",type:"Scooters",status:"Disponible",price:"840.000",desc:"Parfait pour se faufiler rapidement.",images:["https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png"]},
+  {id:16,name:"Écouteurs Mt900",type:"Electronique",status:"Disponible",price:"7.000",desc:"Excellente autonomie et basses équilibrées.",images:["https://i.ibb.co/bRLCJwQd/Capture-d-cran-2026-07-12-182112.png"]},
+  {id:10,name:"iPhone 15 Plus",type:"Smartphones",status:"Disponible",price:"350.000",desc:"Article neuf sous emballage.",images:["https://i.ibb.co/h1MfGcbv/Capture-d-cran-2026-07-24-034737.png"]},
+  {id:11,name:"iPhone 15 Pro Max",type:"Smartphones",status:"Disponible",price:"520.000",desc:"Article haute qualité 256GB / 512GB.",images:["https://i.ibb.co/TB2bqxLB/Capture-d-cran-2026-07-12-171021.png"]}
+];
+
+var bannersData = [
+  {
+    title: "Scooter City Run 80CC",
+    subtitle: "Profitez de la livraison gratuite dans tout Libreville !",
+    tag: "PROMO FLASH",
+    bg: "bg-gradient-to-r from-blue-900 to-indigo-900",
+    action: "Voir l'offre",
+    target: "products"
+  },
+  {
+    title: "Suivi CT241 en Temps Réel",
+    subtitle: "Localisez la position de votre coursier instantanément.",
+    tag: "SERVICE EXCLUSIF",
+    bg: "bg-gradient-to-r from-emerald-900 to-teal-900",
+    action: "Consulter un colis",
+    link: "https://consultation-html.pages.dev/"
+  },
+  {
+    title: "Fret Maritime & Aérien",
+    subtitle: "Expédiez vos marchandises vers et depuis le Gabon.",
+    tag: "PARTENARIAT GLOBEX",
+    bg: "bg-gradient-to-r from-slate-900 to-blue-950",
+    action: "En savoir plus",
+    target: "cart"
+  }
+];
+
+// --- ÉTAT ET PERSISTANCE LOCALSTORAGE ---
+var cart = JSON.parse(localStorage.getItem('xpress_cart') || '[]');
+var favorites = JSON.parse(localStorage.getItem('xpress_favorites') || '[]');
+
+var selectedCategory = "Tout", productSearchQuery = "", currentSlideIndex = 0, bannerTimer = null;
+
+function saveState() {
+  localStorage.setItem('xpress_cart', JSON.stringify(cart));
+  localStorage.setItem('xpress_favorites', JSON.stringify(favorites));
+  updateBadges();
+}
+
+function updateBadges() {
+  const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const favCount = favorites.length;
+
+  ['header-cart-badge', 'mobile-cart-badge', 'sidebar-cart-badge'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.innerText = totalCartCount;
+  });
+
+  const cartDrawerCount = document.getElementById('cart-drawer-count');
+  if(cartDrawerCount) cartDrawerCount.innerText = totalCartCount + (totalCartCount > 1 ? ' articles' : ' article');
+
+  ['header-fav-badge', 'mobile-fav-badge', 'sidebar-fav-badge'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.innerText = favCount;
   });
 }
 
-// --- Données Intégrales des Produits ---
-var productsData = [
-  {id:1,name:"Sac à main chic noir",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/nqYxsLp0/Capture-d-cran-2026-07-12-174100.png","https://i.ibb.co/DFD0dDn/Capture-d-cran-2026-07-12-174124.png"]},
-  {id:2,name:"Sac à main chic marron",type:"Sac",status:"disponible",price:"14.500",desc:"Osez le style pour sublimer vos tenues.",images:["https://i.ibb.co/b5jS3Vnw/Capture-d-cran-2026-07-12-173939.png","https://i.ibb.co/ZpCsJ9gd/Capture-d-cran-2026-07-12-174037.png"]},
-  {id:18,name:"Lampe d'ambience Barre",type:"Accessoires",status:"Disponible",price:"15.000",desc:"Personnalisez vos instants avec la nouvelle barre lumineuse multicolore.",images:["https://i.ibb.co/XZRNWk9w/Capture-d-cran-2026-07-12-173101.png"]},
-  {id:19,name:"Lampe d'ambiance soleil",type:"Accessoires",status:"Disponible",price:"9.500",desc:"Changez votre ambiance avec plaisir.",images:["https://i.ibb.co/RTP7hMrD/Capture-d-cran-2026-07-12-172715.png","https://i.ibb.co/7JHpyWjk/Capture-d-cran-2026-07-12-172815.png","https://i.ibb.co/rGK8WhYp/Capture-d-cran-2026-07-12-172743.png"]},
-  {id:32,name:"Fauteuil crapaud",type:"Mobilier",status:"Sur commande",price:"285.000",desc:"Petit siège rembourré avec un dossier arrondi confortable idéal pour se détendre chez soi.",images:["https://i.ibb.co/vx3gQR2t/Capture-d-cran-2026-07-12-173400.png","https://i.ibb.co/ZzscRyNF/Capture-d-cran-2026-07-12-173442.png"]},
-  {id:20,name:"Maxi scooter NT01 150CC",type:"Scooters",status:"Sur commande",price:"820.000",desc:"Modèle urbain classique, maniable et idéal pour le trafic de Libreville.",images:["https://i.ibb.co/PvNLQqWj/Capture-d-cran-2026-07-09-214052.png","https://i.ibb.co/V0bwx8yb/Capture-d-cran-2026-07-09-214146.png","https://i.ibb.co/whtyBCq8/Capture-d-cran-2026-07-09-214248.png"]},
-  {id:21,name:"Scooter City Run 80CC",type:"Scooters",status:"Disponible",price:"840.000",desc:"Parfait pour se faufiler rapidement dans Libreville.",images:["https://i.ibb.co/QgWbb9V/Capture-d-cran-2026-06-11-121927.png"]},
-  {id:22,name:"Maxi scooter NT01 Move 150cc",type:"Scooters",status:"sur commande",price:"840.000",desc:"Modèle urbain classique, maniable et idéal pour le trafic de Libreville.",images:["https://i.ibb.co/rGXz9X18/Capture-d-cran-2026-07-05-035815.png","https://i.ibb.co/9mLdjrh6/Capture-d-cran-2026-07-05-035937.png","https://i.ibb.co/QvxkMLPH/Capture-d-cran-2026-07-05-035911.png"]},
-  {id:23,name:"Maxi scooter NT01 Blanc 150cc",type:"Scooters",status:"sur commande",price:"840.000",desc:"Modèle urbain classique, maniable et idéal pour le trafic de Libreville.",images:["https://i.ibb.co/rR706rzy/Capture-d-cran-2026-07-11-182029.png","https://i.ibb.co/whtyBCq8/Capture-d-cran-2026-07-09-214248.png"]},
-  {id:24,name:"Scooteer REVERSE Blanc 150cc",type:"Scooters",status:"sur commande",price:"930.000",desc:"Modèle urbain premium, maniable et puissant pour le trafic de Libreville.",images:["https://i.ibb.co/LD12ZpwM/Capture-d-cran-2026-07-24-010746.png","https://i.ibb.co/35NqFB4d/Capture-d-cran-2026-07-24-010721.png","https://i.ibb.co/nMdHnRhZ/Capture-d-cran-2026-07-24-010656.png","https://i.ibb.co/cScHdp98/Capture-d-cran-2026-07-24-010632.png"]},
-  {id:60,name:"Toyota BZ3 electrique",type:"Véhicules",status:"Sur commande",price:"18.500.000",desc:"Batterie 49,92 kWh - Autonomie ~517 km, SUV familial.",images:["https://i.ibb.co/Rpjc882F/ACU90627502-b-Z3-1-2.webp","https://i.ibb.co/1fn4ZC4S/ACU90627502-b-Z3-8-1.webp","https://i.ibb.co/rRDcH10S/ACU90627502-b-Z3-6-1.webp"]},
-  {id:61,name:"GEELY Tiggo 5X",type:"Véhicules",status:"Sur commande 2mois",price:"12.600.000",desc:"Modèle occasion urbain classique, maniable et idéal pour le trafic de Libreville.",images:["https://i.ibb.co/s9ftqb1F/ACU90666425-Tiggo5x-0.webp","https://i.ibb.co/CKnRD69p/ACU90666425-Tiggo5x-7.webp"]},
-  {id:100,name:"Table basse",type:"Mobilier",status:"Sur commande",price:"145.000",desc:"Décoration stylée et moderne d'intérieur de maison en bois.",images:["https://i.ibb.co/Tx3pBnjp/Capture-d-cran-2026-07-12-181153.png","https://i.ibb.co/ymNNLWbR/Capture-d-cran-2026-07-12-181600.png","https://i.ibb.co/6JPJcSBp/Capture-d-cran-2026-07-12-181628.png","https://i.ibb.co/Y7kNVfCx/Capture-d-cran-2026-07-12-181648.png"]},
-  {id:101,name:"Salle à manger",type:"Mobilier",status:"Sur commande",price:"150.000",desc:"Salle à manger moderne. Disponible en 4 et 6 places.",images:["https://i.ibb.co/pkrf4WD/Capture-d-cran-2026-07-12-180628.png","https://i.ibb.co/cPXB4Vv/Capture-d-cran-2026-07-12-180648.png","https://i.ibb.co/5xRLX1B9/Capture-d-cran-2026-07-12-180552.png"]},
-  {id:16,name:"Ecouteurs Mt900",type:"Electronique",status:"Disponible",price:"7.000",desc:"Très bonne autonomie, basse équilibrée et confortable.",images:["https://i.ibb.co/bRLCJwQd/Capture-d-cran-2026-07-12-182112.png","https://i.ibb.co/HDJXQ6Yg/Capture-d-cran-2026-07-12-182037.png","https://i.ibb.co/VYcJ0zPP/Capture-d-cran-2026-07-12-182159.png"]},
-  {id:10,name:"Iphone 15 plus",type:"Smartphones",status:"Disponible",price:"350.000",desc:"Articles vendus dans son emballage ou quasi neuf. 128gb, 256gb et 512gb.",images:["https://i.ibb.co/h1MfGcbv/Capture-d-cran-2026-07-24-034737.png","https://i.ibb.co/DqQLbc9/Capture-d-cran-2026-07-24-034709.png"]},
-  {id:11,name:"Iphone 15promax",type:"Smartphones",status:"Disponible",price:"520.000",desc:"Articles vendus dans son emballage ou quasi neuf. 128gb, 256gb et 512gb.",images:["https://i.ibb.co/TB2bqxLB/Capture-d-cran-2026-07-12-171021.png","https://i.ibb.co/WpHpxgJm/Capture-d-cran-2026-07-12-171522.png"]},
-  {id:12,name:"Iphone 16promax",type:"Smartphones",status:"Disponible",price:"735.000",desc:"Articles vendus dans son emballage ou quasi neuf. 128gb, 256gb et 512gb.",images:["https://i.ibb.co/zTKZpyMc/Capture-d-cran-2026-07-12-170955.png","https://i.ibb.co/xqWPHmZG/Capture-d-cran-2026-07-12-171131.png"]},
-  {id:13,name:"Iphone 12promax",type:"Smartphones",status:"Disponible",price:"245.000",desc:"Articles vendus dans son emballage ou quasi neuf. 128gb, 256gb et 512gb.",images:["https://i.ibb.co/k2Wnwkvb/Capture-d-cran-2026-07-12-170747.png","https://i.ibb.co/YT3VTXST/Capture-d-cran-2026-07-12-170833.png","https://i.ibb.co/bgKdXLzq/Capture-d-cran-2026-07-12-170812.png"]},
-  {id:14,name:"Iphone 13 simple",type:"Smartphones",status:"Disponible",price:"225.000",desc:"Articles vendus dans son emballage ou quasi neuf. 128gb, 256gb disponible.",images:["https://i.ibb.co/HTGk2X1C/Capture-d-cran-2026-07-12-171245.png","https://i.ibb.co/zWMsQZSJ/Capture-d-cran-2026-07-12-171308.png"]},
-  {id:71,name:"GEELY vision X6 pro",type:"Véhicules",status:"Sur commande",price:"14.300.000",desc:"Modèle occasion urbain premium, maniable, confortable pour Libreville.",images:["https://i.ibb.co/4wSPS3L8/ACU90669247-Vision-X6-0.webp","https://i.ibb.co/svbBd7ch/ACU90669247-Vision-X6-8.webp","https://i.ibb.co/qLfQqhLn/ACU90669247-Vision-X6-2.webp","https://i.ibb.co/tPmMyVbM/ACU90669247-Vision-X6-7.webp","https://i.ibb.co/jkrs82qd/ACU90669247-Vision-X6-4.webp","https://i.ibb.co/1Yqffjg2/ACU90669247-Vision-X6-5.webp"]}
-];
+// --- CARROUSEL INTERACTIF ---
+function initCarousel() {
+  const slidesContainer = document.getElementById('carousel-slides');
+  const dotsContainer = document.getElementById('carousel-dots');
+  if(!slidesContainer || !dotsContainer) return;
 
-// Nettoyage des tableaux d'images pour retirer les éléments vides
-productsData.forEach(p => {
-  if(Array.isArray(p.images)) {
-    p.images = p.images.filter(img => img && img.trim() !== "");
+  let slidesHtml = '';
+  let dotsHtml = '';
+
+  bannersData.forEach((b, idx) => {
+    slidesHtml += `
+      <div class="carousel-slide absolute inset-0 ${b.bg} text-white p-6 md:p-8 flex flex-col justify-center transition-opacity duration-500 ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}">
+        <span class="bg-white/20 text-white text-[10px] md:text-xs font-bold px-2.5 py-0.5 rounded-full w-max uppercase mb-2">${b.tag}</span>
+        <h3 class="text-xl md:text-3xl font-extrabold mb-1">${b.title}</h3>
+        <p class="text-xs md:text-sm text-slate-200 mb-4 max-w-lg">${b.subtitle}</p>
+        <div>
+          ${b.link 
+            ? `<a href="${b.link}" target="_blank" class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-xl text-xs font-bold hover:bg-slate-100 transition touch-target">${b.action} <i class="fas fa-arrow-right text-[10px]"></i></a>`
+            : `<button onclick="navigate('${b.target}', document.querySelectorAll('.nav-btn')[2])" class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-xl text-xs font-bold hover:bg-slate-100 transition touch-target">${b.action} <i class="fas fa-arrow-right text-[10px]"></i></button>`
+          }
+        </div>
+      </div>`;
+
+    dotsHtml += `<button onclick="goToSlide(${idx})" class="w-2.5 h-2.5 rounded-full transition-all ${idx === 0 ? 'bg-white w-6' : 'bg-white/50'}" aria-label="Slide ${idx+1}"></button>`;
+  });
+
+  slidesContainer.innerHTML = slidesHtml;
+  dotsContainer.innerHTML = dotsHtml;
+  startBannerTimer();
+}
+
+function showSlide(index) {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('#carousel-dots button');
+  if(!slides.length) return;
+
+  currentSlideIndex = (index + slides.length) % slides.length;
+
+  slides.forEach((slide, idx) => {
+    if(idx === currentSlideIndex) {
+      slide.classList.remove('opacity-0', 'z-0');
+      slide.classList.add('opacity-100', 'z-10');
+    } else {
+      slide.classList.remove('opacity-100', 'z-10');
+      slide.classList.add('opacity-0', 'z-0');
+    }
+  });
+
+  dots.forEach((dot, idx) => {
+    if(idx === currentSlideIndex) {
+      dot.className = "w-6 h-2.5 bg-white rounded-full transition-all";
+    } else {
+      dot.className = "w-2.5 h-2.5 bg-white/50 rounded-full transition-all";
+    }
+  });
+}
+
+function nextBanner(e) {
+  if(e) e.stopPropagation();
+  showSlide(currentSlideIndex + 1);
+  resetBannerTimer();
+}
+
+function prevBanner(e) {
+  if(e) e.stopPropagation();
+  showSlide(currentSlideIndex - 1);
+  resetBannerTimer();
+}
+
+function goToSlide(index) {
+  showSlide(index);
+  resetBannerTimer();
+}
+
+function startBannerTimer() {
+  if(bannerTimer) clearInterval(bannerTimer);
+  bannerTimer = setInterval(() => {
+    showSlide(currentSlideIndex + 1);
+  }, 6000);
+}
+
+function pauseBanner() { if(bannerTimer) clearInterval(bannerTimer); }
+function resumeBanner() { startBannerTimer(); }
+function resetBannerTimer() { pauseBanner(); resumeBanner(); }
+
+function addToCart(productId, event) {
+  if(event) event.stopPropagation();
+  const product = productsData.find(p => p.id === productId);
+  if(!product) return;
+
+  const existingIndex = cart.findIndex(item => item.id === productId);
+  if(existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      quantity: 1
+    });
   }
-});
 
-// Bannières du carrousel
-var bannersData = [
-  {id:1,img:"https://i.ibb.co/TqxMqTsf/Capture-d-cran-2026-06-24-020948.png",title:"Livraison Rapide",desc:"X-PRESS s'engage à livrer vos plis et colis sur Libreville en moins d'une heure !",link:"https://1-2-html.pages.dev/"},
-  {id:2,img:"https://i.ibb.co/6RCg1394/Capture-d-cran-2026-06-24-020637.png",title:"Scooters sur Commande",desc:"Une sélection d'engins robustes, maniables et idéals pour le trafic local.",link:"products"},
-  {id:3,img:"https://i.ibb.co/bRPMsXvZ/Capture-d-cran-2026-06-24-022601.png",title:"Partenariats e-Commerce",desc:"Vous vendez en ligne ? Confiez-nous vos expéditions pour fidéliser vos clients.",link:"services"}
-];
+  saveState();
+  renderCartItems();
+  openCartDrawer();
+}
 
-// Publicités Popup
-var popupAdsData = [
-  {title:"Promo -15% sur vos Envois !",desc:"Bénéficiez de 15% de réduction exclusive sur votre premier envoi avec le code promo XPRESS26.",img:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&h=400&q=80",link:"https://1-2-html.pages.dev/"},
-  {title:"Rejoignez l'équipe des Livreurs !",desc:"Gagnez jusqu'à 300 000 CFA/mois en rejoignant notre équipe de professionnels qualifiés.",img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=400&q=80",link:"services"},
-  {title:"Découvrez notre boutique !",desc:"Achetez de vrais smartphones, scooters et équipements livrés directement à domicile.",img:"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&h=400&q=80",link:"products"}
-];
+function updateCartQuantity(productId, delta) {
+  const itemIndex = cart.findIndex(item => item.id === productId);
+  if(itemIndex > -1) {
+    cart[itemIndex].quantity += delta;
+    if(cart[itemIndex].quantity <= 0) {
+      cart.splice(itemIndex, 1);
+    }
+  }
+  saveState();
+  renderCartItems();
+}
 
-// --- Variables d'État Globale ---
-var currentBannerIdx = 0, bannerInterval, progressInterval, progressPercent = 0, isBannerPaused = false, bannerDuration = 10000, progressStep = 30;
-var currentProductPage = 1, productsPerPage = 12, selectedCategory = "Tout", productSearchQuery = "", activeImageIndices = {};
-var currentGalleryProductId = null, currentGalleryImgIdx = 0, currentZoom = 1;
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  saveState();
+  renderCartItems();
+}
 
-productsData.forEach(p => { activeImageIndices[p.id] = 0; });
+function clearCart() {
+  if(cart.length === 0) return;
+  cart = [];
+  saveState();
+  renderCartItems();
+}
 
-var pageTitles = {
-  accueil: "Vue d'ensemble",
-  services: "Nos Services Logistiques",
-  about: "Qui sommes-nous ?",
-  products: "Boutique & Catalogue",
-  cart: "Fret Maritime / Aérien",
-  faq: "Centre d'aide & FAQ",
-  cgu: "Conditions Générales d'Utilisation"
-};
+function renderCartItems() {
+  const container = document.getElementById('cart-items-container');
+  const totalPriceEl = document.getElementById('cart-total-price');
+  if(!container) return;
 
-// --- Menu Navigation & Drawer ---
+  if(cart.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 text-slate-400">
+        <i class="fas fa-shopping-basket text-4xl mb-3 block"></i>
+        Votre panier est vide.
+      </div>`;
+    if(totalPriceEl) totalPriceEl.innerText = '0 CFA';
+    return;
+  }
+
+  let html = '';
+  let totalCFA = 0;
+
+  cart.forEach(item => {
+    const numericPrice = parseInt(item.price.replace(/\./g, ''), 10) || 0;
+    const itemTotal = numericPrice * item.quantity;
+    totalCFA += itemTotal;
+
+    html += `
+      <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain rounded-xl bg-white p-1 shrink-0">
+        <div class="flex-1 min-w-0">
+          <h4 class="font-bold text-slate-800 text-xs truncate">${item.name}</h4>
+          <span class="text-xs text-brand-600 font-mono font-semibold">${item.price} CFA</span>
+          
+          <div class="flex items-center gap-2 mt-2">
+            <button onclick="updateCartQuantity(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs hover:bg-slate-100 touch-target" title="Diminuer">-</button>
+            <span class="text-xs font-bold w-5 text-center">${item.quantity}</span>
+            <button onclick="updateCartQuantity(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs hover:bg-slate-100 touch-target" title="Augmenter">+</button>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-end gap-1">
+          <span class="text-xs font-bold text-slate-900 font-mono">${itemTotal.toLocaleString('fr-FR')} CFA</span>
+          <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 p-1 touch-target" title="Supprimer de la commande">
+            <i class="fas fa-trash-alt text-xs"></i>
+          </button>
+        </div>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+  if(totalPriceEl) totalPriceEl.innerText = totalCFA.toLocaleString('fr-FR') + ' CFA';
+}
+
+function checkoutCartWhatsApp() {
+  if(cart.length === 0) return;
+
+  let text = "Bonjour X-PRESS Livraison, je souhaite commander les articles suivants :\n\n";
+  let totalCFA = 0;
+
+  cart.forEach((item, idx) => {
+    const numericPrice = parseInt(item.price.replace(/\./g, ''), 10) || 0;
+    const itemTotal = numericPrice * item.quantity;
+    totalCFA += itemTotal;
+    text += `${idx + 1}. *${item.name}* (Quantité: ${item.quantity}) - ${itemTotal.toLocaleString('fr-FR')} CFA\n`;
+  });
+
+  text += `\n*Montant Total :* ${totalCFA.toLocaleString('fr-FR')} CFA\n`;
+  text += "\nMerci de me confirmer la disponibilité et le délai de livraison à Libreville !";
+
+  window.open("https://wa.me/24177736065?text=" + encodeURIComponent(text), "_blank");
+}
+
+function toggleFavorite(productId, event) {
+  if(event) event.stopPropagation();
+  const index = favorites.indexOf(productId);
+  if(index > -1) {
+    favorites.splice(index, 1);
+  } else {
+    favorites.push(productId);
+  }
+  saveState();
+  renderProducts();
+  renderFavoriteItems();
+}
+
+function addAllFavoritesToCart() {
+  favorites.forEach(favId => {
+    const product = productsData.find(p => p.id === favId);
+    if(product) {
+      const existing = cart.find(c => c.id === favId);
+      if(!existing) {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.images[0],
+          quantity: 1
+        });
+      }
+    }
+  });
+  saveState();
+  renderCartItems();
+  closeFavoritesDrawer();
+  openCartDrawer();
+}
+
+function renderFavoriteItems() {
+  const container = document.getElementById('fav-items-container');
+  const footer = document.getElementById('fav-drawer-footer');
+  if(!container) return;
+
+  const favProducts = productsData.filter(p => favorites.includes(p.id));
+
+  if(favProducts.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 text-slate-400">
+        <i class="fas fa-heart text-4xl mb-3 block"></i>
+        Aucun coup de cœur enregistré.
+      </div>`;
+    if(footer) footer.classList.add('hidden');
+    return;
+  }
+
+  if(footer) footer.classList.remove('hidden');
+
+  let html = '';
+  favProducts.forEach(product => {
+    html += `
+      <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+        <img src="${product.images[0]}" alt="${product.name}" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0">
+        <div class="flex-1 min-w-0">
+          <h4 class="font-bold text-slate-800 text-xs truncate">${product.name}</h4>
+          <span class="text-xs text-brand-600 font-mono font-semibold">${product.price} CFA</span>
+        </div>
+        
+        <button onclick="addToCart(${product.id}, event)" class="bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 rounded-xl text-xs font-semibold transition touch-target flex items-center gap-1" title="Ajouter au panier">
+          <i class="fas fa-cart-plus"></i> + Panier
+        </button>
+
+        <button onclick="toggleFavorite(${product.id}, event)" class="text-rose-500 hover:text-rose-700 p-2 touch-target" title="Retirer des favoris">
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function openCartDrawer() {
+  closeAllDrawers();
+  renderCartItems();
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.remove('translate-x-full');
+  if(overlay) overlay.classList.remove('hidden');
+}
+
+function closeCartDrawer() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.add('translate-x-full');
+  if(overlay) overlay.classList.add('hidden');
+}
+
+function openFavoritesDrawer() {
+  closeAllDrawers();
+  renderFavoriteItems();
+  const drawer = document.getElementById('fav-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.remove('translate-x-full');
+  if(overlay) overlay.classList.remove('hidden');
+}
+
+function closeFavoritesDrawer() {
+  const drawer = document.getElementById('fav-drawer');
+  const overlay = document.getElementById('mobile-overlay');
+  if(drawer) drawer.classList.add('translate-x-full');
+  if(overlay) overlay.classList.add('hidden');
+}
+
+function closeAllDrawers() {
+  closeCartDrawer();
+  closeFavoritesDrawer();
+  closeSidebar();
+}
+
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("mobile-overlay");
@@ -1041,76 +1100,38 @@ function toggleSidebar() {
 
 function closeSidebar() {
   const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("mobile-overlay");
-  sidebar.classList.remove("open");
-  sidebar.classList.add("closed");
-  overlay.classList.add("hidden");
+  if(sidebar) {
+    sidebar.classList.remove("open");
+    sidebar.classList.add("closed");
+  }
 }
 
-// Navigation optimisée SEO avec mise à jour du Hash URL
 function navigate(sectionId, btnElement) {
   document.querySelectorAll(".page-section").forEach(sec => sec.classList.remove("active"));
   const targetSection = document.getElementById(sectionId);
-  if (targetSection) {
-    targetSection.classList.add("active");
-  }
+  if (targetSection) targetSection.classList.add("active");
 
   const titleEl = document.getElementById("page-title");
-  if (titleEl && pageTitles[sectionId]) {
-    titleEl.innerText = pageTitles[sectionId];
+  if (titleEl) {
+    const titles = {
+      accueil: "Vue d'ensemble",
+      services: "Nos Services Logistiques",
+      about: "Qui sommes-nous ?",
+      products: "Boutique & Catalogue",
+      cart: "Fret Maritime / Aérien",
+      faq: "Centre d'aide & FAQ",
+      cgu: "Conditions Générales d'Utilisation"
+    };
+    if(titles[sectionId]) titleEl.innerText = titles[sectionId];
   }
 
-  // Active state sidebar
-  document.querySelectorAll(".nav-btn").forEach(btn => {
-    btn.classList.remove("text-brand-700", "bg-brand-50", "active");
-    btn.classList.add("text-slate-600");
-    const icon = btn.querySelector("i");
-    if (icon) {
-      icon.classList.remove("text-brand-600");
-      icon.classList.add("text-slate-400");
-    }
-  });
-
-  if (btnElement) {
-    btnElement.classList.add("text-brand-700", "bg-brand-50", "active");
-    const icon = btnElement.querySelector("i");
-    if (icon) {
-      icon.classList.remove("text-slate-400");
-      icon.classList.add("text-brand-600");
-    }
-  }
-
-  // Active state mobile bottom bar
-  document.querySelectorAll(".mobile-nav-btn").forEach(btn => {
-    if (btn.getAttribute("data-target") === sectionId) {
-      btn.classList.remove("text-slate-500");
-      btn.classList.add("text-brand-600", "font-bold");
-    } else {
-      btn.classList.remove("text-brand-600", "font-bold");
-      btn.classList.add("text-slate-500");
-    }
-  });
-
-  // URL Hash pour SEO / partage de lien direct
-  if (history.pushState) {
-    history.pushState(null, null, '#' + sectionId);
-  } else {
-    location.hash = '#' + sectionId;
-  }
-
-  // Scroll en haut de la page principale
-  const mainDiv = document.querySelector('main .overflow-y-auto');
-  if (mainDiv) mainDiv.scrollTop = 0;
-
-  closeSidebar();
+  closeAllDrawers();
 }
 
-// --- Produits & Filtres ---
 function filterCategory(cat) {
   selectedCategory = cat;
-  currentProductPage = 1;
   document.querySelectorAll("#categoryFilterContainer .cat-btn").forEach(btn => {
-    if (btn.innerText.trim().toLowerCase() === cat.toLowerCase()) {
+    if (btn.innerText.trim().toLowerCase().includes(cat.toLowerCase())) {
       btn.className = "cat-btn px-4 py-2 bg-brand-600 text-white rounded-full text-xs font-semibold cursor-pointer transition-all touch-target";
     } else {
       btn.className = "cat-btn px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-semibold hover:bg-slate-50 cursor-pointer transition-all touch-target";
@@ -1122,105 +1143,54 @@ function filterCategory(cat) {
 function filterProducts() {
   const input = document.getElementById("productSearchInput");
   productSearchQuery = input ? input.value : "";
-  currentProductPage = 1;
   renderProducts();
-}
-
-function setProductPage(page) {
-  currentProductPage = page;
-  renderProducts();
-  const el = document.getElementById("products");
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function prevProductImg(id, e) {
-  if (e) e.stopPropagation();
-  const prod = productsData.find(p => p.id === id);
-  if (prod && prod.images.length > 1) {
-    let idx = activeImageIndices[id] || 0;
-    idx = (idx - 1 + prod.images.length) % prod.images.length;
-    activeImageIndices[id] = idx;
-    renderProducts();
-  }
-}
-
-function nextProductImg(id, e) {
-  if (e) e.stopPropagation();
-  const prod = productsData.find(p => p.id === id);
-  if (prod && prod.images.length > 1) {
-    let idx = activeImageIndices[id] || 0;
-    idx = (idx + 1) % prod.images.length;
-    activeImageIndices[id] = idx;
-    renderProducts();
-  }
 }
 
 function renderProducts() {
   const grid = document.getElementById("dynamic-products-grid");
-  const pagination = document.getElementById("dynamic-pagination-container");
   if (!grid) return;
 
   let filtered = productsData.filter(p => {
-    const matchCat = (selectedCategory === "Tout") || (p.type.toLowerCase() === selectedCategory.toLowerCase());
+    let matchCat = false;
+    if(selectedCategory === "Tout") matchCat = true;
+    else if(selectedCategory === "Favoris") matchCat = favorites.includes(p.id);
+    else matchCat = (p.type.toLowerCase() === selectedCategory.toLowerCase());
+
     const matchSearch = p.name.toLowerCase().includes(productSearchQuery.toLowerCase()) || p.desc.toLowerCase().includes(productSearchQuery.toLowerCase());
     return matchCat && matchSearch;
   });
 
-  const totalPages = Math.ceil(filtered.length / productsPerPage) || 1;
-  if (currentProductPage > totalPages) currentProductPage = totalPages;
-
-  const start = (currentProductPage - 1) * productsPerPage;
-  const pageItems = filtered.slice(start, start + productsPerPage);
-
   let html = "";
-  if (pageItems.length === 0) {
+  if (filtered.length === 0) {
     html = `<div class="col-span-full text-center py-12 text-slate-500">
               <i class="fas fa-box-open text-4xl mb-3 block"></i>
               Aucun article ne correspond à votre recherche.
             </div>`;
   } else {
-    pageItems.forEach(p => {
-      const activeIdx = activeImageIndices[p.id] || 0;
-      const currentImg = p.images[activeIdx] || p.images[0];
-      const statusBadge = p.status.toLowerCase().includes("disponible") 
-        ? "bg-emerald-100 text-emerald-800" 
-        : "bg-brand-100 text-brand-800";
-
-      let dotsHtml = "";
-      if (p.images.length > 1) {
-        dotsHtml = `<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">`;
-        p.images.forEach((_, b) => {
-          dotsHtml += `<div class="w-1.5 h-1.5 rounded-full transition-all ${b === activeIdx ? 'bg-white scale-125' : 'bg-white/50'}"></div>`;
-        });
-        dotsHtml += `</div>`;
-      }
-
-      let arrowsHtml = "";
-      if (p.images.length > 1) {
-        arrowsHtml = `
-          <button onclick="prevProductImg(${p.id}, event)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition opacity-90 sm:opacity-0 group-hover:opacity-100 z-10 touch-target" aria-label="Image précédente"><i class="fas fa-chevron-left text-xs"></i></button>
-          <button onclick="nextProductImg(${p.id}, event)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition opacity-90 sm:opacity-0 group-hover:opacity-100 z-10 touch-target" aria-label="Image suivante"><i class="fas fa-chevron-right text-xs"></i></button>
-        `;
-      }
+    filtered.forEach(p => {
+      const isFav = favorites.includes(p.id);
 
       html += `
         <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col relative">
           <div class="h-52 overflow-hidden bg-slate-50 relative p-4 flex items-center justify-center">
-            <span class="absolute top-3 right-3 ${statusBadge} text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide z-10 shadow-sm">${p.status}</span>
-            <img onclick="openGallery(${p.id}, ${activeIdx})" src="${currentImg}" alt="${p.name}" class="max-h-full object-contain mix-blend-multiply group-hover:scale-105 transition-all duration-500 cursor-zoom-in relative z-0" title="Agrandir la photo">
-            ${arrowsHtml}
-            ${dotsHtml}
+            <button onclick="toggleFavorite(${p.id}, event)" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 shadow-md flex items-center justify-center text-slate-400 hover:text-rose-500 transition z-10 touch-target" title="Favori">
+              <i class="fas fa-heart ${isFav ? 'text-rose-500' : ''}"></i>
+            </button>
+
+            <span class="absolute top-3 right-3 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase z-10">${p.status}</span>
+            <img src="${p.images[0]}" alt="${p.name}" class="max-h-full object-contain">
           </div>
           <div class="p-5 flex-1 flex flex-col">
             <h3 class="font-bold text-slate-800 mb-1 text-base">${p.name}</h3>
-            <p class="text-xxs text-slate-500 mb-4 flex-1 leading-relaxed">${p.desc}</p>
-            <div class="flex items-end justify-between mt-auto pt-3 border-t border-slate-100">
+            <p class="text-xs text-slate-500 mb-4 flex-1">${p.desc}</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-slate-100">
               <div>
-                <span class="block text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Prix TTC</span>
-                <span class="font-mono text-brand-600 text-sm">${p.price} CFA</span>
+                <span class="block text-[10px] uppercase text-slate-400 font-semibold">Prix</span>
+                <span class="font-mono text-brand-600 font-bold text-sm">${p.price} CFA</span>
               </div>
-              <button onclick="commander('${p.name.replace(/'/g, "\\'")} : ${p.price} CFA TTC')" class="bg-brand-600 text-white w-10 h-10 rounded-2xl flex items-center justify-center hover:bg-brand-700 transition shadow-md touch-target" title="Commander via WhatsApp">
-                <i class="fas fa-cart-plus"></i>
+              
+              <button onclick="addToCart(${p.id}, event)" class="bg-brand-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold hover:bg-brand-700 transition flex items-center gap-1.5 touch-target">
+                <i class="fas fa-cart-plus"></i> Ajouter au panier
               </button>
             </div>
           </div>
@@ -1229,263 +1199,13 @@ function renderProducts() {
     });
   }
   grid.innerHTML = html;
-
-  // Pagination
-  let pageHtml = "";
-  if (totalPages > 1) {
-    pageHtml += `<button ${currentProductPage === 1 ? 'disabled class="w-9 h-9 rounded-xl border border-slate-200 text-slate-300 flex items-center justify-center cursor-not-allowed"' : `onclick="setProductPage(${currentProductPage - 1})" class="w-9 h-9 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center transition touch-target"`}><i class="fas fa-chevron-left text-xs"></i></button>`;
-    
-    for (let c = 1; c <= totalPages; c++) {
-      pageHtml += `<button onclick="setProductPage(${c})" class="w-9 h-9 rounded-xl border ${c === currentProductPage ? 'bg-brand-600 text-white font-bold border-transparent' : 'border-slate-200 text-slate-600 hover:bg-slate-50'} text-xs transition touch-target">${c}</button>`;
-    }
-
-    pageHtml += `<button ${currentProductPage === totalPages ? 'disabled class="w-9 h-9 rounded-xl border border-slate-200 text-slate-300 flex items-center justify-center cursor-not-allowed"' : `onclick="setProductPage(${currentProductPage + 1})" class="w-9 h-9 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center transition touch-target"`}><i class="fas fa-chevron-right text-xs"></i></button>`;
-  }
-  pagination.innerHTML = pageHtml;
 }
 
-// --- Envoi de commande sur WhatsApp ---
-function commander(details) {
-  const msg = encodeURIComponent("Bonjour X-PRESS Livraison, je souhaite commander l'article suivant :\n- " + details + "\nMerci de m'indiquer la procédure de livraison.");
-  window.open("https://wa.me/24177736065?text=" + msg, "_blank");
-}
-
-// --- Carrousel Bannières ---
-function renderBanners() {
-  const slides = document.getElementById("carousel-slides");
-  const dots = document.getElementById("carousel-dots");
-  if (!slides || !dots) return;
-
-  let slidesHtml = "";
-  let dotsHtml = "";
-
-  bannersData.forEach((banner, idx) => {
-    const isActive = idx === currentBannerIdx;
-    slidesHtml += `
-      <div class="absolute inset-0 transition-all duration-700 ease-in-out ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'} flex items-center cursor-pointer" onclick="handleBannerClick(${idx})">
-        <img src="${banner.img}" alt="${banner.title}" class="absolute inset-0 w-full h-full object-cover select-none">
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent"></div>
-        <div class="relative p-6 md:p-10 text-white max-w-md z-10 flex flex-col justify-center h-full">
-          <span class="bg-brand-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full w-max uppercase tracking-wider mb-2">Offre Active</span>
-          <h4 class="text-xl md:text-2xl font-bold mb-1.5 leading-tight drop-shadow">${banner.title}</h4>
-          <p class="text-xs md:text-sm text-slate-200 font-medium opacity-90 mb-4 line-clamp-2">${banner.desc}</p>
-          <span class="flex items-center gap-1.5 bg-white text-slate-950 px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-50 transition shadow-md w-max touch-target">
-            Voir plus <i class="fas fa-arrow-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-    `;
-
-    dotsHtml += `<button onclick="goToBanner(${idx}, event)" class="h-2 rounded-full transition-all duration-300 touch-target ${isActive ? 'bg-brand-500 w-6' : 'bg-white/40 w-2 hover:bg-white/80'}"></button>`;
-  });
-
-  slides.innerHTML = slidesHtml;
-  dots.innerHTML = dotsHtml;
-  resetBannerTimer();
-}
-
-function handleBannerClick(idx) {
-  const link = bannersData[idx].link;
-  if (link.startsWith("http")) {
-    window.open(link, "_blank");
-  } else {
-    const btn = Array.from(document.querySelectorAll(".nav-btn")).find(b => b.getAttribute("onclick") && b.getAttribute("onclick").includes(link));
-    navigate(link, btn);
-  }
-}
-
-function resetBannerTimer() {
-  clearInterval(bannerInterval);
-  clearInterval(progressInterval);
-  if (!isBannerPaused) {
-    bannerInterval = setInterval(nextBanner, bannerDuration);
-  }
-  progressPercent = 0;
-  const pBar = document.getElementById("carousel-progress-bar");
-  if (pBar) pBar.style.width = "0%";
-  
-  progressInterval = setInterval(() => {
-    if (!isBannerPaused) {
-      progressPercent += (progressStep / bannerDuration) * 100;
-      if (progressPercent <= 100) {
-        if (pBar) pBar.style.width = progressPercent + "%";
-      } else {
-        clearInterval(progressInterval);
-      }
-    }
-  }, progressStep);
-}
-
-function nextBanner(e) { if (e) e.stopPropagation(); currentBannerIdx = (currentBannerIdx + 1) % bannersData.length; renderBanners(); }
-function prevBanner(e) { if (e) e.stopPropagation(); currentBannerIdx = (currentBannerIdx - 1 + bannersData.length) % bannersData.length; renderBanners(); }
-function goToBanner(idx, e) { if (e) e.stopPropagation(); currentBannerIdx = idx; renderBanners(); }
-function pauseBanner() { isBannerPaused = true; }
-function resumeBanner() { isBannerPaused = false; resetBannerTimer(); }
-
-// --- Galerie Lightbox Grand Écran ---
-function openGallery(prodId, imgIdx) {
-  const prod = productsData.find(p => p.id === prodId);
-  if (!prod) return;
-
-  currentGalleryProductId = prodId;
-  currentGalleryImgIdx = imgIdx || 0;
-  currentZoom = 1;
-
-  const gallery = document.getElementById("fullscreen-gallery");
-  const imgEl = document.getElementById("gallery-image-element");
-  const titleEl = document.getElementById("gallery-title");
-  const counterEl = document.getElementById("gallery-counter");
-  const dotsEl = document.getElementById("gallery-dots");
-
-  titleEl.innerText = prod.name;
-  counterEl.innerText = `${currentGalleryImgIdx + 1} / ${prod.images.length}`;
-  imgEl.src = prod.images[currentGalleryImgIdx];
-  imgEl.style.transform = `scale(1) translate(0px, 0px)`;
-
-  let dotsHtml = "";
-  if (prod.images.length > 1) {
-    prod.images.forEach((_, i) => {
-      dotsHtml += `<div class="w-2 h-2 rounded-full transition-all ${i === currentGalleryImgIdx ? 'bg-white scale-125' : 'bg-white/40'}"></div>`;
-    });
-  }
-  dotsEl.innerHTML = dotsHtml;
-
-  gallery.classList.remove("hidden");
-  setTimeout(() => gallery.classList.remove("opacity-0"), 10);
-}
-
-function closeGallery() {
-  const gallery = document.getElementById("fullscreen-gallery");
-  gallery.classList.add("opacity-0");
-  setTimeout(() => gallery.classList.add("hidden"), 300);
-}
-
-function nextGalleryImage(e) {
-  if (e) e.stopPropagation();
-  const prod = productsData.find(p => p.id === currentGalleryProductId);
-  if (prod && prod.images.length > 1) {
-    currentGalleryImgIdx = (currentGalleryImgIdx + 1) % prod.images.length;
-    openGallery(currentGalleryProductId, currentGalleryImgIdx);
-  }
-}
-
-function prevGalleryImage(e) {
-  if (e) e.stopPropagation();
-  const prod = productsData.find(p => p.id === currentGalleryProductId);
-  if (prod && prod.images.length > 1) {
-    currentGalleryImgIdx = (currentGalleryImgIdx - 1 + prod.images.length) % prod.images.length;
-    openGallery(currentGalleryProductId, currentGalleryImgIdx);
-  }
-}
-
-function toggleZoomGallery() {
-  const imgEl = document.getElementById("gallery-image-element");
-  if (currentZoom === 1) {
-    currentZoom = 2;
-  } else {
-    currentZoom = 1;
-  }
-  imgEl.style.transform = `scale(${currentZoom})`;
-}
-
-// --- Modal Popup Pub & Cookies ---
-var adTimer, adCountdownInterval, adProgressInterval;
-function showPopupAd() {
-  const modal = document.getElementById("popup-ad-modal");
-  const card = document.getElementById("popup-ad-card");
-  const randomAd = popupAdsData[Math.floor(Math.random() * popupAdsData.length)];
-
-  document.getElementById("ad-image").src = randomAd.img;
-  document.getElementById("ad-title").innerText = randomAd.title;
-  document.getElementById("ad-desc").innerText = randomAd.desc;
-
-  const linkBtn = document.getElementById("ad-link");
-  if (randomAd.link.startsWith("http")) {
-    linkBtn.href = randomAd.link;
-    linkBtn.onclick = null;
-  } else {
-    linkBtn.href = "#";
-    linkBtn.onclick = (e) => {
-      e.preventDefault();
-      hidePopupAd();
-      const btn = Array.from(document.querySelectorAll(".nav-btn")).find(b => b.getAttribute("onclick") && b.getAttribute("onclick").includes(randomAd.link));
-      navigate(randomAd.link, btn);
-    };
-  }
-
-  modal.classList.remove("pointer-events-none", "opacity-0");
-  card.classList.remove("scale-95");
-  card.classList.add("scale-100");
-
-  let countdown = 5;
-  const countEl = document.getElementById("ad-countdown");
-  const pBar = document.getElementById("ad-progress-bar");
-  if (countEl) countEl.innerText = countdown;
-  if (pBar) pBar.style.width = "100%";
-
-  clearInterval(adCountdownInterval);
-  adCountdownInterval = setInterval(() => {
-    countdown--;
-    if (countEl) countEl.innerText = countdown;
-    if (pBar) pBar.style.width = (countdown / 5 * 100) + "%";
-    if (countdown <= 0) {
-      clearInterval(adCountdownInterval);
-      hidePopupAd();
-    }
-  }, 1000);
-}
-
-function hidePopupAd() {
-  const modal = document.getElementById("popup-ad-modal");
-  const card = document.getElementById("popup-ad-card");
-  clearInterval(adCountdownInterval);
-  if (modal && card) {
-    card.classList.remove("scale-100");
-    card.classList.add("scale-95");
-    modal.classList.add("opacity-0", "pointer-events-none");
-  }
-}
-
-function checkCookieConsent() {
-  if (!localStorage.getItem("xpress_cookie_accepted")) {
-    setTimeout(() => {
-      const banner = document.getElementById("cookie-consent-banner");
-      if (banner) {
-        banner.classList.remove("hidden");
-        setTimeout(() => banner.classList.add("show"), 50);
-      }
-    }, 1500);
-  }
-}
-
-function acceptCookiesAndCGU() {
-  localStorage.setItem("xpress_cookie_accepted", "true");
-  closeCookieBanner();
-}
-
-function closeCookieBanner() {
-  const banner = document.getElementById("cookie-consent-banner");
-  if (banner) {
-    banner.classList.remove("show");
-    setTimeout(() => banner.classList.add("hidden"), 500);
-  }
-}
-
-// --- Initialisation au Chargement de la Page ---
+// INITIALISATION GLOBALE
 window.addEventListener("DOMContentLoaded", () => {
-  renderBanners();
   renderProducts();
-  checkCookieConsent();
-
-  // Gestion du routage via Hash URL (SEO & Liens directs)
-  const hash = window.location.hash.replace("#", "");
-  if (hash && pageTitles[hash]) {
-    const btn = Array.from(document.querySelectorAll(".nav-btn")).find(b => b.getAttribute("onclick") && b.getAttribute("onclick").includes(hash));
-    navigate(hash, btn);
-  }
-
-  // Déclencher le Popup Ad après 8 secondes
-  setTimeout(showPopupAd, 8000);
+  initCarousel();
+  saveState();
 });
 </script>
 </body>
